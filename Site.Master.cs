@@ -11,7 +11,8 @@ namespace bcms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/login.aspx");
+            Response.Write("<script>alert('Login not implemented yet, just click login');</script>");   //TODO: Remove
         }
     }
 }
