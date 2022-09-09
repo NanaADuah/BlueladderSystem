@@ -16,7 +16,6 @@
 		<div class="topnav"> 	
             <nav class="navbar navbar-expand-lg navbar-light " >
                   <a class="navbar-brand" style="pointer-events:none;">
-                      <!--<img id="logo" src="includes/Logo.png" alt="Image">-->
                       <h3 style="font-weight:bolder; color: #00719C; text-transform:uppercase">BlueLadder CMS</h3>
                 </a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,12 +33,12 @@
                         
                       </li>
                     </ul>
+                        <form class="form-inline" id="form1"> 
                     <span class="navbar-text">
-                        <form class="form-inline">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search for users, settings, etc." style="min-width:500px" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
                     </span>
+                        </form>
                       <div class="dropdown show mx-2">
                       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown link
@@ -64,11 +63,11 @@
 	</div>
     <div id="view" class="container-fluid p-0 shadow mx-auto justify-content-center row">    
         <div id="viewGrid" class="row d-flex justify-content-center">
-            <div class="card col-2 shadow rounded m-2 p-0"><img class="image" src="includes/security.png" alt="Image"><div class="card-footer font-weight-bold">SECURITY<div style="font-weight:lighter;font-size:0.8rem">Manage security settings</div></div></div>
-            <div class="card col-2 shadow rounded m-2 p-0"><img class="image" src="includes/indicator.png" alt="Image"><div class="card-footer font-weight-bold" >REPORTS<div style="font-weight:lighter;font-size:0.8rem">Manage company reports</div></div></div>
-            <div class="card col-2 shadow rounded m-2 p-0"><img class="image" src="includes/user.png" alt="Image"><div class="card-footer font-weight-bold">USERS<div style="font-weight:lighter;font-size:0.8rem">Manage system users</div></div></div>
-            <div class="card col-2 shadow rounded m-2 p-0"><img class="image" src="includes/device1.png" alt="Image"><div class="card-footer font-weight-bold">DEVICES<div style="font-weight:lighter;font-size:0.8rem">Manage connected devices</div></div></div>
-            <div class="card col-2 shadow rounded m-2 p-0"><img class="image" src="includes/file.png" alt="Image"><div class="card-footer font-weight-bold">BACKUPS<div style="font-weight:lighter;font-size:0.8rem">Manage system backups</div></div></div>
+            <div class="card col-2 shadow rounded m-2 p-0"><img class="image" src="../../public/includes/security.png" alt="Image"><div class="card-footer font-weight-bold">SECURITY<div style="font-weight:lighter;font-size:0.8rem">Manage security settings</div></div></div>
+            <div class="card col-2 shadow rounded m-2 p-0"><img class="image" src="../../public/includes/indicator.png" alt="Image"><div class="card-footer font-weight-bold" >REPORTS<div style="font-weight:lighter;font-size:0.8rem">Manage company reports</div></div></div>
+            <div class="card col-2 shadow rounded m-2 p-0"><img class="image" src="../../public/includes/user.png" alt="Image"><div class="card-footer font-weight-bold">USERS<div style="font-weight:lighter;font-size:0.8rem">Manage system users</div></div></div>
+            <div class="card col-2 shadow rounded m-2 p-0"><img class="image" src="../../public/includes/device1.png" alt="Image"><div class="card-footer font-weight-bold">DEVICES<div style="font-weight:lighter;font-size:0.8rem">Manage connected devices</div></div></div>
+            <div class="card col-2 shadow rounded m-2 p-0"><img class="image" src="../../public/includes/file.png" alt="Image"><div class="card-footer font-weight-bold">BACKUPS<div style="font-weight:lighter;font-size:0.8rem">Manage system backups</div></div></div>
         </div>
 	</div>
 </body>

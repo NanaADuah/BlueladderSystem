@@ -105,39 +105,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
+    <Content Include="private\View\About.aspx" />
     <Content Include="App_Data\bcms.mdf" />
     <Content Include="App_Data\bcms_log.ldf">
       <DependentUpon>bcms.mdf</DependentUpon>
     </Content>
-    <Content Include="Contact.aspx" />
+    <Content Include="private\View\Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="css\bootstrap-4.4.1.css" />
-    <Content Include="css\dashboard.css" />
-    <Content Include="css\login.css" />
-    <Content Include="css\startup.css" />
-    <Content Include="includes\arrowRight.png" />
-    <Content Include="includes\backArrow.png" />
-    <Content Include="includes\backdrop-startup.jpg" />
-    <Content Include="includes\background-startup.jpg" />
-    <Content Include="includes\background.jpg" />
-    <Content Include="includes\device.png" />
-    <Content Include="includes\device1.png" />
-    <Content Include="includes\file.png" />
-    <Content Include="includes\indicator.png" />
-    <Content Include="includes\lock.png" />
-    <Content Include="includes\Logo.png" />
-    <Content Include="includes\placeholder.png" />
-    <Content Include="includes\security.png" />
-    <Content Include="includes\SideImage.png" />
-    <Content Include="includes\user.png" />
-    <Content Include="dashboard.aspx" />
-    <Content Include="login.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="private\View\css\bootstrap-4.4.1.css" />
+    <Content Include="private\View\css\dashboard.css" />
+    <Content Include="private\View\css\login.css" />
+    <Content Include="private\View\css\startup.css" />
+    <Content Include="public\includes\arrowRight.png" />
+    <Content Include="public\includes\backArrow.png" />
+    <Content Include="public\includes\backdrop-startup.jpg" />
+    <Content Include="public\includes\background-startup.jpg" />
+    <Content Include="public\includes\background.jpg" />
+    <Content Include="public\includes\device.png" />
+    <Content Include="public\includes\device1.png" />
+    <Content Include="public\includes\file.png" />
+    <Content Include="public\includes\indicator.png" />
+    <Content Include="public\includes\lock.png" />
+    <Content Include="public\includes\Logo.png" />
+    <Content Include="public\includes\placeholder.png" />
+    <Content Include="public\includes\security.png" />
+    <Content Include="public\includes\SideImage.png" />
+    <Content Include="public\includes\user.png" />
+    <Content Include="private\View\dashboard.aspx" />
+    <Content Include="private\View\login.aspx" />
+    <Content Include="private\View\Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -180,7 +180,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="startup.aspx" />
+    <Content Include="private\View\startup.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -188,40 +188,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
+    <Compile Include="private\View\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="About.aspx.designer.cs">
+    <Compile Include="private\View\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
+    <Compile Include="private\View\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
+    <Compile Include="private\View\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="dashboard.aspx.cs">
+    <Compile Include="private\View\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="dashboard.aspx.designer.cs">
+    <Compile Include="private\View\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="login.aspx.cs">
+    <Compile Include="private\View\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="login.aspx.designer.cs">
+    <Compile Include="private\View\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="private\View\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="private\View\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -234,7 +234,7 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs" />
+    <Compile Include="private\Controller\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -250,14 +250,14 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="startup.aspx.cs">
+    <Compile Include="private\View\startup.aspx.cs">
       <DependentUpon>startup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="startup.aspx.designer.cs">
+    <Compile Include="private\View\startup.aspx.designer.cs">
       <DependentUpon>startup.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="private\Controller\User.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -266,7 +266,9 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="private\Model\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />

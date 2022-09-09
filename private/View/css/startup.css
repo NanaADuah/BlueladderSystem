@@ -2,7 +2,7 @@
 }
 
 #background {
-    background: url("../includes/background-startup.jpg");
+    background: url("../../../public/includes/background-startup.jpg ");
     background-size: cover;
     backdrop-filter: blur(8px);
 }

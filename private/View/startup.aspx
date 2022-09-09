@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="~/css/startup.css"/>
-    <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css"
+    <link rel="stylesheet" href="css/startup.css"/>
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -17,7 +17,7 @@
         <div class="card" style="border-radius: 1rem;">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="includes/SideImage.png"
+              <img src="../../public/includes/SideImage.png"
                 alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
