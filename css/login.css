@@ -13,7 +13,7 @@ body{
 	padding: 0 !important;
 	margin: 0 !important;
 	transition: 0.2s ease-in-out;
-    animation: bg 5s ease-in infinite;
+    /*animation: bg 5s ease-in infinite;*/
     backdrop-filter: brightness(80%);
 }
 
@@ -273,13 +273,14 @@ input:hover{
 	}
 }
 
-@media all and (max-width: 1024px ){
+@media all and (min-width: 1024px ){
 
 	body{
 		
 	}
+
 	#bTitle{
-		font-size: 2.5rem;
+		font-size: 5rem;
 		transition: .2s ease-in-out;
 	}
 	

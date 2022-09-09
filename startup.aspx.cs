@@ -5,18 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace bcms.includes
+namespace bcms
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class startup : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnReturn_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("startup.aspx");
+            Response.Redirect("dashboard.aspx");
         }
     }
 }

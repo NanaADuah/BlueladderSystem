@@ -54,11 +54,13 @@
                   </div>
             </nav>            
 		</div>
+        <form runat="server" id="form2"> 
+
         <div id="breaker"></div>
         <div style="margin-left:20px;margin-bottom:5px">
-            <button type="button" class="btn btn-outline-primary" style="border: 1px solid #00719C; color:  #00719C">Return to main page</button>
+            <asp:Button id="btnReturn" runat="server" Text="Return" class="btn btn-outline-primary" OnClick="btnReturn_Click"></asp:Button>
         </div>
-        
+        </form>
 	</div>
     <div id="view" class="container-fluid p-0 shadow mx-auto justify-content-center row">    
         <div id="viewGrid" class="row d-flex justify-content-center">

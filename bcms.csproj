@@ -119,8 +119,11 @@
     <Content Include="css\bootstrap-4.4.1.css" />
     <Content Include="css\dashboard.css" />
     <Content Include="css\login.css" />
+    <Content Include="css\startup.css" />
     <Content Include="includes\arrowRight.png" />
     <Content Include="includes\backArrow.png" />
+    <Content Include="includes\backdrop-startup.jpg" />
+    <Content Include="includes\background-startup.jpg" />
     <Content Include="includes\background.jpg" />
     <Content Include="includes\device.png" />
     <Content Include="includes\device1.png" />
@@ -130,6 +133,7 @@
     <Content Include="includes\Logo.png" />
     <Content Include="includes\placeholder.png" />
     <Content Include="includes\security.png" />
+    <Content Include="includes\SideImage.png" />
     <Content Include="includes\user.png" />
     <Content Include="dashboard.aspx" />
     <Content Include="login.aspx" />
@@ -176,6 +180,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="startup.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -244,6 +249,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="startup.aspx.cs">
+      <DependentUpon>startup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="startup.aspx.designer.cs">
+      <DependentUpon>startup.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
