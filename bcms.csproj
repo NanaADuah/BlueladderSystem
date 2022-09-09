@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="private\View\dashboard.aspx" />
     <Content Include="private\View\About.aspx" />
     <Content Include="App_Data\bcms.mdf" />
     <Content Include="App_Data\bcms_log.ldf">
@@ -135,7 +136,7 @@
     <Content Include="public\includes\security.png" />
     <Content Include="public\includes\SideImage.png" />
     <Content Include="public\includes\user.png" />
-    <Content Include="private\View\dashboard.aspx" />
+    <Content Include="private\View\old_dashboard.aspx" />
     <Content Include="private\View\login.aspx" />
     <Content Include="private\View\Default.aspx" />
     <Content Include="favicon.ico" />
@@ -188,6 +189,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="private\View\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="private\View\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,12 +211,12 @@
     <Compile Include="private\View\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="private\View\dashboard.aspx.cs">
-      <DependentUpon>dashboard.aspx</DependentUpon>
+    <Compile Include="private\View\old_dashboard.aspx.cs">
+      <DependentUpon>old_dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="private\View\dashboard.aspx.designer.cs">
-      <DependentUpon>dashboard.aspx</DependentUpon>
+    <Compile Include="private\View\old_dashboard.aspx.designer.cs">
+      <DependentUpon>old_dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\View\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
