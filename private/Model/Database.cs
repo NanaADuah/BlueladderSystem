@@ -26,8 +26,6 @@ namespace bcms
 
         private string GetConnectionString()
         {
-            string directory = System.IO.Directory.GetCurrentDirectory();
-            string projectDirectory = Directory.GetParent(directory).Parent.FullName;
             string SQLConnection = $@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BLCMS.mdf; Integrated Security = True";
             return SQLConnection;
         }
