@@ -14,9 +14,10 @@ namespace bcms
         {
             UI instance = new UI();
             Database database = new Database();
-            if (!database.connect())
+            database.connect();
+            if (!database.isActive())
             {
-                string error = "";//database.getError();
+                string error = Database.getError();
                 infoDisplay.Text = $"Error connecting to system database\n{error}";
                 infoDisplay.ForeColor = System.Drawing.Color.Red;
             }
@@ -31,7 +32,37 @@ namespace bcms
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("dashboard.aspx");
+            infoDisplay.Text = "Signing in, please wait...";
+            int ID;
+            Database database = new Database();
+            User user = new User();
+            bool attempt = int.TryParse(tbWorkID.Text, out ID);
+
+            if(database.isActive())
+            {
+                if(!attempt)
+                {
+                    infoDisplay.ForeColor = System.Drawing.Color.Maroon;
+                    infoDisplay.Text = "Invalid worker ID";
+                }
+                else{
+                    string password = tbPassword.Text;
+
+                    if (database.check(ID, password))
+                        user.login();
+                    else
+                    {
+                        infoDisplay.Text = "Invalid credentials";
+                        infoDisplay.Text = Database.getError();
+                        infoDisplay.ForeColor = System.Drawing.Color.Red;
+                    }
+                }  
+            }else
+            {
+                infoDisplay.Text = "Error accessing database, try again later";
+                infoDisplay.ForeColor = System.Drawing.Color.Red;
+
+            }
         }
     }
 }

@@ -105,10 +105,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\source.mdf" />
-    <Content Include="App_Data\source_log.ldf">
-      <DependentUpon>source.mdf</DependentUpon>
-    </Content>
     <Content Include="private\View\Backup.aspx" />
     <Content Include="private\View\Devices.aspx" />
     <Content Include="private\View\navBar.html" />
@@ -198,6 +194,7 @@
     <Content Include="public\font-awesome-4.7.0\scss\_screen-reader.scss" />
     <Content Include="public\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="public\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Settings.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -325,6 +322,13 @@
     </Compile>
     <Compile Include="private\Controller\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -346,7 +350,9 @@
     <Compile Include="private\View\startup.aspx.designer.cs">
       <DependentUpon>startup.aspx</DependentUpon>
     </Compile>
-    <Compile Include="private\Controller\User.cs" />
+    <Compile Include="private\Controller\User.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="UI.aspx.cs">
       <DependentUpon>UI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

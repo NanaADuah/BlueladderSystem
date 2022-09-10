@@ -25,10 +25,14 @@ namespace bcms
             get { return _instance; }
         }
 
+        public bool isActive()
+        {
+            return active;
+        }
         private static string GetConnectionString()
         {
 
-            string SQLConnection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\Nana Duah\source\Workspaces\Workspace\bcms\App_Data\source.mdf'; Integrated Security = True";
+            string SQLConnection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\Nana Duah\source\Workspaces\Workspace\bcms\App_Data\bcms.mdf'; Integrated Security = True";
                 //$@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bmcs.mdf; Integrated Security = True";
             return SQLConnection;
         }
@@ -36,7 +40,7 @@ namespace bcms
         {
             error = value;
         }
-        public bool connect()
+        public void connect()
         {
             connection = new SqlConnection(GetConnectionString());
             try
@@ -44,12 +48,10 @@ namespace bcms
                 connection.Open();
                 active = true;
                 connection.Close();
-                return true;
             }
             catch(Exception ex)
             {
                 error = ex.Message;
-                return false;
             }
         }
 
@@ -115,5 +117,31 @@ namespace bcms
             }
             return false;
         }
+        public bool check(int ID, string password)
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            password = AddUser.EncryptPassword(password);
+
+            try
+            {
+                local.Open();
+                string query = $"SELECT Password FROM [User] WHERE UserID = {ID}";
+                SqlCommand command = new SqlCommand(query, local);
+                Object result = command.ExecuteScalar();
+                string matchPassword = result.ToString();
+                local.Close();
+
+                if (matchPassword.Equals(password))
+                    return true;
+                return false;
+            }
+              catch (SqlException ex)
+            {
+                error = ex.Message;
+            }
+            local.Close();
+            return false;
+        }
+
     }
 }

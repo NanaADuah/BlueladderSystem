@@ -31,17 +31,18 @@
                   <div class="form-outline mb-4">
                     <asp:TextBox runat="server" id="tbWorkID" class="form-control form-control-lg" />
                     <label class="form-label" for="tbWorkID">Work ID</label>
+                      <asp:RequiredFieldValidator class="float-right text-danger" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Work ID required" ControlToValidate="tbWorkID"></asp:RequiredFieldValidator>
                   </div>
 
                    <!-- the password input-->
                   <div class="form-outline mb-4">
                     <asp:TextBox runat="server" id="tbPassword" class="form-control form-control-lg" />
                     <label class="form-label" for="tbPassword">Password</label>
+                      <asp:RequiredFieldValidator class="float-right text-danger" ID="RequiredFieldValidator2" runat="server" ErrorMessage="Password required" ControlToValidate="tbPassword"></asp:RequiredFieldValidator>
                   </div>
 
                   <div class="pt-1 mb-4">
-                      <!--<asp:Button runat="server" Text="Login" class="btn btn-dark btn-lg btn-block" ID="btnLogin" OnClick="btnLogin_Click"></asp:Button>-->
-                      <a class="btn btn-dark btn-lg btn-block" href="dashboard.aspx">Login <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                      <asp:Button runat="server" Text="Login" class="btn btn-dark btn-lg btn-block" ID="btnLogin" OnClick="btnLogin_Click"></asp:Button>
                   </div>
 
 

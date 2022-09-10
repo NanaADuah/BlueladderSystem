@@ -9,12 +9,11 @@ using System.Text;
 using System.Data.SqlClient;
 namespace bcms
 {
-    public class User
+    public class User : Page
     {
         private static User _instance;
         private string name;
         private string role;
-
         private int userID;
 
         static User()
@@ -52,35 +51,10 @@ namespace bcms
             return logged;
         }
 
-        public bool checkLoginDetails(string iD, string password)
+        public void login()
         {
-
-            string query = $"SELECT UserID, Password FROM Users WHERE ID = '{ID}'";
-            Database database = new Database();
-            string value = database.get(query);
-            return true;
-
-            /*while (reader.Read())
-            {
-                if (reader.GetValue(1).Equals(email))
-                {
-                    string matchPassword = reader.GetValue(2).ToString();
-                    Session["WorkerID"] = reader.GetValue(0);
-
-                    if (matchPassword.Equals(password))
-                    {
-                        reader.Close();
-                        reader.Dispose();
-                        connection.Close();
-                        return true;
-                    }
-                }
-            }
-
-            reader.Close();
-            reader.Dispose();
-            connection.Close();
-            return false;*/
+            Session["UserID"] =  userID;
+            HttpContext.Current.Response.Redirect("dashboard.aspx");
         }
 
         
@@ -117,12 +91,6 @@ namespace bcms
         {
             get { return name; }
             set { this.name = value; }
-        }
-
-        public int ID
-        {
-            get { return userID; }
-            set { this.userID = value; }
         }
 
         public int getUserID()
