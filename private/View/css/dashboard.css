@@ -7,7 +7,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
-	background: linear-gradient(to bottom, #ffffff,#d0d0d0 );
+	/*background: linear-gradient(to bottom, #ffffff,#d0d0d0 );*/
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: -moz-none;
@@ -19,6 +19,9 @@ body {
 	z-index: 10;
 	box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 	margin-bottom: 20px;
+	position: sticky;
+	background: white;
+	top: 0;
 }
 
 

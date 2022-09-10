@@ -24,19 +24,41 @@ namespace bcms
             SqlDataReader reader = database.execReader(query);
             if (eMessage.Length != 0)
                 lblMessages.Text = "Error: " + eMessage;
+            string defaultImage  = "placeholder.png";
 
             if (reader != null)
                 while (reader.Read())
                 {
+                    string eID = reader.GetValue(0).ToString();
+                    string uID = reader.GetValue(1).ToString();
+                    string fName = reader.GetValue(2).ToString();
+                    string lName = reader.GetValue(3).ToString();
+                    string status = reader.GetValue(4).ToString();
+                    string gender = reader.GetValue(5).ToString();
+                    string bDate = reader.GetValue(6).ToString();
+                    string image = reader.GetValue(7).ToString();
+                    
+                    if(image.Equals("") || image == null)
+                    {
+                        if (gender.Equals("female", StringComparison.OrdinalIgnoreCase))
+                            image = "female.jpg";
+                        else
+                        if (gender.Equals("male", StringComparison.OrdinalIgnoreCase))
+                            image = "male.jpg";
+                        else
+                            image = defaultImage;
+                    }
                     employees.Add(new Employee()
                     {
-                        EmployeeID = reader.GetValue(0).ToString(),
-                        UserID = reader.GetValue(3).ToString(),
-                        Name = reader.GetValue(1).ToString(),
-                        Surname = reader.GetValue(2).ToString(),
-                        JobStatus= reader.GetValue(4).ToString(),
-                        Gender = reader.GetValue(4).ToString(),
-                        Birthdate = reader.GetValue(4).ToString(),
+                        EmployeeID = eID,
+                        UserID = uID,
+                        Name = fName,
+                        Surname = lName,
+                        JobStatus= status,
+                        Gender = gender,
+                        Birthdate = bDate,
+                        Image = image
+                        
                     }) ;
                 }
 

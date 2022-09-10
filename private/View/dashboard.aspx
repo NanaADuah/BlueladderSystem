@@ -22,17 +22,24 @@
 <body>
     <form runat="server" id="form1">
         <!--#include file="navBar.html"-->
-
         <div id="view" class="container-fluid p-0 shadow mx-auto justify-content-center row">
-            <div id="viewGrid" class="row d-flex justify-content-center">
+        <div>
+            <asp:Label runat="server" ID="lblMessage" Text=""></asp:Label>
+        </div>
+       
+            <div id="viewGrid" class="row justify-content-center d-flex align-content-center flex-wrap">
+                 
+                <%if (!role.Equals("Admin") || !role.Equals("Owner"))
+                    { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/security.png" alt="Image">
                     <a href="#" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
-                        SECURITY<div style="font-weight: lighter; font-size: 0.8rem">Manage security settings</div>
+                        SECURITY <%=role%><div style="font-weight: lighter; font-size: 0.8rem">Manage security settings</div>
                     </div>
                     </a>
                 </div>
+                <%} %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/indicator.png" alt="Image">
                     <a href="#" class="text-reset text-decoration-none">
@@ -66,10 +73,18 @@
                     </a>
                 </div>
                 <div class="card col-2 shadow rounded m-2 p-0">
-                    <img class="image" src="../../public/includes/file.png" alt="Image">
+                    <img class="image" src="../../public/includes/tools.png" alt="Image">
                     <a href="equipment.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         EQUIPMENT<div style="font-weight: lighter; font-size: 0.8rem">Manage equipment</div>
+                    </div>
+                    </a>
+                </div>
+                <div class="card col-2 shadow rounded m-2 p-0">
+                    <img class="image" src="../../public/includes/warehouse.png" alt="Image">
+                    <a href="equipment.aspx" class="text-reset text-decoration-none">
+                    <div class="card-footer font-weight-bold">
+                        WAREHOUSES<div style="font-weight: lighter; font-size: 0.8rem">Manage locations</div>
                     </div>
                     </a>
                 </div>

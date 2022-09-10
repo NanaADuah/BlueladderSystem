@@ -60,20 +60,21 @@ namespace bcms
 
         public string get(string query)
         {
+            SqlConnection local = new SqlConnection(GetConnectionString());
             string result = "";
-            if(active)
+            if(isActive())
             {
                 try
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(query, connection);
-                    connection.Close();
+                    local.Open();
+                    SqlCommand command = new SqlCommand(query, local);
                     result = command.ExecuteScalar().ToString();
-               
+                    setError("");
+                    local.Close();
                 }
-                catch
+                catch(Exception ex)
                 {
-                    setError(error);
+                    setError(ex.Message);
                 }
                
             }
@@ -90,9 +91,14 @@ namespace bcms
                     local.Open();
                     SqlCommand command = new SqlCommand($"SELECT COUNT(*) FROM [User] WHERE UserID = {ID}", local) ;
                     int value = (int)command.ExecuteScalar();
+                    setError("");
                     if (value == 0)
                         return true;
                     return false;
+                }
+                catch(Exception ex)
+                {
+                    setError(ex.Message);
                 }
                 finally
                 {

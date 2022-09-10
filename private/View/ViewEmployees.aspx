@@ -14,18 +14,23 @@
     <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/ManageUsers.css" />
+    <link rel="stylesheet" href="css/ViewEmployees.css" />
 </head>
 <body>
     <form id="form1" runat="server">
+        <div id="heading">
         <!--#include file="navBar.html"-->
-        <div class="px-5" id="main">
-             <h1 class="display-5">View Employees</h1>
+             <h1 class="display-5 mx-5">View Employees</h1>
             <div class="dropdown-divider"></div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
+        </div>
+        <div class="px-5" id="main">
+            
             <div id="tableView">
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th scope="col"></th>
                             <th scope="col">#</th>
                             <th scope="col">User ID</th>
                             <th scope="col">Name</th>
@@ -46,6 +51,7 @@
                             <% foreach (var item in employees)
                                 {%>
                             <tr>
+                            <td> <img class="empImg" src="../../public/includes/profile/placeholder.png"</td>
                             <td><%=item.EmployeeID%></td>
                             <td><%=item.UserID%></td>
                             <td><%=item.Name%></td>

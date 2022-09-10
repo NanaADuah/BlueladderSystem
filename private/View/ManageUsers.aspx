@@ -19,17 +19,23 @@
     <form id="form1" runat="server">
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
+            <div id="header">
 
             <h1 class="display-5">Manage Users</h1>
             <div class="dropdown-divider"></div>
+            </div>
 
             <div id="tableView">
-                <table class="table">
+                <table class="table table-hover">
+                    <thead>
+                        <th scope="col">Options</th>
+                        <th scope="col"></th>
+                    </thead>
                     <tbody>
                         <tr>
                             <td>Add New User</td>
                             <td>
-                                <a href="AddUser.aspx" class="btn btn-primary">Proceed <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <a href="AddUser.aspx" class="btn btn-primary">View  <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
                         </tr>
                         <tr>
@@ -40,6 +46,18 @@
                         </tr>
                         <tr>
                             <td>View All Users</td>
+                            <td>
+                                <a href="AddUser.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                </a>
+                        </tr>
+                        <tr>
+                            <td>Change Settings</td>
+                            <td>
+                                <a href="AddUser.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                </a>
+                        </tr>
+                        <tr>
+                            <td>Change permissions</td>
                             <td>
                                 <a href="AddUser.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>

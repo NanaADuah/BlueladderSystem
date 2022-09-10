@@ -27,7 +27,6 @@ namespace bcms
             {
                 infoDisplay.Text = "Connecting to system database successful!";
                 infoDisplay.ForeColor = System.Drawing.Color.Green;
-                
             }
 
         }
@@ -51,7 +50,7 @@ namespace bcms
                     string password = tbPassword.Text;
 
                     if (database.check(ID, password))
-                        user.login();
+                        user.login(ID);
                     else
                     {
                         infoDisplay.Text = "Invalid credentials";
@@ -59,7 +58,8 @@ namespace bcms
                         infoDisplay.ForeColor = System.Drawing.Color.Red;
                     }
                 }  
-            }else
+            }
+            else
             {
                 infoDisplay.Text = "Error accessing database, try again later";
                 infoDisplay.ForeColor = System.Drawing.Color.Red;

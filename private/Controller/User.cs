@@ -47,10 +47,10 @@ namespace bcms
             return logged;
         }
 
-        public void login()
+        public void login(int ID)
         {
             Database database = new Database();
-            Session["UserID"] =  userID;
+            Session["UserID"] =  ID;
             HttpContext.Current.Response.Redirect("dashboard.aspx");
             string str = "";
 
@@ -83,9 +83,11 @@ namespace bcms
 
             return text;
          }
-        public string getRole()
+        public string getRole(int ID)
         {
-            return role;
+            Database database = new Database();
+            string result = database.get($"SELECT Role FROM [User] WHERE UserID = {ID}");
+            return result;
         }
         public User(int id, String name)
         {

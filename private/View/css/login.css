@@ -17,6 +17,10 @@ body{
     backdrop-filter: brightness(80%);
 }
 
+#heading{
+	top: 0;
+	position: sticky;
+}
 @keyframes bg{
 	0% {
 		backdrop-filter: brightness(60%);
