@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace bcms
 {
@@ -25,7 +26,9 @@ namespace bcms
 
         private string GetConnectionString()
         {
-            string SQLConnection = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bcms.mdf; Integrated Security = True";
+            string directory = System.IO.Directory.GetCurrentDirectory();
+            string projectDirectory = Directory.GetParent(directory).Parent.FullName;
+            string SQLConnection = $@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BLCMS.mdf; Integrated Security = True";
             return SQLConnection;
         }
 
@@ -100,6 +103,5 @@ namespace bcms
             }
             return false;
         }
-
     }
 }

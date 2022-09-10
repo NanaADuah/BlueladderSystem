@@ -11,7 +11,7 @@ namespace bcms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("~/index.aspx");
+            Response.Redirect("index.aspx");
 
         }
     }

@@ -44,6 +44,7 @@
                       <a class="btn btn-dark btn-lg btn-block" href="dashboard.aspx">Login <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                   </div>
 
+
                   <a class="small text-muted" href="#!">Forgot password?</a>
                   <a href="#" class="small text-muted">Terms of use.</a>
                   <a href="#" class="small text-muted">Privacy policy</a>
