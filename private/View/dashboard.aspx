@@ -92,7 +92,7 @@
                 </div>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/device1.png" alt="Image">
-                    <a href="#" class="text-reset text-decoration-none">
+                    <a href="Devices.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         DEVICES<div style="font-weight: lighter; font-size: 0.8rem">Manage connected devices</div>
                     </div>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/file.png" alt="Image">
-                    <a href="#" class="text-reset text-decoration-none">
+                    <a href="Backup.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         BACKUPS<div style="font-weight: lighter; font-size: 0.8rem">Manage system backups</div>
                     </div>
@@ -108,9 +108,9 @@
                 </div>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/file.png" alt="Image">
-                    <a href="#" class="text-reset text-decoration-none">
+                    <a href="equipment.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
-                        BACKUPS<div style="font-weight: lighter; font-size: 0.8rem">Manage system backups</div>
+                        EQUIPMENT<div style="font-weight: lighter; font-size: 0.8rem">Manage equipment</div>
                     </div>
                     </a>
                 </div>

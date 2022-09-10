@@ -24,7 +24,7 @@
               <div class="card-body p-4 p-lg-5 text-black">
 
                 <form runat="server" id="form1">
-
+                <asp:Label runat="server" id="infoDisplay"></asp:Label>
                   <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign in</h3>
 
                   <div class="form-outline mb-4">

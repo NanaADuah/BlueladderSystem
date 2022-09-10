@@ -105,6 +105,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="private\View\Backup.aspx" />
+    <Content Include="private\View\Devices.aspx" />
     <Content Include="private\View\navBar.html" />
     <Content Include="private\View\ManageUsers.aspx" />
     <Content Include="private\View\css\ManageUsers.css" />
@@ -224,6 +226,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="private\View\startup.aspx" />
+    <Content Include="UI.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="private\View\ViewUsers.aspx" />
     <Content Include="private\View\css\ViewUsers.css" />
@@ -232,6 +235,20 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="private\View\Backup.aspx.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Backup.aspx.designer.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Devices.aspx.cs">
+      <DependentUpon>Devices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Devices.aspx.designer.cs">
+      <DependentUpon>Devices.aspx</DependentUpon>
+    </Compile>
     <Compile Include="private\View\ManageUsers.aspx.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +343,13 @@
       <DependentUpon>startup.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\Controller\User.cs" />
+    <Compile Include="UI.aspx.cs">
+      <DependentUpon>UI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI.aspx.designer.cs">
+      <DependentUpon>UI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
