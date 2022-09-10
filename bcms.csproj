@@ -105,6 +105,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="private\View\navBar.html" />
+    <Content Include="private\View\ManageUsers.aspx" />
+    <Content Include="private\View\css\ManageUsers.css" />
+    <Content Include="private\View\AddUser.aspx" />
+    <Content Include="private\View\css\AddUser.css" />
     <Content Include="private\View\dashboard.aspx" />
     <Content Include="private\View\About.aspx" />
     <Content Include="App_Data\bcms.mdf" />
@@ -121,6 +126,10 @@
     <Content Include="private\View\css\dashboard.css" />
     <Content Include="private\View\css\login.css" />
     <Content Include="private\View\css\startup.css" />
+    <Content Include="public\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="public\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="public\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="public\includes\arrowRight.png" />
     <Content Include="public\includes\backArrow.png" />
     <Content Include="public\includes\backdrop-startup.jpg" />
@@ -150,6 +159,39 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="public\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="public\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="public\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="public\font-awesome-4.7.0\less\core.less" />
+    <Content Include="public\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="public\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="public\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="public\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="public\font-awesome-4.7.0\less\list.less" />
+    <Content Include="public\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="public\font-awesome-4.7.0\less\path.less" />
+    <Content Include="public\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="public\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="public\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="public\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="public\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_variables.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -183,12 +225,28 @@
     <Content Include="Site.Master" />
     <Content Include="private\View\startup.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="private\View\ViewUsers.aspx" />
+    <Content Include="private\View\css\ViewUsers.css" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUser.cs" />
+    <Compile Include="private\View\ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\AddUser.aspx.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\AddUser.aspx.designer.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\Model\AddUser.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="private\Model\Database.cs" />
     <Compile Include="private\View\dashboard.aspx.cs">
@@ -274,6 +332,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewUsers.aspx.cs">
+      <DependentUpon>ViewUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewUsers.aspx.designer.cs">
+      <DependentUpon>ViewUsers.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

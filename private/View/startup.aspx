@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="css/startup.css"/>
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
-
+    <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/startup.css"/>
 </head>
 <body>
 <section class="vh-100" id="background">
@@ -25,11 +25,7 @@
 
                 <form runat="server" id="form1">
 
-                  <div class="d-flex align-items-center mb-3 pb-1">
-                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                  </div>
-
-                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign in</h5>
+                  <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign in</h3>
 
                   <div class="form-outline mb-4">
                     <input type="email" id="form2Example17" class="form-control form-control-lg" />
@@ -42,7 +38,8 @@
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <asp:Button runat="server" Text="Login" class="btn btn-dark btn-lg btn-block" ID="btnLogin" OnClick="btnLogin_Click"></asp:Button>
+                    <!--<asp:Button runat="server" Text="Login" class="btn btn-dark btn-lg btn-block" ID="btnLogin" OnClick="btnLogin_Click"></asp:Button>-->
+                      <a class="btn btn-dark btn-lg btn-block" href="dashboard.aspx">Login <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                   </div>
 
                   <a class="small text-muted" href="#!">Forgot password?</a>
