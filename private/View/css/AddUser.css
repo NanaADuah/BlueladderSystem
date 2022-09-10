@@ -24,10 +24,14 @@
     background: linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1))
 }
 
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
 .bg-indigo {
     background-color: #4835d4;
 }
-
 @media (min-width: 992px) {
     .card-registration-2 .bg-indigo {
         border-top-right-radius: 15px;

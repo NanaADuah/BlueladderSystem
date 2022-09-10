@@ -148,8 +148,6 @@
     <Content Include="public\includes\security.png" />
     <Content Include="public\includes\SideImage.png" />
     <Content Include="public\includes\user.png" />
-    <Content Include="private\View\old_dashboard.aspx" />
-    <Content Include="private\View\login.aspx" />
     <Content Include="private\View\Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -238,6 +236,8 @@
     <Content Include="Site.Master" />
     <Content Include="private\View\startup.aspx" />
     <Content Include="UI.aspx" />
+    <Content Include="private\View\ViewEmployees.aspx" />
+    <Content Include="private\View\css\ViewEmployees.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="private\View\ViewUsers.aspx" />
     <Content Include="private\View\css\ViewUsers.css" />
@@ -306,20 +306,6 @@
     <Compile Include="private\View\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="private\View\old_dashboard.aspx.cs">
-      <DependentUpon>old_dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="private\View\old_dashboard.aspx.designer.cs">
-      <DependentUpon>old_dashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="private\View\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="private\View\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="private\View\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -381,6 +367,13 @@
     </Compile>
     <Compile Include="UI.aspx.designer.cs">
       <DependentUpon>UI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewEmployees.aspx.cs">
+      <DependentUpon>ViewEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewEmployees.aspx.designer.cs">
+      <DependentUpon>ViewEmployees.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

@@ -11,46 +11,43 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/dashboard.css"/>
-    <link rel="stylesheet" href="css/ManageUsers.css"/>
+    <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/ManageUsers.css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
 
-        <h1 class="display-5">Manage Users</h1>
-        <div class="dropdown-divider"></div>
+            <h1 class="display-5">Manage Users</h1>
+            <div class="dropdown-divider"></div>
 
-        <div id="tableView" >
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>Add New User</td>
-                        <td>
-                            <a href="AddUser.aspx" class="btn btn-primary"> 
-                                Proceed <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                            </a>
-                    </tr>
-                    <tr>
-                        <td>View All Employees</td>
-                        <td>
-                           <a href="AddUser.aspx" class="btn btn-primary"> 
-                                View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                            </a>
-                    </tr>
-                    <tr>
-                        <td>View All Users</td>
-                        <td>
-                        <a href="AddUser.aspx" class="btn btn-primary"> 
-                                View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                            </a>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="tableView">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Add New User</td>
+                            <td>
+                                <a href="AddUser.aspx" class="btn btn-primary">Proceed <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                </a>
+                        </tr>
+                        <tr>
+                            <td>View All Employees</td>
+                            <td>
+                                <a href="ViewEmployees.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                </a>
+                        </tr>
+                        <tr>
+                            <td>View All Users</td>
+                            <td>
+                                <a href="AddUser.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                </a>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-         </div>
 
     </form>
 </body>

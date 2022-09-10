@@ -22,7 +22,7 @@ namespace bcms
             if (eMessage.Length != 0)
                 lblMessages.Text = "Error: " + eMessage;
 
-            if(reader == null)
+            if(reader != null)
                 while(reader.Read())
                 {
                     devices.Add(new Device()

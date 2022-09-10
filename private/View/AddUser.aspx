@@ -110,7 +110,7 @@
 
                                             <div class="dropdown-divider"></div>
                                             <div>
-                                                <asp:Button runat="server" class="btn btn-light btn" ID="btnRegister" Text="Register User" OnClick="btnRegister_Click" />
+                                                <asp:Button runat="server" class="btn btn-light btn" ID="btnRegister" Text="Register" OnClick="btnRegister_Click" />
                                                 <a class="btn btn-outline-warning float-right" href="dashboard.aspx">Cancel</a>
                                             </div>
 
