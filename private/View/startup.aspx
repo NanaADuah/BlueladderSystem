@@ -29,13 +29,13 @@
 
                    <!-- the worker ID input-->
                   <div class="form-outline mb-4">
-                    <input type="email" id="tbWorkID" class="form-control form-control-lg" />
+                    <asp:TextBox runat="server" id="tbWorkID" class="form-control form-control-lg" />
                     <label class="form-label" for="tbWorkID">Work ID</label>
                   </div>
 
                    <!-- the password input-->
                   <div class="form-outline mb-4">
-                    <input type="password" id="tbPassword" class="form-control form-control-lg" />
+                    <asp:TextBox runat="server" id="tbPassword" class="form-control form-control-lg" />
                     <label class="form-label" for="tbPassword">Password</label>
                   </div>
 

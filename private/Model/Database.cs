@@ -12,6 +12,7 @@ namespace bcms
         private static Database _instance;
         private SqlConnection connection;
         private bool active = false;
+        private string error = "";
 
         static Database()
         {
@@ -26,7 +27,7 @@ namespace bcms
 
         private string GetConnectionString()
         {
-            string SQLConnection = $@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BLCMS.mdf; Integrated Security = True";
+            string SQLConnection = $@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bmcs.mdf; Integrated Security = True";
             return SQLConnection;
         }
 
@@ -41,10 +42,16 @@ namespace bcms
                 connection.Close();
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
+                error = ex.Message;
                 return false;
             }
+        }
+
+        public string getError()
+        {
+            return error;
         }
 
         public string get(string query)

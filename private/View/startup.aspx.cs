@@ -16,7 +16,8 @@ namespace bcms
             Database database = new Database();
             if (!database.connect())
             {
-                infoDisplay.Text = "Error connecting to system database...";
+                string error = database.getError();
+                infoDisplay.Text = $"Error connecting to system database\n{error}";
                 infoDisplay.ForeColor = System.Drawing.Color.Red;
             }
             else
