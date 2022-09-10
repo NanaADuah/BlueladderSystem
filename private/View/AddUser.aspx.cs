@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Text;
 using System.Web.UI.WebControls;
-using System.Security.Cryptography;
 namespace bcms
 {
     public partial class AddUser1 : System.Web.UI.Page
@@ -12,27 +11,7 @@ namespace bcms
         protected void Page_Load(object sender, EventArgs e)
         {
             lblMessages.Text = "";
-        }
-
-        public static string EncryptPassword(string Password)
-        {
-            string result = "default";
-            try
-            {
-                SHA256Managed hasher = new SHA256Managed();
-
-                byte[] passBytes = new UTF8Encoding().GetBytes(Password);
-                byte[] keyBytes = hasher.ComputeHash(passBytes);
-
-                hasher.Dispose();
-                result = Convert.ToBase64String(keyBytes);
-            }catch(Exception ex)
-            {
-                UI instace = new UI();
-                instace.displayMessage(ex.Message);
-            }
-
-            return result;
+            lblMessages.ForeColor = System.Drawing.Color.Black;
 
         }
 
@@ -49,9 +28,25 @@ namespace bcms
 
             User logUser = new User();
             AddUser user = new AddUser();
-            user.add(logUser,defaultPassword,role,date);
 
-            lblMessages.Text = $"Creating account for:{firstName} {lastName}, {gender}, {email}";
+            try
+            {
+
+                user.add(logUser,defaultPassword,role,date, firstName, lastName, gender);
+                string output = user.getOutput();
+                lblMessages.Text = output;
+
+            }
+            catch(Exception ex)
+            {
+                lblMessages.Text = $"Error: {ex.Message}";
+                lblMessages.ForeColor = System.Drawing.Color.Red;
+                
+            }
+            finally
+            {
+                Response.Redirect("dashboard.aspx");
+            }
         }
     }
 }

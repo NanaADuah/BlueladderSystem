@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace bcms
 {
@@ -11,26 +13,30 @@ namespace bcms
         const string ROLE_ADMIN = "admin";
         const string ROLE_OWNER = "owner";
         const string ROLE_EMPLOYEE = "employee";
+        private string IOutput = "";
 
-        public bool add(User user, string password, string role, DateTime birthDate)
+
+        public bool add(User user, string password, string role, DateTime birthDate, string firstName, string lastName, string gender)
         {
-            if (user.getRole().Equals("Admin"))
+            if (/*user.getRole().Equals("Admin") || */true) //TODO remove true
             {
                 try
                 {
                     Database database = new Database();
                     Random random = new Random();
 
-                    int userID = random.Next(100000000, 999999999);
+                    int userID = random.Next(10000000, 99999999);
 
-                    while(database.UserExists(userID))
+                    /*while(database.UserExists(userID))
                     {
-                       userID = random.Next(100000000, 999999999);
-                    }
+                        userID += 1;
+                    }/*/
 
-                    password = password.Trim();
-                    string query = $"INSERT INTO User (UserID, Password, BirthDate, Role) VALUES ({userID},'{password}','{birthDate}','{role}')";
-                    switch(role)
+                    password = EncryptPassword(password);
+                    string query = $"INSERT INTO User (UserID, Password, BirthDate, Role, FirstName, LastName) VALUES ({userID},'{password}','{birthDate}','{role}','{lastName}')";
+                    IOutput = query;
+
+                    switch (role)
                     {
                         case ROLE_EMPLOYEE:
 
@@ -52,9 +58,35 @@ namespace bcms
                     return false;
                 }
             }
-            return false;
         }
 
+        public static string EncryptPassword(string Password)
+        {
+            string result = "default";
+            try
+            {
+                SHA256Managed hasher = new SHA256Managed();
+
+                byte[] passBytes = new UTF8Encoding().GetBytes(Password);
+                byte[] keyBytes = hasher.ComputeHash(passBytes);
+
+                hasher.Dispose();
+                result = Convert.ToBase64String(keyBytes);
+            }
+            catch (Exception ex)
+            {
+                UI instace = new UI();
+                instace.displayMessage(ex.Message);
+            }
+
+            return result;
+
+        }
+
+        public string getOutput()
+        {
+            return IOutput;
+        }
         /*
         private string Encrypt(string clearText)
         {

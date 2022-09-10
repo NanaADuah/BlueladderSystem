@@ -11,23 +11,32 @@ namespace bcms
 {
     public class User
     {
-        private User user;
+        private static User _instance;
         private string name;
         private string role;
 
-        private int userID ;
+        private int userID;
 
+        static User()
+        {
+             _instance = new User();
+        }
         public User()
         {
-            Database database = new Database(); 
-            user = new User();
-            if(database.connect())
+
+            /*if(database.connect())
             {
-                database.get("");
-                role = "";
-            }
+                string result = database.get("UserID");
+                
+                role = result;
+            }*/
         }
 
+        public string getUser(int id)
+        {
+            string value = "";
+            return value;
+        }
 
         public bool logged()
         {

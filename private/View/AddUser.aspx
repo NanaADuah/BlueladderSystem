@@ -23,13 +23,17 @@
                                             <h3 class="fw-normal mb-2" style="color: #4835d4;">ADD NEW USER</h3>
                                             <div class="dropdown-divider"></div>
                                             <asp:Label ID="lblMessages" runat="server" Text=""></asp:Label>
-                                            <h4>System Role</h4>
-                                            <div class="mb-2 pb-2">
+                                            <div class="row">
+                                            <div class="col-md-6 mb-2 pb-2 mb-md-0 pb-md-0">
+                                                    System Role:
+                                                </div>
+                                            <div class="mb-2 pb-2 float-right">
                                                 <select class="select form-outline p-2" id="tbRole" runat="server">
                                                     <option value="Admin" disabled>Admin</option>
                                                     <option value="Owner" disabled>Owner</option>
                                                     <option value="Worker">Worker</option>
                                                 </select>
+                                            </div>
                                             </div>
 
                                             <div class="row">
@@ -65,9 +69,9 @@
                                                 <div class="col-md-6">
 
                                                     <select class="select form-outline p-2" id="tbGender" runat="server">
-                                                        <option value="1">Female</option>
-                                                        <option value="2">Male</option>
-                                                        <option value="3">Other</option>
+                                                        <option value="Female">Female</option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Other">Other</option>
                                                     </select>
 
                                                 </div>
