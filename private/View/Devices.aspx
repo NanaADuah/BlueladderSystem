@@ -22,7 +22,7 @@
 
             <h1 class="display-5">Manage Devices</h1>
             <div class="dropdown-divider"></div>
-
+            <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
             <div id="tableView">
                 <table class="table table-hover">
                     <thead>
@@ -34,27 +34,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>0</td>
-                            <td>None</td>
-                            <td>Unknown</td>
-                            <td>Unknown</td>
-                        </tr>
-                        <tr>
-                            <% foreach (var item in devices) {%>
-                            <td><%%= item.DeviceID;%></td>
-                            <td><%%= item.UserID;%></td>
-                            <td><%%= item.Type;%></td>
-                            <td><%%= item.Name; %></td>
+                        <%if (!devices.Any())
+                            {%>
+                            <tr>
+                                <td>No device information found</td>
+                            </tr>
 
+                        <%}else%>
+                            <% foreach (var item in devices)
+                                {%>
+                            <tr>
+                            <td><%=item.DeviceID%></td>
+                            <td><%=item.UserID%></td>
+                            <td><%=item.Type%></td>
+                            <td><%=item.Name%></td>
+                            </tr>
                             <%}%>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
+using System.Net.NetworkInformation;
+
 namespace bcms
 {
     public class User : Page
@@ -50,9 +52,13 @@ namespace bcms
             Database database = new Database();
             Session["UserID"] =  userID;
             HttpContext.Current.Response.Redirect("dashboard.aspx");
+            string str = "";
+
+            var HostIP = HttpContext.Current != null ? HttpContext.Current.Request.UserHostAddress : "";
 
             string devType = "Null";
             string devName = Environment.MachineName;
+            string IP = HostIP.ToString();
            // database.logDevice(devType,devName);
         }
 

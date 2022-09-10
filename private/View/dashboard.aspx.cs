@@ -12,12 +12,12 @@ namespace bcms
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
-                Response.Redirect("dashboard.aspx");
+                Response.Redirect("startup.aspx");
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("startup.aspx");
+            //Response.Redirect("startup.aspx");
         }
     }
 }

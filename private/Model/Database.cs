@@ -149,5 +149,24 @@ namespace bcms
             bool result = insert(query);
         }
 
+        public SqlDataReader execReader(string query)
+        {
+            SqlDataReader reader = null;
+            SqlConnection local = new SqlConnection(GetConnectionString());
+
+            try
+            {
+                local.Open();
+                SqlCommand command = new SqlCommand(query, local);
+                reader = command.ExecuteReader();
+                return reader;
+            }
+            catch (SqlException ex)
+            {
+                error = ex.Message;
+            }
+            return reader;
+           // local.Close();
+        }
     }
 }

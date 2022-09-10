@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace bcms
 {
@@ -12,13 +13,26 @@ namespace bcms
         protected IList<Device> devices;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string eMessage = Database.getError();
+            lblMessages.Text = "";
             devices = new List<Device>();
-            devices.Add(new Device()
-            {
-                Name = "Device 1",
-                Type = "Device 2",
-                DeviceID = 0
-            }); ;
+            Database database = new Database();
+            string query = "SELECT DeviceName, UserID, DeviceType, DeviceID FROM Devices";
+            SqlDataReader reader = database.execReader(query);
+            if (eMessage.Length != 0)
+                lblMessages.Text = "Error: " + eMessage;
+
+            if(reader == null)
+                while(reader.Read())
+                {
+                    devices.Add(new Device()
+                    {
+                        Name = reader.GetValue(0).ToString(),
+                        UserID = reader.GetValue(1).ToString(),
+                        Type = reader.GetValue(2).ToString(),
+                        DeviceID = reader.GetValue(3).ToString()
+                    }) ; 
+                }
         }
     }
 
@@ -26,7 +40,7 @@ namespace bcms
     {
         public string Name { get; set; }
         public string Type { get; set; } 
-        public int DeviceID { get; set; }
-        public int UserID { get; set; }
+        public string DeviceID { get; set; }
+        public string UserID { get; set; }
     }
 }
