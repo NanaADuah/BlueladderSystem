@@ -57,7 +57,12 @@ namespace bcms
             HttpContext.Current.Response.Redirect("dashboard.aspx");
         }
 
-        
+        public void Logout()
+        {
+            Session.Remove("UserID");
+            Response.Redirect("dashboard.aspx");
+
+        }
         public string randomString(int length)
         {
             var array = new char[36];

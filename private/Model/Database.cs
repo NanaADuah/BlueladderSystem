@@ -31,9 +31,7 @@ namespace bcms
         }
         private static string GetConnectionString()
         {
-
-            string SQLConnection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\Nana Duah\source\Workspaces\Workspace\bcms\App_Data\bcms.mdf'; Integrated Security = True";
-                //$@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bmcs.mdf; Integrated Security = True";
+            string SQLConnection = $@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bcms.mdf; Integrated Security = True";
             return SQLConnection;
         }
         private void setError(String value)

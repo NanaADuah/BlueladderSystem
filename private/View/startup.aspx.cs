@@ -12,6 +12,8 @@ namespace bcms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] != null)
+                Session.Remove("UserID");
             UI instance = new UI();
             Database database = new Database();
             database.connect();
