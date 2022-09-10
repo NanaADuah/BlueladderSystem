@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="private\View\index.aspx" />
     <Content Include="private\View\Backup.aspx" />
     <Content Include="private\View\Devices.aspx" />
     <Content Include="private\View\navBar.html" />
@@ -195,6 +196,15 @@
     <Content Include="public\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="public\font-awesome-4.7.0\scss\_variables.scss" />
     <Content Include="Settings.aspx" />
+    <None Include="Resources\SFPRODISPLAYBLACKITALIC.OTF" />
+    <None Include="Resources\SFPRODISPLAYBOLD.OTF" />
+    <None Include="Resources\SFPRODISPLAYHEAVYITALIC.OTF" />
+    <None Include="Resources\SFPRODISPLAYLIGHTITALIC.OTF" />
+    <None Include="Resources\SFPRODISPLAYMEDIUM.OTF" />
+    <None Include="Resources\SFPRODISPLAYREGULAR.OTF" />
+    <None Include="Resources\SFPRODISPLAYSEMIBOLDITALIC.OTF" />
+    <None Include="Resources\SFPRODISPLAYTHINITALIC.OTF" />
+    <None Include="Resources\SFPRODISPLAYULTRALIGHTITALIC.OTF" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -236,6 +246,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="private\View\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="private\View\Backup.aspx.cs">
       <DependentUpon>Backup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -322,6 +339,11 @@
     </Compile>
     <Compile Include="private\Controller\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.aspx.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -375,7 +397,12 @@
       <DependentUpon>ViewUsers.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />

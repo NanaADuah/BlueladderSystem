@@ -23,12 +23,6 @@ namespace bcms
         public User()
         {
 
-            /*if(database.connect())
-            {
-                string result = database.get("UserID");
-                
-                role = result;
-            }*/
         }
 
         public string getUser(int id)
@@ -53,8 +47,13 @@ namespace bcms
 
         public void login()
         {
+            Database database = new Database();
             Session["UserID"] =  userID;
             HttpContext.Current.Response.Redirect("dashboard.aspx");
+
+            string devType = "Null";
+            string devName = Environment.MachineName;
+           // database.logDevice(devType,devName);
         }
 
         public void Logout()

@@ -141,5 +141,13 @@ namespace bcms
             return false;
         }
 
+        public void logDevice(string type, string name)
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            DateTime time = DateTime.Now;
+            string query = $"INSERT INTO Devices (DeviceName, DeviceType, Date) VALUES ('{name}','{type}',{time})";
+            bool result = insert(query);
+        }
+
     }
 }
