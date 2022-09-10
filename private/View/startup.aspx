@@ -27,18 +27,20 @@
                 <asp:Label runat="server" id="infoDisplay"></asp:Label>
                   <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign in</h3>
 
+                   <!-- the worker ID input-->
                   <div class="form-outline mb-4">
-                    <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example17">Work ID</label>
+                    <input type="email" id="tbWorkID" class="form-control form-control-lg" />
+                    <label class="form-label" for="tbWorkID">Work ID</label>
                   </div>
 
+                   <!-- the password input-->
                   <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example27">Password</label>
+                    <input type="password" id="tbPassword" class="form-control form-control-lg" />
+                    <label class="form-label" for="tbPassword">Password</label>
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <!--<asp:Button runat="server" Text="Login" class="btn btn-dark btn-lg btn-block" ID="btnLogin" OnClick="btnLogin_Click"></asp:Button>-->
+                      <!--<asp:Button runat="server" Text="Login" class="btn btn-dark btn-lg btn-block" ID="btnLogin" OnClick="btnLogin_Click"></asp:Button>-->
                       <a class="btn btn-dark btn-lg btn-block" href="dashboard.aspx">Login <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                   </div>
 

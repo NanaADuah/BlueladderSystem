@@ -62,6 +62,7 @@
                 <asp:Button Text="Go Back" runat="server" class="btn btn-primary" data-toggle="button" aria-pressed="false" ID="btnBack" OnClick="btnBack_Click"></asp:Button>
             </nav>
         </div>-->
+
         <!--#include file="navBar.html"-->
 
         <div id="view" class="container-fluid p-0 shadow mx-auto justify-content-center row">
