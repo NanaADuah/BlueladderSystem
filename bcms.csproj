@@ -105,6 +105,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\BLCMS.mdf" />
+    <Content Include="App_Data\BLCMS_log.ldf">
+      <DependentUpon>BLCMS.mdf</DependentUpon>
+    </Content>
     <Content Include="private\View\Backup.aspx" />
     <Content Include="private\View\Devices.aspx" />
     <Content Include="private\View\navBar.html" />
