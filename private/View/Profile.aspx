@@ -79,11 +79,6 @@
                                 <label class="small mb-1" for="inputGender">Gender</label>
                                 <asp:TextBox class="form-control" id="inputGender" runat="server" placeholder="User gender"></asp:TextBox>
                             </div>
-                            <!-- Form Group (location)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputLocation">Location</label>
-                                <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" value="San Francisco, CA">
-                            </div>
                         </div>
                         <!-- Form Group (email address)-->
                         <div class="mb-3">
@@ -95,7 +90,7 @@
                             <!-- Form Group (phone number)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPhone">Phone number</label>
-                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
+                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="(+27) 11 123 4567">
                             </div>
                             <!-- Form Group (birthday)-->
                             <div class="col-md-6">
@@ -104,8 +99,10 @@
                             </div>
                         </div>
                         <!-- Save changes button-->
-                        <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save changes"></asp:Button>
-                        <asp:Button ID="btnCancel" class="float-right btn btn-warning" runat="server" Text="Cancel"></asp:Button>
+                        <%if(role.Equals("Admin")){ %>
+                            <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save changes"></asp:Button>
+                        <%} %>
+                        <asp:Button ID="btnCancel" class="float-right btn btn-warning" runat="server" Text="Back"></asp:Button>
                     </form>
                 </div>
             </div>

@@ -47,9 +47,6 @@ a{
 }
 
 @media all and (max-width: 1280px) {
-	.image{
-		width: 90%;
-	}
 
 	.card{
 		max-width:200px;

@@ -14,17 +14,13 @@
     <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/ManageUsers.css" />
-    <style type="text/css">
-        .auto-style1 {
-            height: 29px;
-        }
-    </style>
+   
 </head>
 <body>
     <form id="form1" runat="server">
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
-            <h1 class="display-5">Manage Devices</h1>
+            <h1 class="display-5">Manage Devices <i class="fa fa-laptop" aria-hidden="true"></i></h1>
             <div class="dropdown-divider"></div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
             <div id="tableView">
@@ -35,6 +31,7 @@
                             <th scope="col" class="auto-style1">User ID</th>
                             <th scope="col" class="auto-style1">Device Type</th>
                             <th scope="col" class="auto-style1">Device Name</th>
+                            <th scope="col" class="auto-style1">Login Time</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,6 +49,7 @@
                             <td><%=item.UserID%></td>
                             <td><%=item.Type%></td>
                             <td><%=item.Name%></td>
+                            <td><%=item.Time.ToString("dd/MM/yyyy HH:mm")%></td>
                             </tr>
                             <%}%>
                     </tbody>

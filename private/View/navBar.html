@@ -2,11 +2,16 @@
 <script type="text/javascript">
     function searchData() {
         var link = "search.aspx?search=" + document.getElementById("tbInput").value;
-        window.location.href = link;
-        console.log(link);
-        return false;
+        window.open(link);
+    }
+
+    function goBack() {
+
+
     }
 </script>
+
+
 <div id="nBar" style="top:0;">
     <nav class="navbar navbar-expand-lg navbar-light ">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +26,7 @@
             </ul>
 
             <div class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" ID="tbInput" name="tbInput" type="text" placeholder="Search for users, settings, etc." aria-label="Search" style="min-width: 500px"/>
+                <input class="form-control mr-sm-2" ID="tbInput" name="tbInput" type="text" placeholder="Search for users, settings, etc." aria-label="Search" style="min-width: 500px" />
                 <button class="btn btn-outline-success my-2 my-sm-0" onclick="searchData()"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
             </div>
             <div class="dropdown mx-2" style="overflow: visible">
@@ -35,7 +40,7 @@
                 </div>
             </div>
             <div>
-                <a href="MyProfile.aspx"><img class="rounded-circle" src="../../public/includes/profile/placeholder.png" style="width:40px"/></a>
+                <a href="MyProfile.aspx"><img class="rounded-circle" src="../../public/includes/profile/placeholder.png" style="width:40px" /></a>
             </div>
 
         </div>
@@ -43,6 +48,14 @@
     </nav>
     <div class="dropdown-divider"></div>
     <nav class="navbar navbar-light">
-        <a class="btn btn-primary text-white" href="dashboard.aspx" aria-pressed="true"><i class="fa fa-arrow-circle-left border-secondary" aria-hidden="true"></i> Go Back</a>
+        <a class="btn btn-primary text-white" href="dashboard.aspx" id="btnReturn" aria-pressed="true"><i class="fa fa-arrow-circle-left border-secondary" aria-hidden="true"></i> Go Back</a>
     </nav>
 </div>
+
+<script defer type="text/javascript">
+    var fileName = location.pathname.split("/").slice(-1);
+
+    if (fileName == "dashboard") {
+        document.getElementById("btnReturn").style.display = "none";
+    }
+</script>

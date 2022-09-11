@@ -59,7 +59,7 @@ namespace bcms
             string devType = "Null";
             string devName = Environment.MachineName;
             string IP = HostIP.ToString();
-           // database.logDevice(devType,devName);
+            database.logDevice(devType,devName);
         }
 
         public void Logout()
@@ -70,8 +70,7 @@ namespace bcms
         }
         public string randomString(int length)
         {
-            var array = new char[36];
-                //array =  (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' );
+            char[] array = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
             string text = "";
 
             for (int x = 0; x < length; x++)
@@ -86,7 +85,7 @@ namespace bcms
         public string getRole(int ID)
         {
             Database database = new Database();
-            string result = database.get($"SELECT Role FROM [User] WHERE UserID = {ID}");
+            string result = database.get($"SELECT TOP 1 Role FROM [User] WHERE UserID = {ID}");
             return result;
         }
         public User(int id, String name)
@@ -97,7 +96,7 @@ namespace bcms
         public string getName(int ID)
         {
             Database database = new Database();
-            string result = database.get($"SELECT Name FROM [Employee] WHERE UserID = {ID}");
+            string result = database.get($"SELECT TOP 1 Name FROM [Employee] WHERE UserID = {ID}");
             return result;
         }
 

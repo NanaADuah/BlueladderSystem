@@ -21,10 +21,21 @@
             <!--#include file="navBar.html"-->
             <div class="px-5" id="main">
 
-                <h1 class="display-5">Settings</h1>
+                <h1 class="display-5">Search Results</h1>
                 <div class="dropdown-divider">
                 </div>
-
+                <div id="tableView">
+                <table class="table table-hover">
+                    <thead>
+                        <th scope="col">Search Results</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">No results to show</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             </div>
         </div>
         <div>

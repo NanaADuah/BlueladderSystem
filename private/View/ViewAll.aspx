@@ -17,29 +17,28 @@
     <title>View All</title>
 </head>
 <body>
-     <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div id="heading">
-        <!--#include file="navBar.html"-->
+            <!--#include file="navBar.html"-->
             <div class="container">
                 <div clas="col">
-                    <h1 class="display-5 mx-5">
-                        View Employees
+                    <h1 class="display-5 mx-5">View System Users
                     </h1>
                 </div>
                 <div clas="col form-inline">
-                <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">@</span>
-      </div>
-      <asp:TextBox ID="lblFilter" runat="server" class="form-control" placeholder="Username" aria-label="Role" aria-describedby="basic-addon1" AutoPostBack="True" OnTextChanged="lblFilter_TextChanged" />
-    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                        </div>
+                        <asp:TextBox ID="lblFilter" runat="server" class="form-control" placeholder="Username" aria-label="Role" aria-describedby="basic-addon1" AutoPostBack="True" OnTextChanged="lblFilter_TextChanged" />
+                    </div>
                 </div>
                 <div class="dropdown-divider"></div>
             </div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
         </div>
         <div class="px-5" id="main">
-            
+
             <div id="tableView">
                 <table class="table table-hover">
                     <thead>
@@ -52,21 +51,22 @@
                     <tbody>
                         <%if (!users.Any())
                             {%>
-                            <tr>
-                                <td>No employee information found</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                        <tr>
+                            <td>No employee information found</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
-                        <%}else%>
-                            <% foreach (var item in users)
-                                {%>
-                            <tr>
+                        <%}
+                        else%>
+                        <% foreach (var item in users)
+                            {%>
+                        <tr>
                             <td></td>
                             <td><%=item.UserID%></td>
                             <td><%=item.Role%></td>
-                            </tr>
-                            <%}%>
+                        </tr>
+                        <%}%>
                     </tbody>
                 </table>
             </div>

@@ -249,6 +249,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="private\View\Search.aspx" />
+    <Content Include="private\View\Security.aspx" />
     <Content Include="Site.Master" />
     <Content Include="private\View\startup.aspx" />
     <Content Include="private\View\SummaryReport.aspx" />
@@ -257,6 +258,7 @@
     <Content Include="private\View\css\ViewEmployees.css" />
     <Content Include="private\View\ViewAll.aspx" />
     <Content Include="private\View\ViewReports.aspx" />
+    <Content Include="UpdateUserPassword.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="private\View\ViewUsers.aspx" />
     <Content Include="private\View\css\ViewUsers.css" />
@@ -413,6 +415,13 @@
     <Compile Include="private\View\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
+    <Compile Include="private\View\Security.aspx.cs">
+      <DependentUpon>Security.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Security.aspx.designer.cs">
+      <DependentUpon>Security.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -471,6 +480,13 @@
     </Compile>
     <Compile Include="private\View\ViewReports.aspx.designer.cs">
       <DependentUpon>ViewReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateUserPassword.aspx.cs">
+      <DependentUpon>UpdateUserPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateUserPassword.aspx.designer.cs">
+      <DependentUpon>UpdateUserPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

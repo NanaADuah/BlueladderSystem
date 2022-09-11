@@ -14,14 +14,13 @@ namespace bcms
         protected void Page_Load(object sender, EventArgs e)
         {
             string eMessage = Database.getError();
-            lblMessages.Text = "";
+            lblMessages.Text = "Top [10] most recent device logins";
             devices = new List<Device>();
             Database database = new Database();
-            string query = "SELECT DeviceName, UserID, DeviceType, DeviceID FROM Devices";
+            string query = "SELECT TOP 10 DeviceName, UserID, DeviceType, DeviceID, Time FROM Devices ORDER BY TIME ASC";
             SqlDataReader reader = database.execReader(query);
             if (eMessage.Length != 0)
                 lblMessages.Text = "Error: " + eMessage;
-
             if(reader != null)
                 while(reader.Read())
                 {
@@ -30,7 +29,8 @@ namespace bcms
                         Name = reader.GetValue(0).ToString(),
                         UserID = reader.GetValue(1).ToString(),
                         Type = reader.GetValue(2).ToString(),
-                        DeviceID = reader.GetValue(3).ToString()
+                        DeviceID = reader.GetValue(3).ToString(),
+                        Time = Convert.ToDateTime(reader.GetValue(4).ToString())
                     }) ; 
                 }
         }
@@ -42,5 +42,6 @@ namespace bcms
         public string Type { get; set; } 
         public string DeviceID { get; set; }
         public string UserID { get; set; }
+        public DateTime Time { get; set; }
     }
 }

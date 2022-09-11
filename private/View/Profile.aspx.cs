@@ -11,12 +11,13 @@ namespace bcms
     public partial class Profile : System.Web.UI.Page
     {
         protected ViewUser profile;
-        
+        protected string role = "worker";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
                 Response.Redirect("startup.aspx");
             User instance = new User();
+            role = instance.getRole(int.Parse(Session["UserID"].ToString()));
 
             if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
                 Response.Redirect("dashboard.aspx");

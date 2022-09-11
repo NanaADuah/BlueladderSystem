@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace bcms
 {
@@ -20,23 +21,39 @@ namespace bcms
 
         }
 
-        public bool generateEquipment(int count)
+        public bool generateEquipment(int count, int UserID)
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
-
-            string[] _location = new string[] { "Rengvo Warehouse", "Dozti Warehouse", "Fonicy Warehouse", "Gozzy Warehouse", "Bivety Warehouse", "Lozzby Warehouse", "Fozzby Warehouse" };
 
             string[] _manufacturers = new string[] {"Zoomilion","Doosan","Liebherr","Htachi","Volve CE","XCMG","John Deere","Komatsu", "Catepillar","Sandvik","Sortimo","TTI","OLFA","Mafell","lee Valley Tools"};
 
             string[] _equipmentName = new string[] {"Bolster","Boning rod","Brick hammer","Bump cutter/screed","Chisel","Circular saw","Concrete mixer","Cordless drill","Crowbar","Digging bar","End frames","Float","Gloves","Hand saw","Helmet","Hoe","Iron pan","Jack plane","Ladder","Line and pins","Mason’s square","Measuring box","Measuring tape","Measuring wheel","Pick axe","Plumb bob","Plumb rule","Polishers","Putty knife","Rammer","Rubber Boots","Safety glasses","Safety helmet","Sand screen machine","Scratchers","Sledge hammer","Spade","Spirit level","Straight edge brushes","Tile cutter","Trowel","Vibrator","Wedge","Wheel barrow"};
 
-            string[] _positions = new string[] { "Stocking associate", "Stocker", "Warehouse worker", "Labourer", "Material Handler", "Warehouse Clerk", "Loader", "Receiver", "Forklift operator", "Shipping clerk" };
+            string[] _category = new string[] { "Cold Planers","Drills","Drum Rollers","Shovels","Forklift","Motor Graders","Telehandler","Buckets","Buggies","Hoist","Screens","Ball Mills","Surface Vibrator"};
+
 
             if (isActive())
             try
             {
+                    SqlCommand command;
+                    Random rand = new Random();
 
                     local.Open();
+                    for(int i = 0; i < count; i++)
+                    {
+                        string manufacturer = _manufacturers[rand.Next(0, _manufacturers.Length)];
+                        string eName = _equipmentName[rand.Next(0,_equipmentName.Length)];
+                        string category = _category[rand.Next(0, _category.Length)];
+                        DateTime date = DateTime.Now;
+                        string serial = eName.Substring(0,3) + AddUser.EncryptPassword(date.ToString("HH:mm:ss:f"));
+                        serial = serial.Length <= 20 ? serial : serial.Substring(0, 20);
+                        Regex rgx = new Regex("[^a-zA-Z0-9 -]");
+                        serial = rgx.Replace(serial, "");
+                        string query = $"INSERT INTO Equipment(UserID,Category,EquipmentName, Manufacturer, SerialNumber) VALUES ({UserID},'{category}','{eName}','{manufacturer}','{serial}')";
+                        command = new SqlCommand(query, local ) ;
+                        command.ExecuteNonQuery();
+                    }
+
                     local.Close();
                     setError("");
 
@@ -193,6 +210,7 @@ namespace bcms
                 local.Open();
                 SqlCommand command = new SqlCommand(query, local);
                 reader = command.ExecuteReader();
+                setError("");
                 return reader;
             }
             catch (SqlException ex)

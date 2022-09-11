@@ -37,21 +37,18 @@
                             <td>
                                 <a href="LabourReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
-                                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Go" />
                         </tr>
                         <tr>
                             <td>View Cost Summary Report</td>
                             <td>
                                 <a href="SummaryReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
-                                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Go" />
                         </tr>
                         <tr>
                             <td>Change Equipment Report</td>
                             <td>
                                 <a href="EmployeeReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                                </a>
-                                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" style="height: 33px" Text="Go" />
+                                </a >
                         </tr>
                     </tbody>
                 </table>

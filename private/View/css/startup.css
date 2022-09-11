@@ -10,5 +10,6 @@
     background: url("../../../public/includes/background-startup.jpg ");
     background-size: cover;
     backdrop-filter: blur(8px);
+    font-family: Arial;
     font-family: 'SF Pro Display';
 }
