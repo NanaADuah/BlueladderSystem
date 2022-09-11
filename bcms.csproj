@@ -130,6 +130,8 @@
     <Content Include="private\View\css\dashboard.css" />
     <Content Include="private\View\css\login.css" />
     <Content Include="private\View\css\startup.css" />
+    <Content Include="private\View\Profile.aspx" />
+    <Content Include="private\View\css\Profile.css" />
     <Content Include="public\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="public\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -330,6 +332,13 @@
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\Controller\Login.cs" />
+    <Compile Include="private\View\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

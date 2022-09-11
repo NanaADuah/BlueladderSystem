@@ -35,7 +35,7 @@
                     <img class="image" src="../../public/includes/security.png" alt="Image">
                     <a href="#" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
-                        SECURITY <%=role%><div style="font-weight: lighter; font-size: 0.8rem">Manage security settings</div>
+                        SECURITY<div style="font-weight: lighter; font-size: 0.8rem">Manage security settings</div>
                     </div>
                     </a>
                 </div>

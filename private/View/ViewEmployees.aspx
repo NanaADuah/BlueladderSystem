@@ -38,6 +38,7 @@
                             <th scope="col">Gender</th>
                             <th scope="col">BirthDate</th>
                             <th scope="col">Job Title</th>
+                            <th scope="col">View</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,6 +60,7 @@
                             <td><%=item.Gender%></td>
                             <td><%=item.Birthdate%></td>
                             <td><%=item.JobStatus%></td>
+                            <td><a class="btn btn-primary" href="Profile.aspx?id=<%=item.UserID%>" ><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
                             </tr>
                             <%}%>
                     </tbody>

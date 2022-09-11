@@ -94,9 +94,11 @@ namespace bcms
             Name = name;
             userID = id;
         }
-        public string getName()
+        public string getName(int ID)
         {
-            return name;
+            Database database = new Database();
+            string result = database.get($"SELECT Name FROM [Employee] WHERE UserID = {ID}");
+            return result;
         }
 
         public string Name
