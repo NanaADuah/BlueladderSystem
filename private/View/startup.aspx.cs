@@ -62,7 +62,8 @@ namespace bcms
             else
             {
 
-                infoDisplay.Text = "Error accessing database, try again later";
+                string error = Database.getError();
+                infoDisplay.Text = $"Error accessing database, try again later | {error}";
                 infoDisplay.ForeColor = System.Drawing.Color.Red;
 
             }

@@ -44,8 +44,6 @@
                   <div class="pt-1 mb-4">
                       <asp:Button runat="server" Text="Login" class="btn btn-dark btn-lg btn-block" ID="btnLogin" OnClick="btnLogin_Click"></asp:Button>
                   </div>
-
-
                   <a class="small text-muted" href="#!">Forgot password?</a>
                   <a href="#" class="small text-muted">Terms of use.</a>
                   <a href="#" class="small text-muted">Privacy policy</a>
