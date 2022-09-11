@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="private\View\MyProfile.aspx" />
     <Content Include="private\View\EmployeeReport.aspx" />
     <Content Include="private\View\LabourReport.aspx" />
     <Content Include="private\View\navBar.aspx" />
@@ -261,6 +262,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="private\View\MyProfile.aspx.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\MyProfile.aspx.designer.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="private\View\EmployeeReport.aspx.cs">
       <DependentUpon>EmployeeReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
