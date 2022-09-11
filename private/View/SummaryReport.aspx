@@ -38,6 +38,10 @@
                 </table>
             </div>
         </div>
+        <asp:ListBox ID="CostSumReport" runat="server" Height="361px" Width="1477px"></asp:ListBox>
+        <p>
+            <asp:Label ID="infoDisplay" runat="server"></asp:Label>
+        </p>
     </form>
 </body>
 </html>

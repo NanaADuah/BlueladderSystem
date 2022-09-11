@@ -34,14 +34,28 @@
                 </tr>
                 </thead>
              <tr>
-                <td>0</td>
-                <td>Null</td>
-                <td>Null</td>
-                <td>No additional data</td>
+                <td>
+                    <asp:Label ID="lblNum" runat="server"></asp:Label>
+                 </td>
+                <td>
+                    <asp:Label ID="lblName" runat="server"></asp:Label>
+                 </td>
+                <td>
+                    <asp:Label ID="lblDate" runat="server"></asp:Label>
+                 </td>
+                <td>
+                    <asp:Label ID="lblAdd" runat="server"></asp:Label>
+                 </td>
             </tr>
             </table>
         </div>
          </div>
+
+        <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save backup of Database" />
+        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete backup of Database" />
+        <p>
+            <asp:Label ID="InfoDisplay" runat="server"></asp:Label>
+        </p>
 
     </form>
 </body>

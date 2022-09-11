@@ -18,5 +18,21 @@ namespace bcms
             if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
                 Response.Redirect("dashboard.aspx");
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LabourReport.aspx");
+           
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SummaryReport.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EmployeeReport.aspx");
+        }
     }
 }
