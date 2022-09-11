@@ -47,7 +47,7 @@
                         <tr>
                             <td>View All Users</td>
                             <td>
-                                <a href="AddUser.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <a href="ViewAll.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
                         </tr>
                         <tr>

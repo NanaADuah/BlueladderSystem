@@ -105,7 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="private\View\css\ViewALl.css" />
+    <Content Include="private\View\css\ViewAll.css" />
     <Content Include="private\View\index.aspx" />
     <Content Include="private\View\Backup.aspx" />
     <Content Include="private\View\Devices.aspx" />
@@ -243,6 +243,7 @@
     <Content Include="UI.aspx" />
     <Content Include="private\View\ViewEmployees.aspx" />
     <Content Include="private\View\css\ViewEmployees.css" />
+    <Content Include="private\View\ViewAll.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="private\View\ViewUsers.aspx" />
     <Content Include="private\View\css\ViewUsers.css" />
@@ -379,6 +380,13 @@
     </Compile>
     <Compile Include="private\View\ViewEmployees.aspx.designer.cs">
       <DependentUpon>ViewEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewAll.aspx.cs">
+      <DependentUpon>ViewAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewAll.aspx.designer.cs">
+      <DependentUpon>ViewAll.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
