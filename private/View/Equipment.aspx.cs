@@ -27,7 +27,7 @@ namespace bcms
         {
 
             equipment = new List<IEquipment>();
-            lblMessages.Text = "";
+            //lblMessages.Text = "";
             Database database = new Database();
             User user = new User();
             SqlDataReader reader = database.execReader(query);
@@ -63,10 +63,14 @@ namespace bcms
 
             if (Session["UserID"] != null)
             {
-                if (database.generateEquipment(100, int.Parse(Session["UserID"].ToString())))
+                if (database.generateEquipment(100))
                     lblMessages.Text = "Sucess";
                 else
-                    lblMessages.Text = Database.getError();
+                    lblMessages.Text = "Eror: " + Database.getError();
+            }
+            else
+            {
+                lblMessages.Text = "User not recognized";
             }
         }
 

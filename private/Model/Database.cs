@@ -59,7 +59,7 @@ namespace bcms
             userCount = count;
         }
 
-        public bool generateEquipment(int count, int UserID)
+        public bool generateEquipment(int count)
         {
 
             SqlConnection local = new SqlConnection(GetConnectionString());
@@ -70,29 +70,30 @@ namespace bcms
 
             string[] _category = new string[] { "Cold Planers","Drills","Drum Rollers","Shovels","Forklift","Motor Graders","Telehandler","Buckets","Buggies","Hoist","Screens","Ball Mills","Surface Vibrator"};
 
-            string[] _userIDs = getlist("SELECT UserID FROM Employee");
 
 
             if (isActive())
-            try
             {
+                try
+                {
+                    string[] _userIDs = getlist("SELECT UserID FROM Employee");
                     SqlCommand command;
                     Random rand = new Random();
 
                     local.Open();
-                    for(int i = 0; i < count; i++)
+                    for (int i = 0; i < count; i++)
                     {
                         string manufacturer = _manufacturers[rand.Next(0, _manufacturers.Length)];
-                        string eName = _equipmentName[rand.Next(0,_equipmentName.Length)];
+                        string eName = _equipmentName[rand.Next(0, _equipmentName.Length)];
                         string category = _category[rand.Next(0, _category.Length)];
                         DateTime date = DateTime.Now;
-                        string serial = eName.Substring(0,3) + AddUser.EncryptPassword(date.ToString("HH:mm:ss:f"));
+                        string serial = eName.Substring(0, 3) + AddUser.EncryptPassword(date.ToString("HH:mm:ss:f"));
                         serial = serial.Length <= 20 ? serial : serial.Substring(0, 20);
                         Regex rgx = new Regex("[^a-zA-Z0-9 -]");
                         serial = rgx.Replace(serial, "");
-                        byte avail = (byte)(rand.Next(0, 1));
+                        int avail = rand.Next(0, 1);
                         string query = $"INSERT INTO Equipment(UserID,Category,EquipmentName, Manufacturer, SerialNumber, Available) VALUES ({int.Parse(_userIDs[rand.Next(0, userCount)])},'{category}','{eName}','{manufacturer}','{serial}',{avail})";
-                        command = new SqlCommand(query, local ) ;
+                        command = new SqlCommand(query, local);
                         command.ExecuteNonQuery();
                     }
 
@@ -100,11 +101,13 @@ namespace bcms
                     setError("");
 
                 }
-                catch(Exception ex)
-            {
+                catch (Exception ex)
+                {
                     setError(ex.Message);
                     return false;
+                }
             }
+                   
             return true;
         }
         public Database Instance

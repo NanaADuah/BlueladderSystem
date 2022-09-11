@@ -38,7 +38,8 @@
                 </div>
             </div>
             <div class="dropdown-divider"></div>
-            <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label><asp:Button ID="btnGenerate" class="mx-2 btn btn-outline-secondary" runat="server" Text="Generate" />
+            <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
+            <asp:Button ID="btnGenerate" class="mx-2 btn btn-outline-secondary" runat="server" Text="Generate" />
         <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
         </div>
         <div id="tableView">

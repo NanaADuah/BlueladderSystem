@@ -26,26 +26,38 @@ namespace bcms
             string role = tbRole.Value.ToString();
             DateTime date = DateTime.Now.Date;
 
-            User logUser = new User();
-            AddUser user = new AddUser();
-
-            try
+            if(!role.Equals("worker",StringComparison.OrdinalIgnoreCase))
             {
-
-                user.add(logUser,defaultPassword,role,date, firstName, lastName, gender);
-                string output = user.getOutput();
-                lblMessages.Text = output;
-
-            }
-            catch(Exception ex)
-            {
-                lblMessages.Text = $"Error: {ex.Message}";
                 lblMessages.ForeColor = System.Drawing.Color.Red;
-                
+                lblMessages.Text = "Selected system role not allowed";
             }
-            finally
+            else
             {
-                Response.Redirect("dashboard.aspx");
+                AddUser user = new AddUser();
+
+                try
+                {
+
+                    int value = user.UserAdd(role, defaultPassword);
+                    if (value != -1)
+                    {
+                        user.EmployeeAdd(int.Parse(Session["UserID"].ToString()),value,jobStatus,date, firstName, lastName, gender, email);
+                    }
+                    else
+                        lblMessages.Text = Database.getError();
+
+                }
+                catch(Exception ex)
+                {
+                    lblMessages.Text = $"Error: {ex.Message}";
+                    lblMessages.ForeColor = System.Drawing.Color.Red;
+                
+                }
+                finally
+                {
+                    lblMessages.Text = Database.getError();
+                    //Response.Redirect("dashboard.aspx");
+                }
             }
         }
     }
