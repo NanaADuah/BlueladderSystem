@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="private\View\css\ForgotPassword.css" />
     <Content Include="private\View\ForgotPassword.aspx" />
     <Content Include="private\View\MyProfile.aspx" />
     <Content Include="private\View\EmployeeReport.aspx" />
