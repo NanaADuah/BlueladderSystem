@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.IO;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace bcms
 {
@@ -87,7 +89,7 @@ namespace bcms
                         string eName = _equipmentName[rand.Next(0, _equipmentName.Length)];
                         string category = _category[rand.Next(0, _category.Length)];
                         DateTime date = DateTime.Now;
-                        string serial = eName.Substring(0, 3) + AddUser.EncryptPassword(date.ToString("HH:mm:ss:f"));
+                        string serial = eName.Substring(0, 3) + EncryptPassword(date.ToString("HH:mm:ss:f"));
                         serial = serial.Length <= 20 ? serial : serial.Substring(0, 20);
                         Regex rgx = new Regex("[^a-zA-Z0-9 -]");
                         serial = rgx.Replace(serial, "");
@@ -119,6 +121,7 @@ namespace bcms
         {
             return active;
         }
+
         private static string GetConnectionString()
         {
             string SQLConnection = $@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bcms.mdf; Integrated Security = True";
@@ -214,7 +217,7 @@ namespace bcms
         public bool check(int ID, string password)
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
-            password = AddUser.EncryptPassword(password);
+            password = Database.EncryptPassword(password);
 
             try
             {
@@ -264,6 +267,88 @@ namespace bcms
             }
             return reader;
            // local.Close();
+        }
+
+        public int UserAdd(string Role, string Password)
+        {
+            Database database = new Database();
+            Random random = new Random();
+            AddUser e = new AddUser();
+            Password = EncryptPassword(Password);
+
+            var mystring = DateTime.Now.ToString("HH:mm:ss:ff") + random.Next(1, 9999); ;
+            MD5 md5Hasher = MD5.Create();
+            var hashed = md5Hasher.ComputeHash(Encoding.UTF8.GetBytes(mystring));
+            int UserID = BitConverter.ToInt32(hashed, 0);
+
+            SqlConnection connection = new SqlConnection(GetConnectionString());
+            try
+            {
+                connection.Open();
+                string q = $"SET IDENTITY_INSERT [User] ON INSERT INTO [User] (UserID, Password, Role) VALUES ({UserID}, '{Password}', '{Role}') SET IDENTITY_INSERT [User] OFF";
+                SqlCommand command = new SqlCommand(q, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return UserID;
+            }
+            catch (Exception ex)
+            {
+                setError(ex.Message);
+                return -1;
+            }
+        }
+        public string EmployeeAdd(int SessionID, int UserID, string JobStatus, DateTime birthDate, string firstName, string lastName, string gender, string email)
+        {
+            User user = new User();
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            if(isActive())
+            {
+
+                if (int.Parse(user.getRole(SessionID)).Equals("Admin"))
+                {
+                    try
+                    {
+                        local.Open();
+                        string query = $"SET IDENTITY_INSERT Employee ON INSERT INTO Employee (UserID, BirthDate, JobStatus, FirstName, LastName, Email, Gender) VALUES ({UserID},'{birthDate}','{JobStatus}','{firstName}','{lastName}','{email}','{gender}') SET IDENTITY_INSERT Employee OFF";
+                        SqlCommand command = new SqlCommand(query, local);
+                        command.ExecuteNonQuery();
+                        return "Success";
+                    }
+                    catch (Exception ex)
+                    {
+                        return ex.Message;
+                    }
+                    finally
+                    {
+                        local.Close();
+                    }
+                }
+                return getError();
+            }
+            return "Database access not available at the momment...";
+        }
+
+        public static string EncryptPassword(string Password)
+        {
+            string result = "default";
+            try
+            {
+                SHA256Managed hasher = new SHA256Managed();
+
+                byte[] passBytes = new UTF8Encoding().GetBytes(Password);
+                byte[] keyBytes = hasher.ComputeHash(passBytes);
+
+                hasher.Dispose();
+                result = Convert.ToBase64String(keyBytes);
+            }
+            catch (Exception ex)
+            {
+                UI instace = new UI();
+                instace.displayMessage(ex.Message);
+            }
+
+            return result;
+
         }
     }
 }

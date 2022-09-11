@@ -10,6 +10,13 @@ namespace bcms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null)
+                Response.Redirect("startup.aspx");
+            User instance = new User();
+
+            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
+                Response.Redirect("dashboard.aspx");
+
             lblMessages.Text = "";
             lblMessages.ForeColor = System.Drawing.Color.Black;
 
@@ -17,6 +24,8 @@ namespace bcms
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            Database database = new Database();
+
             string firstName = tbFirstName.Text;
             string lastName = tbLastName.Text;
             string email = inputEmail.Text;
@@ -25,6 +34,9 @@ namespace bcms
             string defaultPassword = inputDefaultPassword.Text;
             string role = tbRole.Value.ToString();
             DateTime date = DateTime.Now.Date;
+            lblMessages.Text = "";
+
+            
 
             if(!role.Equals("worker",StringComparison.OrdinalIgnoreCase))
             {
@@ -33,15 +45,12 @@ namespace bcms
             }
             else
             {
-                AddUser user = new AddUser();
-
                 try
                 {
-
-                    int value = user.UserAdd(role, defaultPassword);
-                    if (value != -1)
+                    int ID = database.UserAdd(role, defaultPassword);
+                    if(ID!= -1)
                     {
-                        user.EmployeeAdd(int.Parse(Session["UserID"].ToString()),value,jobStatus,date, firstName, lastName, gender, email);
+                        lblMessages.Text = database.EmployeeAdd(int.Parse(Session["UserID"].ToString()),ID,jobStatus,date, firstName, lastName, gender, email);
                     }
                     else
                         lblMessages.Text = Database.getError();

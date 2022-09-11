@@ -33,13 +33,18 @@
                             <a class="dropdown-item" href="equipment?filter=userid">UserID</a>
                         </div>
                     </div>
-                    <asp:TextBox runat="server" ID="tbSearch" class="form-control" aria-label="Search" placeholder="Search equipment database" AutoPostBack="True"/>
+                    <asp:TextBox runat="server" ID="tbSearch" class="form-control" aria-label="Search" placeholder="Search equipment database"/>
                     <asp:Button runat="server" ID="btnSearch" Text="SEARCH" class="btn btn-secondary rounded-0" OnClick="btnSearch_Click"/>
                 </div>
             </div>
             <div class="dropdown-divider"></div>
+            <div class="mx-5 my-2">
+                <asp:Button runat="server" id="btnTakeOut" Text="Add New Equipment" class="btn btn-primary"></asp:Button>
+                <asp:Button runat="server" id="btnDetials" Text="Add notes" class="btn btn-info mx-2"></asp:Button>
+                <asp:Button runat="server" id="btnRequest" Text="Request for equipment return" class="btn btn-secondary float"></asp:Button>
+                <asp:Button runat="server" id="btnReturn" Text="Return Equipment" class="btn btn-dark float-right"></asp:Button>
+            </div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
-            <asp:Button ID="btnGenerate" class="mx-2 btn btn-outline-secondary" runat="server" Text="Generate" />
         <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
         </div>
         <div id="tableView">
@@ -58,6 +63,7 @@
                         <th scope="col">Manufacturer</th>
                         <th scope="col">SerialNumber</th>
                         <th scope="col">Modified by</th>
+                        <th scope="col">Available</th>
                     </tr>
                     <%}%>
                 </thead>
@@ -80,6 +86,7 @@
                         <td class="auto-style1"><%=item.Manufacturer%></td>
                         <td class="auto-style1"><%=item.SerialNumber%></td>
                         <td class="auto-style1"><a class="text-decoration-none " href="profile.aspx?id=<%=item.UserID %>"><%=item.UserID%></a></td>
+                        <td class="auto-style1"><%=item.SerialNumber%></td>
                     </tr>
                     <%}%>
                 </tbody>

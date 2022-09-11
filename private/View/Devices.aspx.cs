@@ -13,6 +13,13 @@ namespace bcms
         protected IList<Device> devices;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null)
+                Response.Redirect("startup.aspx");
+            User instance = new User();
+
+            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
+                Response.Redirect("dashboard.aspx");
+
             string eMessage = Database.getError();
             lblMessages.Text = "Top [10] most recent device logins";
             devices = new List<Device>();

@@ -19,7 +19,7 @@ namespace bcms
             if (Session["UserID"] == null)
                 Response.Redirect("startup.aspx");
 
-            string query = "SELECT EquipmentID, UserID, Category, EquipmentName, Manufacturer, SerialNumber FROM Equipment";
+            string query = "SELECT EquipmentID, UserID, Category, EquipmentName, Manufacturer, SerialNumber, Available FROM Equipment";
             displayData(query); 
         }
 
@@ -45,6 +45,7 @@ namespace bcms
                     string EquipmentName = reader.GetValue(3).ToString();
                     string Manufacturer = reader.GetValue(4).ToString();
                     string SerialNumber = reader.GetValue(5).ToString();
+                    bool Avail = bool.Parse(reader.GetValue(5).ToString());
 
                     equipment.Add(new IEquipment()
                     {
@@ -54,6 +55,7 @@ namespace bcms
                         EquipmentName = EquipmentName,
                         Manufacturer = Manufacturer,
                         SerialNumber = SerialNumber,
+                        Available = Avail,
                     }) ;
                 }
         }
@@ -108,5 +110,6 @@ namespace bcms
         public string SerialNumber{ get; set; }
         public string UserID{ get; set; }
         public string ModName { get; set; }
+        public bool Available { get; set; }
     }
 }
