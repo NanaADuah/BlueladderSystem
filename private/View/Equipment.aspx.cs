@@ -13,8 +13,8 @@ namespace bcms
         protected IList<IEquipment> equipment;
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnGenerate.Visible = false;
-            btnGenerate.Enabled = false;
+           // btnGenerate.Visible = false;
+           // btnGenerate.Enabled = false;
 
             if (Session["UserID"] == null)
                 Response.Redirect("startup.aspx");

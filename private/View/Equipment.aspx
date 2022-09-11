@@ -78,7 +78,7 @@
                         <td class="auto-style1"><%=item.EquipmentName%></td>
                         <td class="auto-style1"><%=item.Manufacturer%></td>
                         <td class="auto-style1"><%=item.SerialNumber%></td>
-                        <td class="auto-style1"><a class="text-decoration-none text-black" href="profile.aspx?id=<%=item.UserID %>"><%=item.UserID%></a></td>
+                        <td class="auto-style1"><a class="text-decoration-none " href="profile.aspx?id=<%=item.UserID %>"><%=item.UserID%></a></td>
                     </tr>
                     <%}%>
                 </tbody>

@@ -14,15 +14,54 @@ namespace bcms
         private SqlConnection connection;
         private static bool active = false;
         private static string error = "";
-
+        private static int userCount;
         static Database()
         {
             _instance = new Database();
 
         }
+        public string[] getlist(string query)
+        {
+            string[] list = new string[500];
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            if (isActive())
+            {
+                try
+                {
+                    local.Open();
+                    SqlCommand command = new SqlCommand(query, local);
+                    SqlDataReader read = command.ExecuteReader();
+                    int index = 0;
+                    while(read.Read())
+                    {
+                        list[index] = read.GetValue(0).ToString();
+                        index++;
+                    }
+                    setUserCount(index);
+                }
+                catch (Exception ex)
+                {
+
+                    setError(ex.Message);
+                }
+                finally
+                {
+                    local.Close();
+                }
+
+            }
+
+            return list;
+        }
+
+        public void setUserCount(int count)
+        {
+            userCount = count;
+        }
 
         public bool generateEquipment(int count, int UserID)
         {
+
             SqlConnection local = new SqlConnection(GetConnectionString());
 
             string[] _manufacturers = new string[] {"Zoomilion","Doosan","Liebherr","Htachi","Volve CE","XCMG","John Deere","Komatsu", "Catepillar","Sandvik","Sortimo","TTI","OLFA","Mafell","lee Valley Tools"};
@@ -30,6 +69,8 @@ namespace bcms
             string[] _equipmentName = new string[] {"Bolster","Boning rod","Brick hammer","Bump cutter/screed","Chisel","Circular saw","Concrete mixer","Cordless drill","Crowbar","Digging bar","End frames","Float","Gloves","Hand saw","Helmet","Hoe","Iron pan","Jack plane","Ladder","Line and pins","Mason’s square","Measuring box","Measuring tape","Measuring wheel","Pick axe","Plumb bob","Plumb rule","Polishers","Putty knife","Rammer","Rubber Boots","Safety glasses","Safety helmet","Sand screen machine","Scratchers","Sledge hammer","Spade","Spirit level","Straight edge brushes","Tile cutter","Trowel","Vibrator","Wedge","Wheel barrow"};
 
             string[] _category = new string[] { "Cold Planers","Drills","Drum Rollers","Shovels","Forklift","Motor Graders","Telehandler","Buckets","Buggies","Hoist","Screens","Ball Mills","Surface Vibrator"};
+
+            string[] _userIDs = getlist("SELECT UserID FROM Employee");
 
 
             if (isActive())
@@ -49,7 +90,8 @@ namespace bcms
                         serial = serial.Length <= 20 ? serial : serial.Substring(0, 20);
                         Regex rgx = new Regex("[^a-zA-Z0-9 -]");
                         serial = rgx.Replace(serial, "");
-                        string query = $"INSERT INTO Equipment(UserID,Category,EquipmentName, Manufacturer, SerialNumber) VALUES ({UserID},'{category}','{eName}','{manufacturer}','{serial}')";
+                        byte avail = (byte)(rand.Next(0, 1));
+                        string query = $"INSERT INTO Equipment(UserID,Category,EquipmentName, Manufacturer, SerialNumber, Available) VALUES ({int.Parse(_userIDs[rand.Next(0, userCount)])},'{category}','{eName}','{manufacturer}','{serial}',{avail})";
                         command = new SqlCommand(query, local ) ;
                         command.ExecuteNonQuery();
                     }
