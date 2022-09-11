@@ -17,14 +17,44 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-           <!--#include file="navBar.html"-->
+        <div id="heading">
+            <!--#include file="navBar.html"-->
             <div class="px-5" id="main">
 
-            <h1 class="display-5">Settings</h1>
-            <div class="dropdown-divider"></div>
-            
+                <h1 class="display-5">Settings</h1>
+                <div class="dropdown-divider">
+                </div>
+
+            </div>
         </div>
+        <div id="tableView" style="width:50%">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Dark mode</th>
+                        <td><!-- Default checked -->
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+                                <label class="custom-control-label" for="customSwitch1"></label>
+                        </div></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Account</th>
+                        <td>
+                            <button type="button" class="btn btn-secondary">Go to </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Help</th>
+                        <td>
+
+                            <button type="button" class="btn btn-secondary">View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </form>
 </body>
 </html>

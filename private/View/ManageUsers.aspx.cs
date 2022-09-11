@@ -11,7 +11,12 @@ namespace bcms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null)
+                Response.Redirect("startup.aspx");
+            User instance = new User();
 
+            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
+                Response.Redirect("dashboard.aspx");
         }
     }
 }
