@@ -16,22 +16,27 @@ namespace bcms
             if (!database.isActive())
             {
                 string error = Database.getError();
-                infoDisplay.Text = $"Error connecting to system database|{error}";
-                infoDisplay.ForeColor = System.Drawing.Color.Red;
+                lblInfo.Text = error;
             }
             else
             {
-                infoDisplay.Text = "Connecting to system database successful!";
-                infoDisplay.ForeColor = System.Drawing.Color.Green;
 
                 EmpReport.Items.Add("Employee Count" + "\t" + "Employee ID" + "\t" + "Name" + "\t\t" + "Surname" + "\t\t" + "Job Status");
 
                 for (int count = 0; count < 30; count++)
                 {
 
-                    EmpReport.Items.Add((count + 1) + "\t" + database.GetType(userID).ToString() + "\t" + database.GetType(userName).ToString() + "\t\t" + database.GetType(userSurname).ToString() + "\t\t" + database.GetType(jobStatus).ToString());
+                    //    EmpReport.Items.Add((count + 1) + "\t" + database.GetType(userID).ToString() + "\t" + database.GetType(userName).ToString() + "\t\t" + database.GetType(userSurname).ToString() + "\t\t" + database.GetType(jobStatus).ToString());
                 }
             }
         }
+
+        public class EReport
+        {
+
+        }
+
+
+
     }
 }

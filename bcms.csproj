@@ -260,6 +260,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="private\View\ViewUsers.aspx" />
     <Content Include="private\View\css\ViewUsers.css" />
+    <Content Include="private\View\Warehouse.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -484,6 +485,13 @@
     </Compile>
     <Compile Include="private\View\ViewUsers.aspx.designer.cs">
       <DependentUpon>ViewUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Warehouse.aspx.cs">
+      <DependentUpon>Warehouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Warehouse.aspx.designer.cs">
+      <DependentUpon>Warehouse.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

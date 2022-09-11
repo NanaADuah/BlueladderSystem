@@ -22,7 +22,7 @@
 
         <h1 class="display-5">Manage Backups</h1>
         <div class="dropdown-divider"></div>
-
+            <asp:Label ID="InfoDisplay" runat="server"></asp:Label>
         <div id="tableView" >
             <table class="table table-hover">
                 <thead>
@@ -49,12 +49,12 @@
             </tr>
             </table>
         </div>
-         </div>
 
-        <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save backup of Database" />
-        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete backup of Database" />
+        <asp:Button class="btn btn-primary" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save backup of Database" />
+        <asp:Button class="btn btn-primary" ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete backup of Database" />
+         </div>
         <p>
-            <asp:Label ID="InfoDisplay" runat="server"></asp:Label>
+            
         </p>
 
     </form>

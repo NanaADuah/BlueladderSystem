@@ -25,7 +25,7 @@
 
                 <form runat="server" id="form1">
                 <asp:Label runat="server" id="infoDisplay"></asp:Label>
-                  <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign in</h3>
+                  <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign in <i class="fa fa-sign-in" aria-hidden="true"></i></h3>
 
                    <!-- the worker ID input-->
                   <div class="form-outline mb-4">

@@ -19,7 +19,7 @@ namespace bcms
 
         }
 
-        protected void btnSave_Click(object sender, EventArgs e, string dataBaseName, string connectionString)
+        protected void btnSave_Click(object sender, EventArgs e)
         {
             countSaves = countSaves + 1;
             lblNum.Text = countSaves.ToString();
@@ -34,24 +34,23 @@ namespace bcms
             {
                 Directory.CreateDirectory(folder);
             }
-            SqlConnection con = new SqlConnection(connectionString);
-            
-            Database database = Databases["" + dataBaseName + ""];
+
+            Database database = new Database();
+
+
             if (database != null)
             {
-
-                fileName = folder + dataBaseName + ".sql";
+                string dbName = "";
+                fileName = $"{dbName}.sql";
                 StreamWriter fs = File.CreateText(fileName);
-                fs.Write(sb);
+                fs.Write(fs);
                 fs.Close();
                 InfoDisplay.Text = "Backup created.";
             }
 
-
-                lblName.Text = dataBaseName;
         }
 
-        protected void btnDelete_Click(object sender, EventArgs e, string dataBaseName, string connectionString)
+        protected void btnDelete_Click(object sender, EventArgs e)
         {
             string folder = Server.MapPath("~/Scripts/");
             string fileName = "";

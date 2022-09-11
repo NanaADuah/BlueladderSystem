@@ -24,7 +24,9 @@
             <h1 class="display-5">Employee Reports</h1>
             <div class="dropdown-divider"></div>
             </div>
-
+            <div>
+                <asp:Label runat="server" ID="lblInfo"></asp:Label>
+            </div>
             <div id="tableView">
                 <table class="table table-hover">
                     <thead>
