@@ -11,6 +11,22 @@ namespace bcms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Database database = new Database();
+            database.connect();
+            if (!database.isActive())
+            {
+                string error = Database.getError();
+                infoDisplay.Text = $"Error connecting to system database|{error}";
+                infoDisplay.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                infoDisplay.Text = "Connecting to system database successful!";
+                infoDisplay.ForeColor = System.Drawing.Color.Green;
+
+
+            }
+
 
         }
     }
