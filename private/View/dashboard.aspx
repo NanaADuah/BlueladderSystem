@@ -29,7 +29,7 @@
        
             <div id="viewGrid" class="row justify-content-center d-flex align-content-center flex-wrap">
                  
-                <%if (!role.Equals("Admin") || !role.Equals("Owner"))
+                <%if (role.Equals("Admin") || role.Equals("Owner"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/security.png" alt="Image">
@@ -40,6 +40,8 @@
                     </a>
                 </div>
                 <%} %>
+                <%if (role.Equals("Admin") || role.Equals("Owner"))
+                    { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/indicator.png" alt="Image">
                     <a href="#" class="text-reset text-decoration-none">
@@ -48,6 +50,9 @@
                     </div>
                     </a>
                 </div>
+                <%} %>
+                <%if (role.Equals("Admin") || role.Equals("Owner"))
+                    { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/user.png" alt="Image">
                     <a href="ManageUsers.aspx" class="text-reset text-decoration-none">
@@ -56,6 +61,9 @@
                         </div>
                     </a>
                 </div>
+                <%} %>
+                <%if (role.Equals("Admin") || role.Equals("Owner"))
+                    { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/device1.png" alt="Image">
                     <a href="Devices.aspx" class="text-reset text-decoration-none">
@@ -64,6 +72,9 @@
                     </div>
                     </a>
                 </div>
+                <%} %>
+                <%if (role.Equals("Owner"))
+                    { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/file.png" alt="Image">
                     <a href="Backup.aspx" class="text-reset text-decoration-none">
@@ -72,6 +83,9 @@
                     </div>
                     </a>
                 </div>
+                <%} %>
+                <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
+                    { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/tools.png" alt="Image">
                     <a href="equipment.aspx" class="text-reset text-decoration-none">
@@ -80,6 +94,9 @@
                     </div>
                     </a>
                 </div>
+                <%} %>
+                <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
+                    { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/warehouse.png" alt="Image">
                     <a href="equipment.aspx" class="text-reset text-decoration-none">
@@ -88,6 +105,7 @@
                     </div>
                     </a>
                 </div>
+                <%} %>
             </div>
         </div>
     </form>
