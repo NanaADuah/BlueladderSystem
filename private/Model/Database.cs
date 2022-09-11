@@ -20,6 +20,34 @@ namespace bcms
 
         }
 
+        public bool generateEquipment(int count)
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+
+            string[] _location = new string[] { "Rengvo Warehouse", "Dozti Warehouse", "Fonicy Warehouse", "Gozzy Warehouse", "Bivety Warehouse", "Lozzby Warehouse", "Fozzby Warehouse" };
+
+            string[] _manufacturers = new string[] {"Zoomilion","Doosan","Liebherr","Htachi","Volve CE","XCMG","John Deere","Komatsu", "Catepillar","Sandvik","Sortimo","TTI","OLFA","Mafell","lee Valley Tools"};
+
+            string[] _equipmentName = new string[] {"Bolster","Boning rod","Brick hammer","Bump cutter/screed","Chisel","Circular saw","Concrete mixer","Cordless drill","Crowbar","Digging bar","End frames","Float","Gloves","Hand saw","Helmet","Hoe","Iron pan","Jack plane","Ladder","Line and pins","Mason’s square","Measuring box","Measuring tape","Measuring wheel","Pick axe","Plumb bob","Plumb rule","Polishers","Putty knife","Rammer","Rubber Boots","Safety glasses","Safety helmet","Sand screen machine","Scratchers","Sledge hammer","Spade","Spirit level","Straight edge brushes","Tile cutter","Trowel","Vibrator","Wedge","Wheel barrow"};
+
+            string[] _positions = new string[] { "Stocking associate", "Stocker", "Warehouse worker", "Labourer", "Material Handler", "Warehouse Clerk", "Loader", "Receiver", "Forklift operator", "Shipping clerk" };
+
+            if (isActive())
+            try
+            {
+
+                    local.Open();
+                    local.Close();
+                    setError("");
+
+                }
+                catch(Exception ex)
+            {
+                    setError(ex.Message);
+                    return false;
+            }
+            return true;
+        }
         public Database Instance
         {
             get { return _instance; }

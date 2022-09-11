@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/ManageUsers.css" />
+    <style type="text/css">
+        .auto-style1 {
+            height: 29px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,10 +31,10 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">User ID</th>
-                            <th scope="col">Device Type</th>
-                            <th scope="col">Device Name</th>
+                            <th scope="col" class="auto-style1">#</th>
+                            <th scope="col" class="auto-style1">User ID</th>
+                            <th scope="col" class="auto-style1">Device Type</th>
+                            <th scope="col" class="auto-style1">Device Name</th>
                         </tr>
                     </thead>
                     <tbody>
