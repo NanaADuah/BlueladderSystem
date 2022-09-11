@@ -105,6 +105,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="private\View\EmployeeReport.aspx" />
+    <Content Include="private\View\LabourReport.aspx" />
+    <Content Include="private\View\navBar.aspx" />
     <Content Include="private\View\css\Search.css" />
     <Content Include="private\View\css\ViewAll.css" />
     <Content Include="private\View\index.aspx" />
@@ -244,10 +247,12 @@
     <Content Include="private\View\Search.aspx" />
     <Content Include="Site.Master" />
     <Content Include="private\View\startup.aspx" />
+    <Content Include="private\View\SummaryReport.aspx" />
     <Content Include="UI.aspx" />
     <Content Include="private\View\ViewEmployees.aspx" />
     <Content Include="private\View\css\ViewEmployees.css" />
     <Content Include="private\View\ViewAll.aspx" />
+    <Content Include="private\View\ViewReports.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="private\View\ViewUsers.aspx" />
     <Content Include="private\View\css\ViewUsers.css" />
@@ -256,6 +261,27 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="private\View\EmployeeReport.aspx.cs">
+      <DependentUpon>EmployeeReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\EmployeeReport.aspx.designer.cs">
+      <DependentUpon>EmployeeReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\LabourReport.aspx.cs">
+      <DependentUpon>LabourReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\LabourReport.aspx.designer.cs">
+      <DependentUpon>LabourReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\navBar.aspx.cs">
+      <DependentUpon>navBar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\navBar.aspx.designer.cs">
+      <DependentUpon>navBar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="private\View\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -385,6 +411,13 @@
     <Compile Include="private\Controller\User.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="private\View\SummaryReport.aspx.cs">
+      <DependentUpon>SummaryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\SummaryReport.aspx.designer.cs">
+      <DependentUpon>SummaryReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI.aspx.cs">
       <DependentUpon>UI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -405,6 +438,13 @@
     </Compile>
     <Compile Include="private\View\ViewAll.aspx.designer.cs">
       <DependentUpon>ViewAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewReports.aspx.cs">
+      <DependentUpon>ViewReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewReports.aspx.designer.cs">
+      <DependentUpon>ViewReports.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

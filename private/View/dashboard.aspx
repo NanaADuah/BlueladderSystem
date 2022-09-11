@@ -33,7 +33,7 @@
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/security.png" alt="Image">
-                    <a href="#" class="text-reset text-decoration-none">
+                    <a href="Security.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         SECURITY<div style="font-weight: lighter; font-size: 0.8rem">Manage security settings</div>
                     </div>
@@ -44,7 +44,7 @@
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/indicator.png" alt="Image">
-                    <a href="#" class="text-reset text-decoration-none">
+                    <a href="ViewReports.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         REPORTS<div style="font-weight: lighter; font-size: 0.8rem">Manage company reports</div>
                     </div>
@@ -73,7 +73,7 @@
                     </a>
                 </div>
                 <%} %>
-                <%if (role.Equals("Owner"))
+                <%if (role.Equals("Owner") || role.Equals("Admin"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/file.png" alt="Image">
