@@ -42,28 +42,39 @@ namespace bcms
             if(output == 0)
                 lblDelMessage.Text = $"No backups exist with ID '{bID}'";
             else
-            if(database.removeBackup(bID))
-                lblDelMessage.Text = "Database backup successfully deleted";
-            else
-                lblDelMessage.Text = "An error occured. Backup not deleted!";
+            {
+
+
+            database.removeBackup(bID);
+
+            lblDelMessage.Text = Database.getError();
+            }
+            /*else
+                lblDelMessage.Text = "An error occured. Backup not deleted!";*/
 
         }
 
         protected void btnExecute_Click(object sender, EventArgs e)
         {
-            if (ViewState["databaseName"] != null && !ViewState["databaseName"].Equals("-1"))
+            User user = new User();
+            string role = user.getRole(int.Parse(Session["UserID"].ToString()));
+            if (role.Equals("Admin", StringComparison.CurrentCultureIgnoreCase) || role.Equals("Owner", StringComparison.CurrentCultureIgnoreCase))
             {
-                string tName = ViewState["databaseName"] as string;
-                Database database = new Database();
-                string result = database.writeCSV(tName, int.Parse(Session["UserID"].ToString()));
-                if (result.Equals("-1"))
-                    lblMessages.Text = Database.getError();
-                else
-                    lblMessages.Text = $"Backup files made! Additional file stored at {result}";
+
+                if (ViewState["databaseName"] != null && !ViewState["databaseName"].Equals("-1"))
+                {
+                    string tName = ViewState["databaseName"] as string;
+                    Database database = new Database();
+                    string result = database.writeCSV(tName, int.Parse(Session["UserID"].ToString()));
+                    if (result.Equals("-1"))
+                        lblMessages.Text = Database.getError();
+                    else
+                        lblMessages.Text = $"Backup files made! Additional file stored at {result}";
             }else
             {
                 lblMessages.Text = "Please select a database to save";
                 lblMessages.ForeColor = System.Drawing.Color.Red;
+            }
             }
         }
 

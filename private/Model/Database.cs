@@ -132,10 +132,13 @@ namespace bcms
             try
             {
                 local.Open();
+                SqlCommand comName = new SqlCommand($"SELECT FileName FROM [Backup] WHERE BackupID = {BackUpID}",local);
+                string filename = comName.ExecuteScalar().ToString();
+                setError(filename);
                 string query = $"DELETE FROM [Backup] WHERE BackupID = {BackUpID}";
                 SqlCommand command = new SqlCommand(query, local);
-                command.ExecuteNonQuery();
-                setError("");
+                //command.ExecuteNonQuery();
+                //setError("");
                 return true;
             }
             catch(Exception ex)
@@ -326,7 +329,7 @@ namespace bcms
                     string userStore = GetDownloadFolderPath() + $"\\{saveName}.csv";
                     CSVUtility.ToCSV(table, storeDataBaseFilename);
                     CSVUtility.ToCSV(table, userStore);
-                    string insData = $"INSERT INTO [Backup] (Filename, Time, UserID, Type) VALUES ('\\public\\backup\\{saveName}.csv','{DateTime.Now}',{UserID},'Normal')";
+                    string insData = $"INSERT INTO [Backup] (Filename, Time, UserID, Type) VALUES ('public\\backup\\{saveName}.csv','{DateTime.Now}',{UserID},'Normal')";
                     SqlCommand command = new SqlCommand(insData, local);
                     command.ExecuteNonQuery();
                     setError("");

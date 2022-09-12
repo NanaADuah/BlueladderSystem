@@ -214,6 +214,19 @@
     <Content Include="public\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="public\font-awesome-4.7.0\scss\_variables.scss" />
     <Content Include="private\View\Settings.aspx" />
+    <Content Include="public\backup\2Q332MLQ3I8BB55.csv" />
+    <Content Include="public\backup\4GES0VI93AK06VP.csv" />
+    <Content Include="public\backup\LJ9C6CIM1Z9FDA9.csv" />
+    <Content Include="fonts\SFPRODISPLAYBLACKITALIC.OTF" />
+    <Content Include="fonts\SFPRODISPLAYBOLD.OTF" />
+    <Content Include="fonts\SFPRODISPLAYHEAVYITALIC.OTF" />
+    <Content Include="fonts\SFPRODISPLAYLIGHTITALIC.OTF" />
+    <Content Include="fonts\SFPRODISPLAYMEDIUM.OTF" />
+    <Content Include="fonts\SFPRODISPLAYREGULAR.OTF" />
+    <Content Include="fonts\SFPRODISPLAYSEMIBOLDITALIC.OTF" />
+    <Content Include="fonts\SFPRODISPLAYTHINITALIC.OTF" />
+    <Content Include="fonts\SFPRODISPLAYULTRALIGHTITALIC.OTF" />
+    <Content Include="public\backup\Z8SOR3YD26EN8PL.csv" />
     <None Include="Resources\SFPRODISPLAYBLACKITALIC.OTF" />
     <None Include="Resources\SFPRODISPLAYBOLD.OTF" />
     <None Include="Resources\SFPRODISPLAYHEAVYITALIC.OTF" />
@@ -265,6 +278,7 @@
     <Content Include="private\View\ViewAll.aspx" />
     <Content Include="private\View\ViewReports.aspx" />
     <Content Include="private\View\UpdateUserPassword.aspx" />
+    <Content Include="ViewBackup.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="private\View\ViewUsers.aspx" />
     <Content Include="private\View\css\ViewUsers.css" />
@@ -530,6 +544,13 @@
     <Compile Include="private\View\UpdateUserPassword.aspx.designer.cs">
       <DependentUpon>UpdateUserPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewBackup.aspx.cs">
+      <DependentUpon>ViewBackup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewBackup.aspx.designer.cs">
+      <DependentUpon>ViewBackup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -569,9 +590,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="public\backup\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
