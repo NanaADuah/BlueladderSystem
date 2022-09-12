@@ -35,8 +35,10 @@ namespace bcms
             string eMessage = Database.getError();
             if (eMessage.Length != 0)
                 lblMessages.Text = "Error: " + eMessage;
-            
+
             if (reader != null)
+            {
+                lblMessages.Text = "";
                 while (reader.Read())
                 {
                     string EquipmentID = reader.GetValue(0).ToString();
@@ -56,8 +58,9 @@ namespace bcms
                         Manufacturer = Manufacturer,
                         SerialNumber = SerialNumber,
                         Available = Avail,
-                    }) ;
+                    });
                 }
+            }
         }
         protected void btnGenerate_Click(object sender, EventArgs e)
         {
@@ -84,18 +87,21 @@ namespace bcms
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             string search = tbSearch.Text;
-            string query= "SELECT EquipmentID, UserID, Category, EquipmentName, Manufacturer, SerialNumber FROM Equipment ORDER BY Category ASC";
+            string query= "SELECT *  FROM Equipment ORDER BY EquipmentID ASC";
 
-            if (Request.QueryString["filter"] != null)
+            if(!String.IsNullOrEmpty(tbSearch.Text))
             {
-                string filter = Request.QueryString["filter"];
-                if (filter.Equals("equipmentname") || filter.Equals("manufacturer") ||  filter.Equals("category")) 
-                    query = $"SELECT * FROM Equipment WHERE {Request.QueryString["filter"]} LIKE '{search}%'";
-                if(filter.Equals("userid"))
-                    query = $"SELECT * FROM Equipment WHERE UserID = {search}";
+                if (Request.QueryString["filter"] != null)
+                {
+                    string filter = Request.QueryString["filter"];
+                    if (filter.Equals("equipmentname") || filter.Equals("manufacturer") ||  filter.Equals("category")) 
+                        query = $"SELECT * FROM Equipment WHERE {Request.QueryString["filter"]} LIKE '{search}%'";
+                    if(filter.Equals("userid"))
+                        query = $"SELECT * FROM Equipment WHERE UserID = {search}";
+                }
+                else
+                    query = $"SELECT * FROM Equipment WHERE EquipmentName LIKE '{search}%'";
             }
-            else
-                query = $"SELECT * FROM Equipment WHERE EquipmentName LIKE '{search}%'";
             displayData(query);
 
         }

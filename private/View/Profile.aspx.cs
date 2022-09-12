@@ -79,14 +79,12 @@ namespace bcms
                                 profile.Image = link + "male.jpg";
                             else
                                 profile.Image = link + defaultImage;
+                        }else
+                        {
+                            profile.Image = link + profile.Image;
                         }
 
-                        profile.Image = link + profile.Image;
                     }
-                }
-                else
-                {
-
                 }
             }
         }
@@ -110,20 +108,24 @@ namespace bcms
                 }
             }
         }
-
-        public class ViewUser
+        
+        protected void btnCancel_Click(object sender, EventArgs e)
         {
-            public string Name { get; set; }
-            public string Surname { get; set; }
-            public string UserID { get; set; }
-            public string Gender { get; set; }
-            public string BirthDate { get; set; }
-            public string Image { get; set; }
-            public string JobStatus { get; set; }
-            public string EmployeeID { get; set; }
-            public string Email { get; set; }
-            public string Link { get; set; }
+            Response.Redirect("ViewUser.aspx");
         }
-
     }
+    public class ViewUser
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string UserID { get; set; }
+        public string Gender { get; set; }
+        public string BirthDate { get; set; }
+        public string Image { get; set; }
+        public string JobStatus { get; set; }
+        public string EmployeeID { get; set; }
+        public string Email { get; set; }
+        public string Link { get; set; }
+    }
+
 }

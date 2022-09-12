@@ -25,7 +25,6 @@ namespace bcms
                 Response.Redirect("dashboard.aspx");
 
             string eMessage = Database.getError();
-            InfoDisplay.Text = "Top [10] most recent device logins";
             backups = new List<IBackup>();
 
             Database database = new Database();
@@ -86,7 +85,11 @@ namespace bcms
                 InfoDisplay.Text = "Backup Deleted";
             }
         }
-  
+
+        protected void btnViewOptions_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BackupInfo.aspx");
+        }
     }
 
     public class IBackup

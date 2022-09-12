@@ -13,15 +13,17 @@
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/ManageUsers.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
-
-            <h1 class="display-5">Manage Backups</h1>
+            <div class="form-check-inline">
+                <h1 class="display-5">Manage Backups</h1>
+            </div>
+            <asp:Button class="btn btn-primary float-right" ID="btnViewOptions" runat="server"  Text="Backup Options" OnClick="btnViewOptions_Click" />
             <div class="dropdown-divider"></div>
             <asp:Label ID="InfoDisplay" runat="server"></asp:Label>
             <div id="tableView">
@@ -67,11 +69,9 @@
                         <%}%>
                     </tbody>
                 </table>
+
+            
             </div>
-
-            <asp:Button class="btn btn-primary" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save backup of Database" />
-            <asp:Button class="btn btn-primary" ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete backup of Database" />
-
         </div>
 
 

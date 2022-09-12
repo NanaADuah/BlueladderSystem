@@ -118,6 +118,28 @@ namespace bcms
             }
             return false;
         }
+        
+        public bool removeBackup(int BackUpID)
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            try
+            {
+                local.Open();
+                string query = $"DELETE FROM Backup WHERE Backup = {BackUpID}";
+                SqlCommand command = new SqlCommand(query, local);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                setError(ex.Message);
+            }
+            finally
+            {
+                local.Close();
+            }
+            return false;
+        }
         public bool removeEquipment(int eID)
         {
             string[] list = new string[500];

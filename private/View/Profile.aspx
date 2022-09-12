@@ -40,7 +40,7 @@
             <h1>Unable to view this profile</h1>
         </div>
         <%}%>
-        <%if (isWorker)
+        <%if (isWorker && profile != null)
             {%>
         <div class="container-xl px-4 mt-4">
             <div class="row">
@@ -99,7 +99,7 @@
                                     { %>
                                 <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save changes" OnClick="btnSave_Click"></asp:Button>
                                 <%} %>
-                                <asp:Button ID="btnCancel" class="float-right btn btn-warning" runat="server" Text="Back"></asp:Button>
+                                <asp:Button ID="btnCancel" class="float-right btn btn-warning" runat="server" Text="Back" OnClick="btnCancel_Click"></asp:Button>
                             </div>
                         </div>
                     </div>

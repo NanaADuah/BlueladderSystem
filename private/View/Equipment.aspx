@@ -12,9 +12,9 @@
 
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/ViewAll.css" />
     <link rel="stylesheet" href="css/ManageUsers.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
 
 </head>
 <body>
@@ -22,7 +22,10 @@
         <div id="heading">
             <!--#include file="navBar.html"-->
             <div class="px-5" id="main">
+                <div class="form-check-inline">
                 <h1 class="display-5">Manage Equipment</h1>
+                </div>
+                <a class="btn btn-success float-right" href="Help.aspx">Help</a>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="fa fa-search"></i></button>

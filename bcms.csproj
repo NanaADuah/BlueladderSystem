@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="private\View\BackupInfo.aspx" />
     <Content Include="Forbidden.aspx" />
     <Content Include="private\View\Equipment.aspx" />
     <Content Include="private\View\css\ForgotPassword.css" />
@@ -277,6 +278,13 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\BackupInfo.aspx.cs">
+      <DependentUpon>BackupInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\BackupInfo.aspx.designer.cs">
+      <DependentUpon>BackupInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forbidden.aspx.cs">
       <DependentUpon>Forbidden.aspx</DependentUpon>
