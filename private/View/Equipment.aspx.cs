@@ -105,6 +105,21 @@ namespace bcms
             displayData(query);
 
         }
+
+        protected void btnNewEquip_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddEquipment.aspx");
+        }
+
+        protected void btnDetials_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnRequest_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class IEquipment

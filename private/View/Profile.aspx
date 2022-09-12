@@ -40,7 +40,7 @@
             <h1>Unable to view this profile</h1>
         </div>
         <%}%>
-        <%if (isWorker && profile != null)
+        <%if (isWorker)
             {%>
         <div class="container-xl px-4 mt-4">
             <div class="row">
@@ -48,7 +48,7 @@
                     <div class="card mb-4 mb-xl-0">
                         <div class="card-header">Profile Picture</div>
                         <div class="card-body text-center">
-                            <img class="img-account-profile rounded-circle mb-2" src="<%=profile.Image%>" alt="" />
+                            <img class="img-account-profile rounded-circle mb-2" src="../../public/includes/profile/female.jpg" alt="" />
                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
 
                             <button class="btn btn-primary" type="button">Upload new image</button>
@@ -67,11 +67,11 @@
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputFirstName">First name</label>
-                                        <asp:TextBox class="form-control" ID="inputFirstName" runat="server" placeholder="First name of user" value="Valerie"></asp:TextBox>
+                                        <asp:TextBox class="form-control" ID="inputFirstName" runat="server" placeholder="First name of user" value="First name of user"></asp:TextBox>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName">Last name</label>
-                                        <asp:TextBox runat="server" class="form-control" ID="inputLastName" placeholder="last name of user"></asp:TextBox>
+                                        <asp:TextBox runat="server" class="form-control" ID="inputLastName" placeholder="Last name of user"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">

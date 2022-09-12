@@ -24,67 +24,78 @@ namespace bcms
             if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
                 Response.Redirect("dashboard.aspx");
 
-            int ID = 0;
+            int ID;
 
             if (!IsPostBack)
             {
-                if (Request.QueryString["ID"] != null)
+                if (Request.QueryString["id"] != null)
                 {
-                    ID = int.Parse(Request.QueryString["ID"]);
+                    ID = int.Parse(Request.QueryString["id"]);
                     SetProfile(ID);
                 }
                 else
                     Response.Redirect("ManageUsers.aspx");
-            }
+            }else
+                Response.Redirect("ManageUsers.aspx");
         }
 
         public void SetProfile(int ID)
         {
             User e = new User();
-            if (e.getRole(ID).Equals("Worker", StringComparison.OrdinalIgnoreCase))
+            Database database = new Database();
+
+            if(database.UserExists(ID))
             {
-                isWorker = true;
-
-                Database database = new Database();
-                profile = new ViewUser();
-                SqlDataReader reader = database.execReader($"SELECT * FROM [Employee] WHERE UserID = {ID}");
-                string defaultImage = "placeholder.png";
-                if (reader != null)
+                if (e.getRole(ID).Equals("Worker", StringComparison.OrdinalIgnoreCase))
                 {
-                    while (reader.Read())
+                    isWorker = true;
+                    profile = new ViewUser();
+                    SqlDataReader reader = database.execReader($"SELECT * FROM [Employee] WHERE UserID = {ID}");
+                    string defaultImage = "placeholder.png";
+                    Response.Write(reader.ToString());
+                    if (reader != null)
                     {
-                        profile.EmployeeID = reader.GetValue(0).ToString();
-                        profile.UserID = reader.GetValue(1).ToString();
-                        profile.Name = reader.GetValue(2).ToString();
-                        profile.Surname = reader.GetValue(3).ToString();
-                        profile.JobStatus = reader.GetValue(4).ToString();
-                        profile.Gender = reader.GetValue(5).ToString();
-                        profile.BirthDate = reader.GetValue(6).ToString();
-                        profile.Image = reader.GetValue(7).ToString();
-                        profile.Email = reader.GetValue(7).ToString();
+                        while (reader.Read())
+                        {
+                            profile.EmployeeID = reader.GetValue(0).ToString();
+                            profile.UserID = reader.GetValue(1).ToString();
+                            profile.Name = reader.GetValue(2).ToString();
+                            profile.Surname = reader.GetValue(3).ToString();
+                            profile.JobStatus = reader.GetValue(4).ToString();
+                            profile.Gender = reader.GetValue(5).ToString();
+                            profile.BirthDate = reader.GetValue(6).ToString();
+                            profile.Image = reader.GetValue(7).ToString();
+                            profile.Email = reader.GetValue(8).ToString();
 
-                        inputUserID.Text = profile.UserID;
-                        inputLastName.Text = profile.Surname;
-                        inputFirstName.Text = profile.Name;
-                        inputGender.Text = profile.Gender;
-                        inputBirthday.Text = profile.BirthDate;
-                        inputEmailAddress.Text = profile.Email;
-                        string link = ".. / .. /public/includes/profile/";
-                        if (profile.Image.Equals("") || profile.Image == null)
-                        {
-                            if (profile.Gender.Equals("female", StringComparison.OrdinalIgnoreCase))
-                                profile.Image = link + "female.jpg";
+                            inputUserID.Text = profile.UserID;
+                            inputLastName.Text = profile.Surname;
+                            inputFirstName.Text = profile.Name;
+                            inputGender.Text = profile.Gender;
+                            inputBirthday.Text = profile.BirthDate;
+                            inputEmailAddress.Text = profile.Email;
+                            inputJobStatus.Text = profile.JobStatus;
+
+                            string link = ".. / .. /public/includes/profile/";
+                            if (profile.Image.Equals("") || profile.Image == null)
+                            {
+                                if (profile.Gender.Equals("female", StringComparison.OrdinalIgnoreCase))
+                                    profile.Image = link + "female.jpg";
+                                else
+                                if (profile.Gender.Equals("male", StringComparison.OrdinalIgnoreCase))
+                                    profile.Image = link + "male.jpg";
+                                else
+                                    profile.Image = link + defaultImage;
+                            }
                             else
-                            if (profile.Gender.Equals("male", StringComparison.OrdinalIgnoreCase))
-                                profile.Image = link + "male.jpg";
-                            else
-                                profile.Image = link + defaultImage;
-                        }else
-                        {
-                            profile.Image = link + profile.Image;
+                            {
+                                profile.Image = link + profile.Image;
+                            }
+
                         }
-
                     }
+                }else
+                {
+                    Response.Redirect("ManageUsers.aspx");
                 }
             }
         }
@@ -104,14 +115,13 @@ namespace bcms
                     string query = $"UPDATE Employee SET FirstName = '{updateName}',LastName = '{updateSurname}', JobStatus='{updatejobStatis}' WHERE Employee.UserID = {ID}";
                     Database database = new Database();
                     database.update(query);
-
                 }
             }
         }
         
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ViewUser.aspx");
+            Response.Redirect("ManaegeUsers.aspx");
         }
     }
     public class ViewUser

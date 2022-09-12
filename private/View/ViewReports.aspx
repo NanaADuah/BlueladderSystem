@@ -20,8 +20,11 @@
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
             <div id="header">
+                <div class="form-check-inline">
 
-            <h1 class="display-5">Generate Reports</h1>
+            <h1 class="display-5">Generate Reports <i class="fa fa-bar-chart" aria-hidden="true"></i></h1>
+                </div>
+                <a href="Help.aspx" class="btn btn-success float-right">Help</a>
             <div class="dropdown-divider"></div>
             </div>
 

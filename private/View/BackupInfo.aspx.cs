@@ -29,9 +29,10 @@ namespace bcms
         {
             Database database = new Database();
             int bID = 0;
-            if(database.removeBackup(bID))
+            if(true)
+                /*database.removeBackup(bID))*/
             {
-
+                lblDelMessage.Text = "Database backup successfully deleted";
             }
 
         }

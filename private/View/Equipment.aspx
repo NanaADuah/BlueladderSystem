@@ -42,9 +42,9 @@
             </div>
             <div class="dropdown-divider"></div>
             <div class="mx-5 my-2">
-                <asp:Button runat="server" id="btnTakeOut" Text="Add New Equipment" class="btn btn-primary"></asp:Button>
-                <asp:Button runat="server" id="btnDetials" Text="Add notes" class="btn btn-info mx-2"></asp:Button>
-                <asp:Button runat="server" id="btnRequest" Text="Request for equipment return" class="btn btn-secondary float"></asp:Button>
+                <asp:Button runat="server" id="btnNewEquip" Text="Add New Equipment" class="btn btn-primary" OnClick="btnNewEquip_Click"></asp:Button>
+                <asp:Button runat="server" id="btnDetials" Text="Add notes" class="btn btn-info mx-2" OnClick="btnDetials_Click"></asp:Button>
+                <asp:Button runat="server" id="btnRequest" Text="Request for equipment return" class="btn btn-secondary float" OnClick="btnRequest_Click"></asp:Button>
                 <asp:Button runat="server" id="btnReturn" Text="Return Equipment" class="btn btn-dark float-right"></asp:Button>
             </div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>

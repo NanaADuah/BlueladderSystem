@@ -19,19 +19,19 @@
     <form id="form1" runat="server">
          <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
-            <h1 class="display-5">Security Settings</h1>
+            <h1 class="display-5">Security Settings <i class="fa fa-lock" aria-hidden="true"></i></h1>
             <div class="dropdown-divider"></div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
             <div id="tableView">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" class="auto-style1">Information</th>
+                            <th scope="col" class="auto-style1">Rcent Logins</th>
                         </tr>
                     </thead>
                     <tbody>
                                 <tr class="text-center">
-                                    <td>No vulnerabilities found </td>
+                                    <td>No recent logins</td>
                                 </tr>
                     </tbody>
                 </table>

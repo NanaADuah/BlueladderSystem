@@ -107,6 +107,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="private\View\Help.aspx" />
+    <Content Include="private\View\AddEquipment.aspx" />
     <Content Include="private\View\BackupInfo.aspx" />
     <Content Include="Forbidden.aspx" />
     <Content Include="private\View\Equipment.aspx" />
@@ -278,6 +280,20 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\AddEquipment.aspx.cs">
+      <DependentUpon>AddEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\AddEquipment.aspx.designer.cs">
+      <DependentUpon>AddEquipment.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\View\BackupInfo.aspx.cs">
       <DependentUpon>BackupInfo.aspx</DependentUpon>
