@@ -41,7 +41,7 @@
                         { %>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Date</th>
+                            <th scope="col">Date Executed</th>
                             <th scope="col">Type</th>
                             <th scope="col">UserID</th>
                             <th scope="col">File Name</th>
@@ -64,7 +64,7 @@
                             <td><%=item.Time.ToString("dd/MM/yyyy HH:mm")%></td>
                             <td><%=item.Type%></td>
                             <td><%=item.UserID%></td>
-                            <td><%=item.FileName%></td>
+                            <td><a href="ViewReport?backupid=<%=item.BackupID%>"><%=item.FileName.Substring(15)%></a></td>
                         </tr>
                         <%}%>
                     </tbody>

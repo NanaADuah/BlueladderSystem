@@ -25,9 +25,10 @@ namespace bcms
             devices = new List<Device>();
             Database database = new Database();
             string query = "SELECT TOP 10 DeviceName, UserID, DeviceType, DeviceID, Time FROM Devices ORDER BY TIME ASC";
-            SqlDataReader reader = database.execReader(query);
             if (eMessage.Length != 0)
                 lblMessages.Text = "Error: " + eMessage;
+
+            SqlDataReader reader = database.execReader(query);
             if(reader != null)
                 while(reader.Read())
                 {

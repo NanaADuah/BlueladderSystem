@@ -11,20 +11,19 @@
 
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/ManageUsers.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
     <title>Settings</title>
 </head>
+
 <body>
     <form id="form1" runat="server">
         <div id="heading">
             <!--#include file="navBar.html"-->
             <div class="px-5" id="main">
-
                 <h1 class="display-5">Settings</h1>
                 <div class="dropdown-divider">
                 </div>
-
             </div>
         </div>
         <div id="tableView" class="w-75">
@@ -32,11 +31,20 @@
                 <tbody>
                     <tr>
                         <th scope="row">Dark mode</th>
-                        <td><!-- Default checked -->
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="darkMode" onclick="change()">
+                        <td>
+                                <div class="toggle-container">
+                            <div class="custom-control custom-switch">
+                            <!-- 
+                                    <button class="theme-btn light btn btn-primary" onclick="setTheme('light')" title="Light mode">
+                                    </button>
+                                    <button class="theme-btn dark btn btn-primary" onclick="setTheme('dark')" title="Dark mode">
+                                    </button>
+        -->
+                                <input type="checkbox" class="custom-control-input" id="darkMode" onclick="change()">
                                 <label class="custom-control-label" for="customSwitch1"></label>
-                        </div></td>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">Account</th>
@@ -55,13 +63,10 @@
             </table>
         </div>
         <script type="text/javascript">
-            function change() {
-                var decider = document.getElementById('darkMode');
-                if (decider.checked) {
-                    alert('check');
-                } else {
-                    alert('unchecked');
-                }
+            function setTheme(theme)
+            {
+                const setTheme = theme => document.documentElement.className = theme;
+                console.log(theme);
             }
         </script>
     </form>

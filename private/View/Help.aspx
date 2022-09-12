@@ -29,6 +29,7 @@
                 <table class="table table-hover">
                 </table>
             </div>
+            <a href="dashboard.aspx" class="btn btn-success btn-lg">GO BACK</a>
         </div>
     </form>
 </body>

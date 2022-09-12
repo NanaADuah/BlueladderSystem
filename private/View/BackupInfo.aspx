@@ -34,42 +34,19 @@
                         <h6>Select an option from below and click execute to create a backup of the database</h6>
                         <div class="dropdown-divider"></div>
                         <div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="rbOption" id="rbUser" checked="checked" />
-                                <label class="form-check-label" for="rbUser">
-                                    User Database
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="rbOption" id="rbEqipment" />
-                                <label class="form-check-label" for="rbEqipment">
-                                    Equipment Database
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="rbOption" id="rbEmployee" />
-                                <label class="form-check-label" for="rbEmployee">
-                                    Employee Database
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="rbOption" id="rbDevice" />
-                                <label class="form-check-label" for="rbDevice">
-                                    Device Database
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="rbOption" id="rbRequest" />
-                                <label class="form-check-label" for="rbRequest">
-                                    Equipment Request Database
-                                </label>
+                            <div style="display:grid">
+                                <asp:RadioButton runat="server" class="" GroupName="rbOption" id="rbUser" Text="User Database" OnCheckedChanged="rbUser_CheckedChanged" />
+                                <asp:RadioButton runat="server" class="" GroupName="rbOption" id="rbEqipment" Text ="Equipment Database" OnCheckedChanged="rbEqipment_CheckedChanged" />
+                                <asp:RadioButton runat="server" class="" GroupName="rbOption" id="rbEmployee"  Text="Employee Database" OnCheckedChanged="rbEmployee_CheckedChanged"/>
+                                <asp:RadioButton runat="server" class="" GroupName="rbOption" id="rbDevice" Text="Device Database" OnCheckedChanged="rbDevice_CheckedChanged" />
+                                <asp:RadioButton runat="server" class="" GroupName="rbOption" id="rbRequest" Text="Equipment Request Database" OnCheckedChanged="rbRequest_CheckedChanged" />
                             </div>
                             <div class="dropdown-divider"></div>
                             <asp:Button Text="EXECUTE" runat="server" ID="btnExecute" class="btn btn-secondary m-2" OnClick="btnExecute_Click"></asp:Button>
-                            <asp:Label ID="lblDelMessage" runat="server" Text=""></asp:Label>
                         </div>
                     </div>
-                    <h2>OR
+                    <h2>
+                        OR
                     </h2>
 
                     <div class="w-100 rounded shadow shadow-sm p-2 mb-5">
@@ -79,16 +56,15 @@
                         <a href="Backup.aspx" class="btn btn-secondary float-right">VIEW BACKUPS</a>
                         <h6 class="font-weight-light">Enter the backup ID of the database backup to remove</h6>
                         <div class="dropdown-divider"></div>
+                            <asp:Label ID="lblDelMessage" runat="server" Text=""></asp:Label>
                         <div class="input-group mb-3">
                           <span class="input-group-text rounded-0" id="inputGroup-sizing-default">#</span>
-                          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="deleteIDInput"/>
+                          <asp:TextBox runat="server" class="form-control" id="tbDeleteBackup" aria-label="Backup Delete ID"></asp:TextBox>
                         </div>
                         <asp:Button runat="server" class="btn btn-danger m-2" Text="REMOVE" ID="btnRemoveBackup" OnClick="btnRemoveBackup_Click" ></asp:Button>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </form>
 </body>

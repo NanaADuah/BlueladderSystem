@@ -15,6 +15,11 @@ namespace bcms
                 Response.Redirect("startup.aspx");
 
             User user = new User();
+            if(user.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin", StringComparison.CurrentCultureIgnoreCase))
+            {
+                Response.Redirect("Account.aspx");
+            }
+
         }
     }
 }

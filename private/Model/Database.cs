@@ -7,6 +7,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Text;
+using System.Data;
 
 namespace bcms
 {
@@ -28,10 +29,9 @@ namespace bcms
             {
 
                 string query = $"SELECT COUNT(*) AS Total FROM Device";
-
-                    SqlCommand command = new SqlCommand(query, local);
-                    int value =  int.Parse(command.ExecuteScalar().ToString());
-                    return value;
+                SqlCommand command = new SqlCommand(query, local);
+                int value =  int.Parse(command.ExecuteScalar().ToString());
+                return value;
             }
             catch (Exception ex)
             {
@@ -42,7 +42,6 @@ namespace bcms
             {
                 local.Close();
             }
-            return -1;
         }
         
         public int getDevicesTypes()
@@ -65,8 +64,15 @@ namespace bcms
             {
                 local.Close();
             }
-            return -1;
         }
+        public static string RandomString(int length)
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
         public bool removeUser(int UserID, string role)
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
@@ -106,6 +112,7 @@ namespace bcms
                 string query = $"DELETE FROM [Device] WHERE DeviceID = {DeviceID}";
                 SqlCommand command = new SqlCommand(query, local);
                 command.ExecuteNonQuery();
+                setError("");
                 return true;
             }
             catch(Exception ex)
@@ -125,9 +132,10 @@ namespace bcms
             try
             {
                 local.Open();
-                string query = $"DELETE FROM Backup WHERE Backup = {BackUpID}";
+                string query = $"DELETE FROM [Backup] WHERE BackupID = {BackUpID}";
                 SqlCommand command = new SqlCommand(query, local);
                 command.ExecuteNonQuery();
+                setError("");
                 return true;
             }
             catch(Exception ex)
@@ -301,6 +309,91 @@ namespace bcms
             return error;
         }
 
+        public string writeCSV(string tableName, int UserID)
+        {
+            DataTable table = new DataTable();
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            if(isActive())
+            { 
+                try
+                {
+                    local.Open();
+                    string query = $"SELECT  * FROM [{tableName}]";
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, local);
+                    adapter.Fill(table);
+                    string saveName = RandomString(15);
+                    string storeDataBaseFilename = HttpContext.Current.Server.MapPath("~") + $"public\\backup\\{saveName}.csv";
+                    string userStore = GetDownloadFolderPath() + $"\\{saveName}.csv";
+                    CSVUtility.ToCSV(table, storeDataBaseFilename);
+                    CSVUtility.ToCSV(table, userStore);
+                    string insData = $"INSERT INTO [Backup] (Filename, Time, UserID, Type) VALUES ('\\public\\backup\\{saveName}.csv','{DateTime.Now}',{UserID},'Normal')";
+                    SqlCommand command = new SqlCommand(insData, local);
+                    command.ExecuteNonQuery();
+                    setError("");
+                    return userStore;
+                }
+                catch (Exception ex)
+                {
+                    setError(ex.Message);
+                }
+                finally
+                {
+                    local.Close();
+                } 
+            }
+            return "-1";
+        }
+
+        public static string GetHomePath()
+        {
+            // Not in .NET 2.0
+            // System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            if (System.Environment.OSVersion.Platform == System.PlatformID.Unix)
+                return System.Environment.GetEnvironmentVariable("HOME");
+
+            return System.Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
+        }
+
+
+        public static string GetDownloadFolderPath()
+        {
+            if (System.Environment.OSVersion.Platform == System.PlatformID.Unix)
+            {
+                string pathDownload = System.IO.Path.Combine(GetHomePath(), "Downloads");
+                return pathDownload;
+            }
+
+            return System.Convert.ToString(
+                Microsoft.Win32.Registry.GetValue(
+                     @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders"
+                    , "{374DE290-123F-4565-9164-39C4925E467B}"
+                    , String.Empty
+                )
+            );
+        }
+
+        public int getCount(string query)
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            int count = 0;
+            if(isActive())
+            try
+            {
+                    local.Open();
+                    SqlCommand command = new SqlCommand(query, local);
+                    count = int.Parse(command.ExecuteScalar().ToString());
+                    setError("");
+                    local.Close();
+                    return count;
+            }
+                catch(Exception ex)
+                {
+                    setError(ex.Message);
+                    return -1;
+                }
+            return -1;
+        }
+
         public string get(string query)
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
@@ -470,7 +563,6 @@ namespace bcms
         {
             SqlDataReader reader = null;
             SqlConnection local = new SqlConnection(GetConnectionString());
-
             try
             {
                 local.Open();
@@ -484,7 +576,6 @@ namespace bcms
                 error = ex.Message;
             }
             return reader;
-           // local.Close();
         }
 
         public int UserAdd(string Role, string Password)

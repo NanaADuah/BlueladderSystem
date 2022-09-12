@@ -33,6 +33,51 @@ namespace bcms
         protected global::System.Web.UI.WebControls.Label lblMessages;
 
         /// <summary>
+        /// rbUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbUser;
+
+        /// <summary>
+        /// rbEqipment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbEqipment;
+
+        /// <summary>
+        /// rbEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbEmployee;
+
+        /// <summary>
+        /// rbDevice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbDevice;
+
+        /// <summary>
+        /// rbRequest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbRequest;
+
+        /// <summary>
         /// btnExecute control.
         /// </summary>
         /// <remarks>
@@ -49,6 +94,15 @@ namespace bcms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDelMessage;
+
+        /// <summary>
+        /// tbDeleteBackup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbDeleteBackup;
 
         /// <summary>
         /// btnRemoveBackup control.
