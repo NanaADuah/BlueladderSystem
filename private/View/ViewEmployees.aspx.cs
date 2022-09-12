@@ -22,6 +22,7 @@ namespace bcms
             Database database = new Database();
             string query = "SELECT * FROM Employee";
             SqlDataReader reader = database.execReader(query);
+
             if (eMessage.Length != 0)
                 lblMessages.Text = "Error: " + eMessage;
             string defaultImage  = "placeholder.png";
@@ -56,12 +57,11 @@ namespace bcms
                         Surname = lName,
                         JobStatus= status,
                         Gender = gender,
-                        Birthdate = bDate,
+                        Birthdate = Convert.ToDateTime(bDate),
                         Image = image
                         
                     }) ;
                 }
-
         }
     }
 
@@ -71,7 +71,7 @@ namespace bcms
         public string Surname { get; set; }
         public string UserID { get; set; }
         public string Gender { get; set; }
-        public string Birthdate { get; set; }
+        public DateTime Birthdate { get; set; }
         public string Image { get; set; }
         public string JobStatus{ get; set; }
         public string EmployeeID { get; set; }

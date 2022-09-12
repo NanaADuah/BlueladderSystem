@@ -38,7 +38,7 @@
                             <th scope="col">Gender</th>
                             <th scope="col">BirthDate</th>
                             <th scope="col">Job Title</th>
-                            <th scope="col">View</th>
+                            <th scope="col">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,13 +52,13 @@
                             <% foreach (var item in employees)
                                 {%>
                             <tr>
-                            <td> <img class="empImg" src="../../public/includes/profile/placeholder.png"</td>
+                            <td> <img class="empImg" src="../../public/includes/profile/<%=item.Image%>"</td>
                             <td><%=item.EmployeeID%></td>
                             <td><%=item.UserID%></td>
                             <td><%=item.Name%></td>
                             <td><%=item.Surname%></td>
                             <td><%=item.Gender%></td>
-                            <td><%=item.Birthdate%></td>
+                            <td><%=item.Birthdate.ToString("dd MMM yyyy")%></td>
                             <td><%=item.JobStatus%></td>
                             <td><a class="btn btn-primary" href="Profile.aspx?id=<%=item.UserID%>" ><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
                             </tr>

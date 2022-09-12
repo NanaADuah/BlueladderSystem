@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="css/AddUser.css" />
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/AddUser.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <section class="h-100 h-custom gradient-custom-2">
+        <section class="h-100 h-custom gradient-custom-2" style=" box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12">

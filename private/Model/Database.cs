@@ -20,8 +20,131 @@ namespace bcms
         static Database()
         {
             _instance = new Database();
-
         }
+        public int getDevices()
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            try
+            {
+
+                string query = $"SELECT COUNT(*) AS Total FROM Device";
+
+                    SqlCommand command = new SqlCommand(query, local);
+                    int value =  int.Parse(command.ExecuteScalar().ToString());
+                    return value;
+            }
+            catch (Exception ex)
+            {
+                setError(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                local.Close();
+            }
+            return -1;
+        }
+        
+        public int getDevicesTypes()
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            try
+            {
+
+                string query = "“SELECT COUNT(*) AS Types FROM Device GROUP BY Device.DeviceType";
+                SqlCommand command = new SqlCommand(query, local);
+                int value =  int.Parse(command.ExecuteScalar().ToString());
+                    return value;
+            }
+            catch (Exception ex)
+            {
+                setError(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                local.Close();
+            }
+            return -1;
+        }
+        public bool removeUser(int UserID, string role)
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            try
+            {
+
+                string query = $"DELETE FROM [User] WHERE UserID = {UserID}";
+    
+                if(role.Equals("Worker"))
+                {
+                    query = $"DELETE FROM [User], [Employee] LEFT JOIN [Employee] ON [User].UserID = [Employee].UserID WHERE [User].UserID = {UserID}";
+                    SqlCommand command = new SqlCommand(query, local);
+
+                    query = $"DELETE FROM [User], [Device] LEFT JOIN [Device] ON [User].UserID = [DeviceID].UserID WHERE [User].UserID = {UserID}";
+                    command = new SqlCommand(query, local);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                setError(ex.Message);
+                return false;
+            }
+            finally
+            {
+                local.Close();
+            }
+            return false;
+        }
+
+        public bool removeDevice(int DeviceID)
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            try
+            {
+                local.Open();
+                string query = $"DELETE FROM [Device] WHERE DeviceID = {DeviceID}";
+                SqlCommand command = new SqlCommand(query, local);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                setError(ex.Message);
+            }
+            finally
+            {
+                local.Close();
+            }
+            return false;
+        }
+        public bool removeEquipment(int eID)
+        {
+            string[] list = new string[500];
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            if (isActive())
+            {
+                try
+                {
+                    local.Open();
+                    SqlCommand command = new SqlCommand($"DELETE [Equipment],[EquipmentRequest] FROM [Equipment] LEFT JOIN  [EquipmentRequest] ON [Equipment].UserID = [EquipmentRequest].UserID WHERE [Equipment].UserID = {eID}", local);
+                    command.ExecuteReader();
+                    setError("");
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    setError(ex.Message);
+                }
+                finally
+                {
+                    local.Close();
+                }
+            }
+
+            return false;
+        }
+
         public string[] getlist(string query)
         {
             string[] list = new string[500];
@@ -61,6 +184,11 @@ namespace bcms
             userCount = count;
         }
 
+        public void setNullBackup()
+        {
+            string query = "UPDATE Backup SET UserID = null WHERE [User].UserID = {ID}";
+            update(query);
+        }
         public bool generateEquipment(int count)
         {
 
@@ -93,7 +221,7 @@ namespace bcms
                         serial = serial.Length <= 20 ? serial : serial.Substring(0, 20);
                         Regex rgx = new Regex("[^a-zA-Z0-9 -]");
                         serial = rgx.Replace(serial, "");
-                        int avail = rand.Next(0, 1);
+                        string avail = rand.Next(0, 100) % 2 == 0?"True":"False";
                         string query = $"INSERT INTO Equipment(UserID,Category,EquipmentName, Manufacturer, SerialNumber, Available) VALUES ({int.Parse(_userIDs[rand.Next(0, userCount)])},'{category}','{eName}','{manufacturer}','{serial}',{avail})";
                         command = new SqlCommand(query, local);
                         command.ExecuteNonQuery();
@@ -214,6 +342,50 @@ namespace bcms
             }
             return false;
         }
+
+        public bool updatePassword(int userID, string newPass)
+        {
+            string hPassword = EncryptPassword(newPass);
+            if (active)
+            {
+            SqlConnection local = new SqlConnection();
+
+            try
+            {
+                local.Open();
+                SqlCommand command = new SqlCommand($"UPDATE [User] SET Password = '{hPassword}'", local);
+                command.ExecuteNonQuery();
+                local.Close();
+                return true;
+            }catch(Exception ex)
+                {
+                    setError(ex.Message);
+                }
+            }
+            return false;
+
+        }
+
+        public bool removEmployee(int ID)
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+
+            try
+            {
+                local.Open();
+                string query = $"DELETE [User], [Employee] FROM [User] LEFT JOIN [Employee] ON [User].key = [Employee].key WHERE UserID = {ID}";
+                SqlCommand command = new SqlCommand(query, local);
+                command.ExecuteNonQuery();
+                local.Close();
+                setError("");
+            }
+            catch (SqlException ex)
+            {
+               setError(ex.Message);
+            }
+            local.Close();
+            return false;
+        }
         public bool check(int ID, string password)
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
@@ -227,25 +399,49 @@ namespace bcms
                 Object result = command.ExecuteScalar();
                 string matchPassword = result.ToString();
                 local.Close();
-
+                setError("");
                 if (matchPassword.Equals(password))
                     return true;
                 return false;
             }
               catch (SqlException ex)
             {
-                error = ex.Message;
+                setError(ex.Message);
             }
             local.Close();
             return false;
         }
+        public bool update(string query)
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            try
+            {
+                local.Open();
+                SqlCommand command = new SqlCommand(query, local);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
 
-        public void logDevice(string type, string name)
+                command.Dispose();
+                local.Close();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                setError(ex.Message);
+                return false;
+            }
+        }
+        public void logDevice(string IP, string type, string name, int UserID)
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
             DateTime time = DateTime.Now;
-            string query = $"INSERT INTO Devices (DeviceName, DeviceType, Date) VALUES ('{name}','{type}',{time})";
+            string query = $"INSERT INTO Devices (DeviceID,DeviceName, DeviceType, Time, UserID) VALUES ('{IP}','{name}','{type}',{time},{UserID})";
             bool result = insert(query);
+            if (result)
+                setError("");
+            else
+                setError("Logging device error B100");
         }
 
         public SqlDataReader execReader(string query)

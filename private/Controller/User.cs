@@ -52,14 +52,13 @@ namespace bcms
             Database database = new Database();
             Session["UserID"] =  ID;
             HttpContext.Current.Response.Redirect("dashboard.aspx");
-            string str = "";
 
             var HostIP = HttpContext.Current != null ? HttpContext.Current.Request.UserHostAddress : "";
 
-            string devType = "Null";
+            string devType = "Desktop";
             string devName = Environment.MachineName;
-            string IP = HostIP.ToString();
-            database.logDevice(devType,devName);
+            string deviceIP = HostIP.ToString();
+            database.logDevice(deviceIP, devType,devName, ID);
         }
 
         public void Logout()

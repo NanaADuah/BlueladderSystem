@@ -19,96 +19,94 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
         <div id="heading">
             <!--#include file="navBar.html"-->
             <div class="container">
                 <div clas="col">
+                    <%if (profile != null)
+                        { %>
                     <h1 class="display-5 mx-2">Profile - <%= profile.Name%>
+                        <%} %>
                     </h1>
                 </div>
                 <div class="dropdown-divider"></div>
             </div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
         </div>
+        <%if (!isWorker)
+            {%>
+        <div>
+            <h1>Unable to view this profile</h1>
+        </div>
+        <%}%>
+        <%if (isWorker)
+            {%>
         <div class="container-xl px-4 mt-4">
-    <!-- Account page navigation-->
-    <div class="row">
-        <div class="col-xl-4">
-            <!-- Profile picture card-->
-            <div class="card mb-4 mb-xl-0">
-                <div class="card-header">Profile Picture</div>
-                <div class="card-body text-center">
-                    <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="../../public/includes/profile/<%=profile.Image %>" alt=""/>
-                    <!-- Profile picture help block-->
-                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="card mb-4 mb-xl-0">
+                        <div class="card-header">Profile Picture</div>
+                        <div class="card-body text-center">
+                            <img class="img-account-profile rounded-circle mb-2" src="<%=profile.Image%>" alt="" />
+                            <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
 
-                    <!-- Profile picture upload button-->
-                    <button class="btn btn-primary" type="button">Upload new image</button>
+                            <button class="btn btn-primary" type="button">Upload new image</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="card mb-4">
+                        <div class="card-header">Account Details</div>
+                        <div class="card-body">
+                            <div>
+                                <div class="mb-3">
+                                    <label class="small mb-1" for="inputUserID">User ID for profile</label>
+                                    <asp:TextBox class="form-control" runat="server" ID="inputUserID" placeholder="Username" disabled></asp:TextBox>
+                                </div>
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputFirstName">First name</label>
+                                        <asp:TextBox class="form-control" ID="inputFirstName" runat="server" placeholder="First name of user" value="Valerie"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputLastName">Last name</label>
+                                        <asp:TextBox runat="server" class="form-control" ID="inputLastName" placeholder="last name of user"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputGender">Gender</label>
+                                        <asp:TextBox class="form-control" ID="inputGender" runat="server" placeholder="User gender"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                                    <asp:TextBox runat="server" class="form-control" ID="inputEmailAddress" placeholder="Email Address" />
+                                </div>
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputJobStatus">Job Status</label>
+                                        <asp:TextBox class="form-control" runat="server" ID="inputJobStatus" placeholder="Job Status"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputBirthday">Birthday</label>
+                                        <asp:TextBox class="form-control" ID="inputBirthday" runat="server" name="birthday" placeholder="User's birthday"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                                <%if (role.Equals("Admin"))
+                                    { %>
+                                <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save changes" OnClick="btnSave_Click"></asp:Button>
+                                <%} %>
+                                <asp:Button ID="btnCancel" class="float-right btn btn-warning" runat="server" Text="Back"></asp:Button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-8">
-            <!-- Account details card-->
-            <div class="card mb-4">
-                <div class="card-header">Account Details</div>
-                <div class="card-body">
-                    <form>
-                        <!-- Form Group (username)-->
-                        <div class="mb-3">
-                            <label class="small mb-1" for="inputUserID">User ID for profile</label>
-                            <asp:TextBox class="form-control" runat="server" ID="inputUserID" placeholder="Username" disabled></asp:TextBox>
-                        </div>
-                        <!-- Form Row-->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (first name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputFirstName">First name</label>
-                                <asp:TextBox class="form-control" id="inputFirstName" runat="server" placeholder="First name of user" value="Valerie"></asp:TextBox>
-                            </div>
-                            <!-- Form Group (last name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputLastName">Last name</label>
-                                <asp:TextBox runat="server" class="form-control" id="inputLastName" placeholder="last name of user"></asp:TextBox>
-                            </div>
-                        </div>
-                        <!-- Form Row        -->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (organization name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputGender">Gender</label>
-                                <asp:TextBox class="form-control" id="inputGender" runat="server" placeholder="User gender"></asp:TextBox>
-                            </div>
-                        </div>
-                        <!-- Form Group (email address)-->
-                        <div class="mb-3">
-                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                            <asp:TextBox runat="server" class="form-control" ID="inputEmailAddress" placeholder="Email Address"/>
-                        </div>
-                        <!-- Form Row-->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (phone number)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">Phone number</label>
-                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="(+27) 11 123 4567">
-                            </div>
-                            <!-- Form Group (birthday)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                <asp:TextBox class="form-control" id="inputBirthday" runat="server" name="birthday" placeholder="User's birthday"></asp:TextBox>
-                            </div>
-                        </div>
-                        <!-- Save changes button-->
-                        <%if(role.Equals("Admin")){ %>
-                            <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save changes"></asp:Button>
-                        <%} %>
-                        <asp:Button ID="btnCancel" class="float-right btn btn-warning" runat="server" Text="Back"></asp:Button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        <%} %>
     </form>
 </body>
 </html>

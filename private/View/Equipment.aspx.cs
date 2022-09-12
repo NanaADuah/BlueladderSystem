@@ -45,7 +45,7 @@ namespace bcms
                     string EquipmentName = reader.GetValue(3).ToString();
                     string Manufacturer = reader.GetValue(4).ToString();
                     string SerialNumber = reader.GetValue(5).ToString();
-                    bool Avail = bool.Parse(reader.GetValue(5).ToString());
+                    bool Avail = bool.Parse(reader.GetValue(6).ToString());
 
                     equipment.Add(new IEquipment()
                     {
