@@ -88,7 +88,7 @@
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/tools.png" alt="Image">
-                    <a href="equipment.aspx" class="text-reset text-decoration-none">
+                    <a href="Equipment.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         EQUIPMENT<div style="font-weight: lighter; font-size: 0.8rem">Manage equipment</div>
                     </div>

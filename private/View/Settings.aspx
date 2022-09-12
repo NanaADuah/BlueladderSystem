@@ -27,34 +27,43 @@
 
             </div>
         </div>
-        <div id="tableView" style="width:50%">
+        <div id="tableView" class="w-75">
             <table class="table">
                 <tbody>
                     <tr>
                         <th scope="row">Dark mode</th>
                         <td><!-- Default checked -->
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+                          <input type="checkbox" class="custom-control-input" id="darkMode" onclick="change()">
                                 <label class="custom-control-label" for="customSwitch1"></label>
                         </div></td>
                     </tr>
                     <tr>
                         <th scope="row">Account</th>
                         <td>
-                            <button type="button" class="btn btn-secondary">Go to </button>
+                            <button type="button" class="btn btn-secondary w-25">VIEW</button>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">Help</th>
                         <td>
 
-                            <button type="button" class="btn btn-secondary">View</button>
+                            <a href="Help.aspx" class="btn btn-secondary w-25">VIEW</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
+        <script type="text/javascript">
+            function change() {
+                var decider = document.getElementById('darkMode');
+                if (decider.checked) {
+                    alert('check');
+                } else {
+                    alert('unchecked');
+                }
+            }
+        </script>
     </form>
 </body>
 </html>
