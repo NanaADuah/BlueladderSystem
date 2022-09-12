@@ -11,51 +11,69 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/dashboard.css"/>
-    <link rel="stylesheet" href="css/ManageUsers.css"/>
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/ManageUsers.css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
 
-        <h1 class="display-5">Manage Backups</h1>
-        <div class="dropdown-divider"></div>
+            <h1 class="display-5">Manage Backups</h1>
+            <div class="dropdown-divider"></div>
             <asp:Label ID="InfoDisplay" runat="server"></asp:Label>
-        <div id="tableView" >
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Backup name</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Additional</th>
-                </tr>
-                </thead>
-             <tr>
-                <td>
-                    <asp:Label ID="lblNum" runat="server"></asp:Label>
-                 </td>
-                <td>
-                    <asp:Label ID="lblName" runat="server"></asp:Label>
-                 </td>
-                <td>
-                    <asp:Label ID="lblDate" runat="server"></asp:Label>
-                 </td>
-                <td>
-                    <asp:Label ID="lblAdd" runat="server"></asp:Label>
-                 </td>
-            </tr>
-            </table>
+            <div id="tableView">
+                <table class="table table-hover">
+                    <thead>
+                        <%if (!backups.Any())
+                            {
+                                InfoDisplay.Text = "";
+                        %>
+                        <tr>
+                            <th scope="col">Data</th>
+                        </tr>
+                        <% }
+                        else
+                        { %>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">UserID</th>
+                            <th scope="col">File Name</th>
+                        </tr>
+                            <%} %>
+                    </thead>
+                    <tbody>
+                        <%if (!backups.Any())
+                            {%>
+                        <tr>
+                            <td class="text-center">No database backups found</td>
+                        </tr>
+
+                        <%}
+                        else%>
+                        <% foreach (var item in backups)
+                        {%>
+                        <tr>
+                            <td><%=item.BackupID%></td>
+                            <td><%=item.Time.ToString("dd/MM/yyyy HH:mm")%></td>
+                            <td><%=item.Type%></td>
+                            <td><%=item.UserID%></td>
+                            <td><%=item.FileName%></td>
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+
+            <asp:Button class="btn btn-primary" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save backup of Database" />
+            <asp:Button class="btn btn-primary" ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete backup of Database" />
+
         </div>
 
-        <asp:Button class="btn btn-primary" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save backup of Database" />
-        <asp:Button class="btn btn-primary" ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete backup of Database" />
-         </div>
-        <p>
-            
-        </p>
 
     </form>
 </body>

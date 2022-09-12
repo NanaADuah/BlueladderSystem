@@ -14,19 +14,45 @@ namespace bcms
     public partial class Backup : System.Web.UI.Page
     {
         int countSaves = 0;
+        protected IList<IBackup> backups;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null)
+                Response.Redirect("startup.aspx");
+            User instance = new User();
 
+            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
+                Response.Redirect("dashboard.aspx");
+
+            string eMessage = Database.getError();
+            InfoDisplay.Text = "Top [10] most recent device logins";
+            backups = new List<IBackup>();
+
+            Database database = new Database();
+
+            string query = "SELECT * FROM BackUp ORDER BY TIME ASC";
+
+            SqlDataReader reader = database.execReader(query);
+            if (eMessage.Length != 0)
+                InfoDisplay.Text = "Error: " + eMessage;
+
+            if (reader != null)
+                while (reader.Read())
+                {
+                    backups.Add(new IBackup()
+                    {
+                        BackupID = int.Parse(reader.GetValue(0).ToString()),
+                        FileName = reader.GetValue(1).ToString(),
+                        Time = Convert.ToDateTime(reader.GetValue(2).ToString()),
+                        UserID = reader.GetValue(3).ToString(),
+                        Type = reader.GetValue(4).ToString(),
+                    });
+                }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            countSaves = countSaves + 1;
-            lblNum.Text = countSaves.ToString();
-
-
             DateTime currentDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 8, 0, 0);
-            lblDate.Text = currentDate.ToString();
 
             string folder = Server.MapPath("~/Scripts/");
             string fileName = "";
@@ -61,5 +87,14 @@ namespace bcms
             }
         }
   
+    }
+
+    public class IBackup
+    {
+        public int BackupID { get; set; }
+        public string FileName { get; set; }
+        public string Type { get; set; }
+        public string UserID { get; set; }
+        public DateTime Time { get; set; }
     }
 }
