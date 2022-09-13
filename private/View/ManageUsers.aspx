@@ -28,8 +28,11 @@
             <div id="tableView">
                 <table class="table table-hover">
                     <thead>
+                        <tr>
+
                         <th scope="col">Options</th>
                         <th scope="col"></th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -37,30 +40,35 @@
                             <td>
                                 <a href="AddUser.aspx" class="btn btn-primary">View  <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
+                            </td>
                         </tr>
                         <tr>
                             <td>View All Employees</td>
                             <td>
                                 <a href="ViewEmployees.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
+                            </td>
                         </tr>
                         <tr>
                             <td>View All Users</td>
                             <td>
                                 <a href="ViewAll.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
+                            </td>
                         </tr>
                         <tr>
                             <td>Change Settings</td>
                             <td>
-                                <a href="AddUser.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <a href="UserSettings.aspx?task=setting" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
+                            </td>
                         </tr>
                         <tr>
                             <td>Change permissions</td>
                             <td>
-                                <a href="AddUser.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <a href="UserSettings.aspx?task=permission" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

@@ -55,7 +55,8 @@
                 <thead>
                     <%if (!equipment.Any())
                         {%>
-                    <th scope="col">Equipment Data</th>
+                    <tr>
+                    <th scope="col">Equipment Data</th></tr>
                     <%}
                         else
                         { %>

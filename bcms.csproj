@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -44,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -107,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="private\View\Notifications.aspx" />
     <Content Include="private\View\Help.aspx" />
     <Content Include="private\View\AddEquipment.aspx" />
     <Content Include="private\View\BackupInfo.aspx" />
@@ -161,6 +169,7 @@
     <Content Include="public\includes\indicator.png" />
     <Content Include="public\includes\lock.png" />
     <Content Include="public\includes\Logo.png" />
+    <Content Include="public\includes\bell.png" />
     <Content Include="public\includes\profile\female.jpg" />
     <Content Include="public\includes\profile\male.jpg" />
     <Content Include="public\includes\profile\placeholder.png" />
@@ -227,6 +236,7 @@
     <Content Include="fonts\SFPRODISPLAYTHINITALIC.OTF" />
     <Content Include="fonts\SFPRODISPLAYULTRALIGHTITALIC.OTF" />
     <Content Include="public\backup\Z8SOR3YD26EN8PL.csv" />
+    <None Include="Properties\PublishProfiles\blueladder - Web Deploy.pubxml" />
     <None Include="Resources\SFPRODISPLAYBLACKITALIC.OTF" />
     <None Include="Resources\SFPRODISPLAYBOLD.OTF" />
     <None Include="Resources\SFPRODISPLAYHEAVYITALIC.OTF" />
@@ -278,7 +288,8 @@
     <Content Include="private\View\ViewAll.aspx" />
     <Content Include="private\View\ViewReports.aspx" />
     <Content Include="private\View\UpdateUserPassword.aspx" />
-    <Content Include="ViewBackup.aspx" />
+    <Content Include="private\View\UserSettings.aspx" />
+    <Content Include="private\View\ViewBackup.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="private\View\ViewUsers.aspx" />
     <Content Include="private\View\css\ViewUsers.css" />
@@ -294,6 +305,13 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Notifications.aspx.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Notifications.aspx.designer.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\Model\CSVUtility.cs" />
     <Compile Include="private\View\Help.aspx.cs">
@@ -544,11 +562,18 @@
     <Compile Include="private\View\UpdateUserPassword.aspx.designer.cs">
       <DependentUpon>UpdateUserPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewBackup.aspx.cs">
+    <Compile Include="private\View\UserSettings.aspx.cs">
+      <DependentUpon>UserSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\UserSettings.aspx.designer.cs">
+      <DependentUpon>UserSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewBackup.aspx.cs">
       <DependentUpon>ViewBackup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewBackup.aspx.designer.cs">
+    <Compile Include="private\View\ViewBackup.aspx.designer.cs">
       <DependentUpon>ViewBackup.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
@@ -621,7 +646,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -25,6 +25,7 @@
 
 html, body, html * {
 	font-family: 'SF Pro Display', 'Roboto', sans-serif;
+	transition: .2s ease-in-out;
 }
 
 body {

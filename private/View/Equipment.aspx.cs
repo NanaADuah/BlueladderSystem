@@ -71,7 +71,7 @@ namespace bcms
                 if (database.generateEquipment(100))
                     lblMessages.Text = "Sucess";
                 else
-                    lblMessages.Text = "Eror: " + Database.getError();
+                    lblMessages.Text = "Error: " + Database.getError();
             }
             else
             {

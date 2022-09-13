@@ -30,8 +30,6 @@ namespace bcms
             
             if (eMessage.Length != 0)
                 lblMessages.Text = "Error: " + eMessage;
-
-
         }
 
         public void displayData(string query)

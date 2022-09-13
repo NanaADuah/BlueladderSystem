@@ -64,7 +64,7 @@
                             <td><%=item.Time.ToString("dd/MM/yyyy HH:mm")%></td>
                             <td><%=item.Type%></td>
                             <td><%=item.UserID%></td>
-                            <td><a href="ViewReport?backupid=<%=item.BackupID%>"><%=item.FileName.Substring(15)%></a></td>
+                            <td><a href="ViewBackUp.aspx?id=<%=item.BackupID%>"><%=item.FileName.Substring(14)%></a></td>
                         </tr>
                         <%}%>
                     </tbody>

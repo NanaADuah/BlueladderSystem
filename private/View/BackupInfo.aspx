@@ -48,7 +48,6 @@
                     <h2>
                         OR
                     </h2>
-
                     <div class="w-100 rounded shadow shadow-sm p-2 mb-5">
                         <div class="form-check-inline"> 
                         <h3 class="fw-bold">Delete A Logged Backup </h3>
