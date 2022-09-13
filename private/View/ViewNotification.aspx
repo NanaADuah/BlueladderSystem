@@ -51,7 +51,7 @@
                         </p>
                         <hr class="my-4"/>
                         <p class="text-break"><%=item.Message %></p>
-                        <a class="btn btn-primary btn-sm " href="Notifications.aspx" role="button">Clear</a>
+                        <a class="btn btn-primary btn-sm " href="DeleteNotification.aspx?id=<%=item.NotificationID%>" role="button">Clear</a>
                     </div>
                 </div>
                 <%} %>

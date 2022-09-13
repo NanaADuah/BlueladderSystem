@@ -95,7 +95,7 @@ namespace bcms
                 if (database.UserExists(targetID))
                 {
 
-                    if (1 == 2 && targetID == int.Parse(Session["UserID"].ToString())) //TODO FiX
+                    if (targetID == int.Parse(Session["UserID"].ToString())) 
                     {
                         lblNoti.Text = "You cannot send notifications to yourself";
                         lblNoti.ForeColor = System.Drawing.Color.Red;

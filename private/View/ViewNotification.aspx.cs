@@ -37,7 +37,7 @@ namespace bcms
 
             try
             {
-                string query = $"SELECT TOP 1 Info, SenderID, TargetID, Time, Title FROM [Notifications] WHERE NotificationID = {ID}";
+                string query = $"SELECT TOP 1 Info, SenderID, TargetID, Time, Title, NotificationID FROM [Notifications] WHERE NotificationID = {ID}";
                 SqlDataReader reader = database.execReader(query);
                 if (reader != null)
                 {
@@ -48,6 +48,7 @@ namespace bcms
                         int target = int.Parse(reader.GetValue(2).ToString());
                         DateTime NTime = Convert.ToDateTime(reader.GetValue(3).ToString());
                         string NTitle = reader.GetValue(4).ToString();
+                        int NNotificationID = int.Parse(reader.GetValue(5).ToString());
 
                         if (target != int.Parse(Session["UserID"].ToString()))
                         {
@@ -59,6 +60,7 @@ namespace bcms
                             SenderID = NSenderID,
                             Time = NTime,
                             Title = NTitle,
+                            NotificationID = NNotificationID,
                         });
                     }
                 }

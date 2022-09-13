@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="private\View\DeleteNotification.aspx" />
     <Content Include="private\View\Notifications.aspx" />
     <Content Include="private\View\Help.aspx" />
     <Content Include="private\View\AddEquipment.aspx" />
@@ -306,6 +307,13 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\DeleteNotification.aspx.cs">
+      <DependentUpon>DeleteNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\DeleteNotification.aspx.designer.cs">
+      <DependentUpon>DeleteNotification.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\View\Notifications.aspx.cs">
       <DependentUpon>Notifications.aspx</DependentUpon>

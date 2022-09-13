@@ -541,6 +541,27 @@ namespace bcms
             local.Close();
             return false;
         }
+        public bool delete(string query)
+        {
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            try
+            {
+                local.Open();
+                SqlCommand command = new SqlCommand(query, local);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.DeleteCommand = command;
+                adapter.DeleteCommand.ExecuteNonQuery();
+
+                command.Dispose();
+                local.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                setError(ex.Message);
+                return false;
+            }
+        }
         public bool update(string query)
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
