@@ -84,7 +84,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" >Recepient's UserID</span>
                         </div>
-                        <asp:TextBox runat="server" class="form-control" ID="tbUserRecepientID" Text="" TextMode="SingleLine"></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control" ID="tbUserRecepientID" Text="0" TextMode="SingleLine"></asp:TextBox>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

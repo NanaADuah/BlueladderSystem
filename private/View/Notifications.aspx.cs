@@ -53,29 +53,17 @@ namespace bcms
                 lblMessages.Text = "Error retrieving notifications";
             }
         }
-        public string RemoveSpecialCharacters(string str)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in str)
-            {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_' || c == ' ')
-                {
-                    sb.Append(c);
-                }
-            }
-            return sb.ToString();
-        }
-
+      
         protected void btnSendNoti_Click(object sender, EventArgs e)
         {
             int targetID;
             Database database = new Database();
             int senderID = int.Parse(Session["UserID"].ToString());
             lblNoti.Text = "";
-            string message = RemoveSpecialCharacters(tbInfo.Text);
+            string message = database.RemoveSpecialCharacters(tbInfo.Text);
             bool attempt = int.TryParse(tbUserRecepientID.Text, out targetID);
             int wordLength = message.Length;
-            string title = RemoveSpecialCharacters(tbTitle.Text);
+            string title = database.RemoveSpecialCharacters(tbTitle.Text);
             if (!attempt)
             {
                 lblNoti.Text = "Invalid ID input, enter a valid ID";

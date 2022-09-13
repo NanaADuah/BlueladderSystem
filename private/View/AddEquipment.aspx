@@ -21,13 +21,53 @@
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
             <div class="form-check-inline">
-                <h1 class="display-5">Backup Options <i class="fa fa-wrench" aria-hidden="true"></i></h1>
+                <h1 class="display-5"><i class="fa fa-chevron-"></i> Add Equipment <i class="fa fa-wrench" aria-hidden="true"></i></h1>
             </div>
             <a class="btn btn-success float-right" href="Help.aspx">Help</a>
             <div class="dropdown-divider"></div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
             <div class="container">
-                <div class="row">
+                <div>
+                    <div class="container shadow-sm rounded p-2 mb-5">
+                        <asp:Label ID="lblNoti" runat="server" Text=""></asp:Label>
+                        <h5>Enter details for new equipment</h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Equipment Name</span>
+                            </div>
+                            <asp:TextBox runat="server" class="form-control" ID="tbNAme" Text="0" TextMode="SingleLine"></asp:TextBox>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Category</span>
+                            </div>
+                            <asp:TextBox runat="server" class="form-control" ID="tbCategory" Text=""></asp:TextBox>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Serial Number</span>
+                            </div>
+                            <asp:TextBox runat="server" class="form-control" ID="tbSerial" Text=""></asp:TextBox>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Manufacturer</span>
+                            </div>
+                            <asp:TextBox runat="server" class="form-control" ID="tbManufacturer" Text=""></asp:TextBox>
+                        </div>
+
+                       <div>
+
+                       </div>
+                        
+                        <div class="form-group">
+                            <label for="tbInfo">Details</label>
+                            <asp:TextBox runat="server" class="form-control" ID="tbDetails" Rows="2" TextMode="MultiLine"></asp:TextBox>
+                        </div>
+                        <div class="form-check-inline">
+                            <asp:Button ID="btnSendNoti" class="btn btn-dark" runat="server" Text="Add" OnClick="btnSendNoti_Click"></asp:Button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -22,6 +22,19 @@ namespace bcms
         {
             _instance = new Database();
         }
+        public string RemoveSpecialCharacters(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_' || c == ' ')
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString();
+        }
+
         public int getDevices()
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
@@ -561,6 +574,24 @@ namespace bcms
                 setError(ex.Message);
                 return false;
             }
+        }
+
+        public bool requestPassChange(string email, int ID)
+        {
+
+            string message = $"User with ID {ID} has requested for a password change. Email address: {email}";
+            try
+            {
+                int targetID = int.Parse(get("SELECT TOP 1 UseriD FROM UserID WHERE [Role] LIKE 'Admin'").ToString());
+                string query = $"INSERT INTO [Notifications] (SenderID, TargetID, Info, Time, Title) VALUES ({ID},{targetID},'{message}','{DateTime.Now}','Password Change Request')";
+                insert(query);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                setError(ex.Message);
+            }
+            return false;
         }
         public bool update(string query)
         {

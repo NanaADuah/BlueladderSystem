@@ -11,7 +11,20 @@ namespace bcms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null)
+                Response.Redirect("startup.aspx");
+        }
 
+        protected void btnSendNoti_Click(object sender, EventArgs e)
+        {
+            Database database = new Database();
+            int UserID = int.Parse(Session["UserID"].ToString());
+            string category = database.RemoveSpecialCharacters(tbCategory.Text); ;
+            string eName = database.RemoveSpecialCharacters(tbNAme.Text);
+            string serialNum = database.RemoveSpecialCharacters(tbSerial.Text); ;
+            string details = database.RemoveSpecialCharacters(tbDetails.Text);
+
+            string query = $"INSERT INTO [Equipment] (UserID, Category, EquipmentName) VALUES ({UserID},'{category}','{eName}','{serialNum}')";
         }
     }
 }
