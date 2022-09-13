@@ -1,6 +1,17 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="bcms.dashboard" %>
 
 <!doctype html>
+
+     <style>
+        img
+        {
+             -webkit-user-drag: none;
+              -khtml-user-drag: none;
+              -moz-user-drag: none;
+              -o-user-drag: none;
+              user-drag: none;
+        }
+    </style>
 <html>
 <head>
     <meta charset="utf-8">
@@ -19,6 +30,7 @@
     <title>Dashboard</title>
 </head>
 
+
 <body>
     <form runat="server" id="form1">
         <!--#include file="navBar.html"-->
@@ -32,7 +44,7 @@
                 <%if (role.Equals("Admin") || role.Equals("Owner"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
-                    <img class="image" src="../../public/includes/security.png" alt="Image">
+                    <img class="image" src="../../public/includes/lock.png" alt="Image">
                     <a href="Security.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         SECURITY<div style="font-weight: lighter; font-size: 0.8rem">Manage security settings</div>
@@ -43,7 +55,7 @@
                 <%if (role.Equals("Admin") || role.Equals("Owner"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
-                    <img class="image" src="../../public/includes/indicator.png" alt="Image">
+                    <img class="image" src="../../public/includes/graph.png" alt="Image">
                     <a href="ViewReports.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         REPORTS<div style="font-weight: lighter; font-size: 0.8rem">Manage company reports</div>
@@ -65,7 +77,7 @@
                 <%if (role.Equals("Admin") || role.Equals("Owner"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
-                    <img class="image" src="../../public/includes/device1.png" alt="Image">
+                    <img class="image" src="../../public/includes/device.png" alt="Image">
                     <a href="Devices.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         DEVICES<div style="font-weight: lighter; font-size: 0.8rem">Manage connected devices</div>
@@ -76,7 +88,7 @@
                 <%if (role.Equals("Owner") || role.Equals("Admin"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
-                    <img class="image" src="../../public/includes/file.png" alt="Image">
+                    <img class="image" src="../../public/includes/backup.png" alt="Image">
                     <a href="Backup.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         BACKUPS<div style="font-weight: lighter; font-size: 0.8rem">Manage system backups</div>
@@ -87,7 +99,7 @@
                 <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
-                    <img class="image" src="../../public/includes/tools.png" alt="Image">
+                    <img class="image" src="../../public/includes/equipment.png" alt="Image">
                     <a href="Equipment.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         EQUIPMENT<div style="font-weight: lighter; font-size: 0.8rem">Manage equipment</div>
@@ -98,7 +110,7 @@
                 <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
-                    <img class="image" src="../../public/includes/warehouse.png" alt="Image">
+                    <img class="image" src="../../public/includes/warehouses.png" alt="Image">
                     <a href="Warehouse.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         WAREHOUSES<div style="font-weight: lighter; font-size: 0.8rem">Manage locations</div>
@@ -110,7 +122,7 @@
                 <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
-                    <img class="image" src="../../public/includes/bell.png" alt="Image">
+                    <img class="image" src="../../public/includes/noti.png" alt="Image">
                     <a href="Notifications.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
                         NOTIFICATIONS<div style="font-weight: lighter; font-size: 0.8rem">User Notifications</div>
@@ -122,26 +134,22 @@
                 <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
-                    <img class="image" src="../../public/includes/bell.png" alt="Image">
-                    <a href="Notifications.aspx" class="text-reset text-decoration-none">
+                    <img class="image" src="../../public/includes/storage.png" alt="Image">
+                    <a href="DataLogs.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
-                        NOTIFICATIONS<div style="font-weight: lighter; font-size: 0.8rem">User Notifications</div>
+                        SYSTEM LOGS<div style="font-weight: lighter; font-size: 0.8rem">Logs</div>
                     </div>
                     </a>
                 </div>
                 <%} %>
-                
-                <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
-                    { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
-                    <img class="image" src="../../public/includes/bell.png" alt="Image">
-                    <a href="Notifications.aspx" class="text-reset text-decoration-none">
+                    <img class="image" src="../../public/includes/cogs.png" alt="Image">
+                    <a href="Settings.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
-                        NOTIFICATIONS<div style="font-weight: lighter; font-size: 0.8rem">User Notifications</div>
+                        SETTINGS<div style="font-weight: lighter; font-size: 0.8rem">Setting</div>
                     </div>
                     </a>
                 </div>
-                <%} %>
             </div>
         </div>
     </form>
