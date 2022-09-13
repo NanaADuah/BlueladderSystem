@@ -14,14 +14,21 @@
     <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/ManageUsers.css" />
+    <style type="text/css">
+        .auto-style1 {
+            height: 29px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
             <div id="header">
-
-            <h1 class="display-5">Manage Users</h1>
+                <div class="form-check-inline">
+                    <h1 class="display-5">Manage Users</h1>
+                </div>
+                <a href="Help.aspx" class="btn btn-success float-right">Help</a>
             <div class="dropdown-divider"></div>
             </div>
 
@@ -30,11 +37,18 @@
                     <thead>
                         <tr>
 
-                        <th scope="col">Options</th>
-                        <th scope="col"></th>
+                        <th scope="col" class="auto-style1">Options</th>
+                        <th scope="col" class="auto-style1"></th>
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>Add New Employee</td>
+                            <td>
+                                <a href="AddUser.aspx" class="btn btn-primary">View  <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
                         <tr>
                             <td>Add New User</td>
                             <td>

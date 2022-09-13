@@ -423,15 +423,15 @@ namespace bcms
         public bool UserExists(int ID)
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
-            if(active)
+            if(isActive())
             {
                 try
                 {
                     local.Open();
-                    SqlCommand command = new SqlCommand($"SELECT COUNT(*) FROM [User] WHERE UserID = {ID}", local) ;
-                    int value = (int)command.ExecuteScalar();
+                    SqlCommand command = new SqlCommand($"SELECT COUNT(*) AS TOTAL FROM [User] WHERE UserID = {ID}", local) ;
+                    int value = int.Parse(command.ExecuteScalar().ToString());
                     setError("");
-                    if (value == 0)
+                    if (value == 1)
                         return true;
                     return false;
                 }
@@ -449,13 +449,25 @@ namespace bcms
 
         public bool insert(string query)
         {
-            SqlConnection local = new SqlConnection();
-            if(active)
+            SqlConnection local = new SqlConnection(GetConnectionString());
+            if(isActive())
             {
-                local.Open();
-                SqlCommand command = new SqlCommand(query, local);
-                command.ExecuteNonQuery();
-                local.Close();
+                try
+                {
+                    local.Open();
+                    SqlCommand command = new SqlCommand(query, local);
+                    command.ExecuteNonQuery();
+                    setError("");
+                }
+                catch(Exception ex)
+                {
+                    setError(ex.Message);
+                    return false;
+                }
+                finally
+                {
+                    local.Close();
+                }
                 return true;
             }
             return false;

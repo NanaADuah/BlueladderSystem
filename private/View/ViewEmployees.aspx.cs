@@ -63,6 +63,11 @@ namespace bcms
                     }) ;
                 }
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class Employee

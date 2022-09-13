@@ -20,9 +20,30 @@
     <form id="form1" runat="server">
         <div id="heading">
         <!--#include file="navBar.html"-->
-             <h1 class="display-5 mx-5">View Employees</h1>
+            <div class="display-5 mx-5">
+            <div class="form-check-inline">
+
+             <h1 class="text-decoration-none text-black"><a href="ManageUsers.aspx"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> View Employees</h1>
+                </div>
+                <a href="Help.aspx" class="btn btn-success float-right">Help</a>
+            <div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="fa fa-search"></i></button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="ViewEmployees?filter=userid">User ID</a>
+                            <a class="dropdown-item" href="ViewEmployees?filter=name">Name</a>
+                            <a class="dropdown-item" href="ViewEmployees?filter=surname">Surname</a>
+                            <a class="dropdown-item" href="ViewEmployees?filter=jobstatus">Job</a>
+                        </div>
+                    </div>
+                    <asp:TextBox runat="server" ID="tbSearch" class="form-control" aria-label="Search" placeholder="Search employee data"/>
+                    <asp:Button runat="server" ID="btnSearch" Text="SEARCH" class="btn btn-secondary rounded-0" OnClick="btnSearch_Click"/>
+                </div>
             <div class="dropdown-divider"></div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
+            </div>
+        </div>
         </div>
         <div class="px-5" id="main">
             

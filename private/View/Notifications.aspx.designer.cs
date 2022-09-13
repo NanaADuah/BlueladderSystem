@@ -33,84 +33,48 @@ namespace bcms
         protected global::System.Web.UI.WebControls.Label lblMessages;
 
         /// <summary>
-        /// rbUser control.
+        /// lblNoti control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbUser;
+        protected global::System.Web.UI.WebControls.Label lblNoti;
 
         /// <summary>
-        /// rbEqipment control.
+        /// tbUserRecepientID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbEqipment;
+        protected global::System.Web.UI.WebControls.TextBox tbUserRecepientID;
 
         /// <summary>
-        /// rbEmployee control.
+        /// tbTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbEmployee;
+        protected global::System.Web.UI.WebControls.TextBox tbTitle;
 
         /// <summary>
-        /// rbDevice control.
+        /// tbInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbDevice;
+        protected global::System.Web.UI.WebControls.TextBox tbInfo;
 
         /// <summary>
-        /// rbRequest control.
+        /// btnSendNoti control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbRequest;
-
-        /// <summary>
-        /// btnExecute control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExecute;
-
-        /// <summary>
-        /// lblDelMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDelMessage;
-
-        /// <summary>
-        /// tbDeleteBackup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbDeleteBackup;
-
-        /// <summary>
-        /// btnRemoveBackup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemoveBackup;
+        protected global::System.Web.UI.WebControls.Button btnSendNoti;
     }
 }

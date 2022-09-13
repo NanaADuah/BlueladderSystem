@@ -36,7 +36,7 @@
 
                    <!-- the password input-->
                   <div class="form-outline mb-4">
-                    <asp:TextBox runat="server" id="tbPassword" class="form-control form-control-lg" />
+                    <asp:TextBox runat="server" id="tbPassword" class="form-control form-control-lg" TextMode="Password"/>
                     <label class="form-label" for="tbPassword">Password</label>
                       <asp:RequiredFieldValidator class="float-right text-danger" ID="RequiredFieldValidator2" runat="server" ErrorMessage="Password required" ControlToValidate="tbPassword"></asp:RequiredFieldValidator>
                   </div>

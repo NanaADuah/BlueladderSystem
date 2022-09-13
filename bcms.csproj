@@ -290,6 +290,7 @@
     <Content Include="private\View\UpdateUserPassword.aspx" />
     <Content Include="private\View\UserSettings.aspx" />
     <Content Include="private\View\ViewBackup.aspx" />
+    <Content Include="private\View\ViewNotification.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="private\View\ViewUsers.aspx" />
     <Content Include="private\View\css\ViewUsers.css" />
@@ -575,6 +576,13 @@
     </Compile>
     <Compile Include="private\View\ViewBackup.aspx.designer.cs">
       <DependentUpon>ViewBackup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewNotification.aspx.cs">
+      <DependentUpon>ViewNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewNotification.aspx.designer.cs">
+      <DependentUpon>ViewNotification.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

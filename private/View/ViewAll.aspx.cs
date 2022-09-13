@@ -37,6 +37,8 @@ namespace bcms
             users = new List<IUser>();
             Database database = new Database();
             SqlDataReader reader = database.execReader(query);
+            try
+            {
 
             if (reader != null)
                 while (reader.Read())
@@ -47,15 +49,32 @@ namespace bcms
                         Role = reader.GetValue(1).ToString(),
                     });
                 }
+            }
+            catch
+            {
+                lblMessages.Text = Database.getError();
+            }
         }
-        protected void lblFilter_TextChanged(object sender, EventArgs e)
+
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
             string query;
+            string data = lblFilter.Text;
+            int ID;
+            bool type = int.TryParse(data, out ID);
 
-            if(lblFilter.Text.Equals(""))
-                query = "SELECT UserID, Role FROM [User]";
+            if (type)
+            {
+                query = $"SELECT UserID, Role FROM [User] WHERE UserID = {ID}";
+
+            }
             else
-                query = $"SELECT UserID, Role FROM [User] WHERE Role LIKE '%{lblFilter.Text}%'";
+            {
+                if (lblFilter.Text.Equals(""))
+                    query = "SELECT UserID, Role FROM [User]";
+                else
+                    query = $"SELECT UserID, Role FROM [User] WHERE Role LIKE '{lblFilter.Text}%'";
+            }
 
             displayData(query);
         }

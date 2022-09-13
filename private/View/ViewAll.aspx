@@ -20,9 +20,9 @@
     <form id="form1" runat="server">
         <div id="heading">
             <!--#include file="navBar.html"-->
-            <div class="container">
-                <div clas="col">
-                    <h1 class="display-5 mx-5">View System Users
+            <div class="display-5 mx-5">
+                <div>
+                    <h1 class=""><a href="ManageUsers.aspx"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> View System Users
                     </h1>
                 </div>
                 <div clas="col form-inline">
@@ -30,42 +30,56 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">@</span>
                         </div>
-                        <asp:TextBox ID="lblFilter" runat="server" class="form-control" placeholder="Username" aria-label="Role" aria-describedby="basic-addon1" AutoPostBack="True" OnTextChanged="lblFilter_TextChanged" />
+                        <asp:TextBox ID="lblFilter" runat="server" class="form-control" placeholder="User ID" aria-label="Role" aria-describedby="basic-addon1" />
+                        <asp:Button runat="server" ID="btnSearch" Text="SEARCH" class="btn btn-secondary rounded-0" OnClick="btnSearch_Click"/>
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
-            </div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
+            </div>
         </div>
         <div class="px-5" id="main">
 
             <div id="tableView">
                 <table class="table table-hover">
                     <thead>
+                        <%if (!users.Any())
+                            {                        %>
+                        <tr>
+                            <th scope="col">
+                                Search
+                            </th>
+                        </tr>
+                         <%}
+                            else { %>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">User ID</th>
                             <th scope="col">Role</th>
                         </tr>
+                        <%} %>
                     </thead>
                     <tbody>
                         <%if (!users.Any())
-                            {%>
+                            {
+                                %>
                         <tr>
-                            <td>No employee information found</td>
-                            <td></td>
-                            <td></td>
+                            <td class="text-center">No matching employee information found</td>
                         </tr>
 
                         <%}
-                        else%>
+                            else {
+                                int count = 0;%>
                         <% foreach (var item in users)
-                            {%>
+                            {
+                                count++;
+                                    %>
                         <tr>
-                            <td></td>
+                            <td><%=count %></td>
                             <td><%=item.UserID%></td>
                             <td><%=item.Role%></td>
                         </tr>
+                        <%}%>
                         <%}%>
                     </tbody>
                 </table>
