@@ -42,15 +42,10 @@ namespace bcms
             if(output == 0)
                 lblDelMessage.Text = $"No backups exist with ID '{bID}'";
             else
-            {
-
-
-            database.removeBackup(bID);
-
-            lblDelMessage.Text = Database.getError();
-            }
-            /*else
-                lblDelMessage.Text = "An error occured. Backup not deleted!";*/
+            if(database.removeBackup(bID))
+                lblDelMessage.Text = "Deleted successfully!";
+            else
+                lblDelMessage.Text = "An error occured. Backup not deleted!";
 
         }
 

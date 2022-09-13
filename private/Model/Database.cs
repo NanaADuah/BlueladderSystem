@@ -137,8 +137,8 @@ namespace bcms
                 setError(filename);
                 string query = $"DELETE FROM [Backup] WHERE BackupID = {BackUpID}";
                 SqlCommand command = new SqlCommand(query, local);
-                //command.ExecuteNonQuery();
-                //setError("");
+                command.ExecuteNonQuery();
+                setError("");
                 return true;
             }
             catch(Exception ex)
