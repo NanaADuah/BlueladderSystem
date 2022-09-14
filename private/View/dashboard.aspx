@@ -63,7 +63,8 @@
                     <img class="image" src="../../public/includes/graph.png" alt="Image">
                     <a href="ViewReports.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
-                        REPORTS<div style="font-weight: lighter; font-size: 0.8rem">Manage company reports</div>
+                        <asp:Button ID="Button1" runat="server" Font-Bold="True" OnClick="Button1_Click" Text="REPORTS" />
+                        <div style="font-weight: lighter; font-size: 0.8rem">Manage company reports</div>
                     </div>
                     </a>
                 </div>

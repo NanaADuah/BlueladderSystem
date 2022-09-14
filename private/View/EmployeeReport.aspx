@@ -40,8 +40,10 @@
                 </table>
             </div>
         </div>
-        <asp:ListBox ID="EmpReport" runat="server" Height="308px" Width="1485px"></asp:ListBox>
+        <asp:ListBox ID="EmpReport" runat="server" Height="352px" Width="1485px"></asp:ListBox>
+        <p>
         <asp:Label ID="infoDisplay" runat="server"></asp:Label>
+        </p>
     </form>
 </body>
 </html>

@@ -38,5 +38,10 @@ namespace bcms
         {
             //Response.Redirect("startup.aspx");
         }
+
+        protected System.Void Button1_Click(System.Object sender, System.EventArgs e)
+        {
+            Response.Redirect("ViewReports.aspx");
+        }
     }
 }

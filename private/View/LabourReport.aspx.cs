@@ -22,14 +22,10 @@ namespace bcms
                 InfoDisplay.Text = $"Error connecting to system database|{error}";
             }
             else
-            {
-
-                //LabReport.Items.Add("Equipment Count" + "\t" + "Employee ID" + "\t" + "Equipment ID" + "\t\t" + "Equipment Type" + "\t\t" + "Equipment Location");
-
-                for (int count = 0; count < 30; count++)
+            {LabReport.Items.Add("Equipment Count" + "\t" + "Employee ID" + "\t" + "Equipment ID" + "\t\t" + "Equipment Type" + "\t\t" + "Equipment Location");
+                for (int count = 0; count <= 250; count++)
                 {
-
-                  //  LabReport.Items.Add((count + 1) + "\t" + database.GetType(userID).ToString() + "\t" + database.GetType(equipID).ToString() + "\t\t" + database.GetType(equipType).ToString() + "\t\t" + database.GetType(storageArea).ToString());
+                 LabReport.Items.Add((count + 1) + "\t" + database.GetType(userID).ToString() + "\t" + database.GetType(equipID).ToString() + "\t\t" + database.GetType(equipType).ToString() + "\t\t" + database.GetType(storageArea).ToString());
                 }
 
 
