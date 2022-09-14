@@ -113,12 +113,18 @@ namespace bcms
 
         protected void btnDetials_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AddEquipmentNotes.aspx");
         }
 
         protected void btnRequest_Click(object sender, EventArgs e)
         {
+            Response.Redirect("RequestEquipment.aspx");
 
+        }
+
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EquipmentReturn.aspx");
         }
     }
 

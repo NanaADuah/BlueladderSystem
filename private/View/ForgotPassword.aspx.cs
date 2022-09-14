@@ -23,7 +23,7 @@ namespace bcms
 
             if (attempt) 
             { 
-                if (Response.Cookies["RequestChange"] == null || Response.Cookies["RequestChange"].Expires < DateTime.Now)
+                if (Response.Cookies["RequestChange"] == null && Response.Cookies["RequestChange"].Expires < DateTime.Now)
                 {
                     try
                     {
@@ -39,6 +39,7 @@ namespace bcms
                             requestTimer.Value = ID.ToString();
                             requestTimer.Expires = now.AddMinutes(1);
                             database.requestPassChange(email,ID);
+                            database.logInfo(ID, "Password change request");
                         }
                     }
                     catch (Exception ex)

@@ -120,6 +120,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="private\View\AddEquipmentNotes.aspx" />
+    <Content Include="private\View\EquipmentReturn.aspx" />
     <Content Include="private\View\Logout.aspx" />
     <Content Include="private\View\DataLogs.aspx" />
     <Content Include="private\View\DeleteNotification.aspx" />
@@ -266,7 +268,7 @@
     <Content Include="index.aspx" />
     <Content Include="public\includes\warehouse.png" />
     <Content Include="public\includes\warehouses.png" />
-    <Content Include="RequestEquipment.aspx" />
+    <Content Include="private\View\RequestEquipment.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -324,6 +326,20 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\AddEquipmentNotes.aspx.cs">
+      <DependentUpon>AddEquipmentNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\AddEquipmentNotes.aspx.designer.cs">
+      <DependentUpon>AddEquipmentNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\EquipmentReturn.aspx.cs">
+      <DependentUpon>EquipmentReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\EquipmentReturn.aspx.designer.cs">
+      <DependentUpon>EquipmentReturn.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\View\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
@@ -536,11 +552,11 @@
     <Compile Include="private\View\Security.aspx.designer.cs">
       <DependentUpon>Security.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RequestEquipment.aspx.cs">
+    <Compile Include="private\View\RequestEquipment.aspx.cs">
       <DependentUpon>RequestEquipment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RequestEquipment.aspx.designer.cs">
+    <Compile Include="private\View\RequestEquipment.aspx.designer.cs">
       <DependentUpon>RequestEquipment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">

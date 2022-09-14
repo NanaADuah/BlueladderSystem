@@ -21,7 +21,7 @@
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
             <div class="form-check-inline">
-                <h1 class="display-5"><i class="fa fa-chevron-"></i> Add Equipment <i class="fa fa-wrench" aria-hidden="true"></i></h1>
+            <h1 class="display-5"><a href="Equipment.aspx"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> Add Equipment <i class="fa fa-wrench" aria-hidden="true"></i></h1>
             </div>
             <a class="btn btn-success float-right" href="Help.aspx">Help</a>
             <div class="dropdown-divider"></div>
