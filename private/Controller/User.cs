@@ -51,7 +51,6 @@ namespace bcms
         {
             Database database = new Database();
             Session["UserID"] =  ID;
-            HttpContext.Current.Response.Redirect("dashboard.aspx");
 
             var HostIP = HttpContext.Current != null ? HttpContext.Current.Request.UserHostAddress : "";
 
@@ -59,13 +58,16 @@ namespace bcms
             string devName = Environment.MachineName;
             string deviceIP = HostIP.ToString();
             database.logDevice(deviceIP, devType,devName, ID);
+            database.logInfo(ID,"login");
+            HttpContext.Current.Response.Redirect("dashboard.aspx");
         }
 
         public void Logout()
         {
+            Database database = new Database();
+            database.logInfo(int.Parse(Session["UserID"].ToString()), "logout");
             Session.Remove("UserID");
-            Response.Redirect("dashboard.aspx");
-
+            HttpContext.Current.Response.Redirect("dashboard.aspx");
         }
         public string randomString(int length)
         {

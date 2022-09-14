@@ -43,7 +43,11 @@ namespace bcms
                 lblDelMessage.Text = $"No backups exist with ID '{bID}'";
             else
             if(database.removeBackup(bID))
+            {
                 lblDelMessage.Text = "Deleted successfully!";
+                database.logInfo(int.Parse(Session["UserID"].ToString()), $"Deleted database - ID: {bID}");
+
+            }
             else
                 lblDelMessage.Text = "An error occured. Backup not deleted!";
 
@@ -64,8 +68,13 @@ namespace bcms
                     if (result.Equals("-1"))
                         lblMessages.Text = Database.getError();
                     else
+                    { 
                         lblMessages.Text = $"Backup files made! Additional file stored at {result}";
-            }else
+                        database.logInfo(int.Parse(Session["UserID"].ToString()), $"Created database backup - ID: {tName}");
+                        ViewState["databaseName"] = null;
+                    }
+                }
+                else
             {
                 lblMessages.Text = "Please select a database to save";
                 lblMessages.ForeColor = System.Drawing.Color.Red;

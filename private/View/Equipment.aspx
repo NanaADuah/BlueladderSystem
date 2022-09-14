@@ -39,8 +39,8 @@
                     <asp:TextBox runat="server" ID="tbSearch" class="form-control" aria-label="Search" placeholder="Search equipment database"/>
                     <asp:Button runat="server" ID="btnSearch" Text="SEARCH" class="btn btn-secondary rounded-0" OnClick="btnSearch_Click"/>
                 </div>
-            </div>
             <div class="dropdown-divider"></div>
+            </div>
             <div class="mx-5 my-2">
                 <asp:Button runat="server" id="btnNewEquip" Text="Add New Equipment" class="btn btn-primary" OnClick="btnNewEquip_Click"></asp:Button>
                 <asp:Button runat="server" id="btnDetials" Text="Add notes" class="btn btn-info mx-2" OnClick="btnDetials_Click"></asp:Button>
@@ -67,7 +67,8 @@
                         <th scope="col">Manufacturer</th>
                         <th scope="col">SerialNumber</th>
                         <th scope="col">Modified by</th>
-                        <th scope="col">Available</th>
+                        <th scope="col" class="text-center">Available</th>
+                        <th scope="col"></th>
                     </tr>
                     <%}%>
                 </thead>
@@ -84,13 +85,19 @@
                         {
                          %>
                     <tr>
-                        <td class="auto-style1"><%=item.EquipmentID%></td>
-                        <td class="auto-style1"><%=item.Category%></td>
-                        <td class="auto-style1"><%=item.EquipmentName%></td>
-                        <td class="auto-style1"><%=item.Manufacturer%></td>
-                        <td class="auto-style1"><%=item.SerialNumber%></td>
-                        <td class="auto-style1"><a class="text-decoration-none " href="profile.aspx?id=<%=item.UserID %>"><%=item.UserID%></a></td>
-                        <td class="auto-style1"><%=item.Available?"Yes":"No"%></td>
+                        <td><%=item.EquipmentID%></td>
+                        <td><%=item.Category%></td>
+                        <td><%=item.EquipmentName%></td>
+                        <td><%=item.Manufacturer%></td>
+                        <td><%=item.SerialNumber%></td>
+                        <td><a class="text-decoration-none " href="profile.aspx?id=<%=item.UserID %>"><%=item.UserID%></a></td>
+                        <%if(item.Available == true ) { %>
+                                <td class="text-center"><i class="fa fa-check"></i></td>
+                            <%}else 
+                                { %>
+                                <td class="text-center"><i class="fa fa-times"></i></td>
+                            <%} %>
+                        <td><a class="btn btn-primary badge" href="ViewEquipment.aspx?id=<%=item.EquipmentID%>">View</a></td>
                     </tr>
                     <%}%>
                 </tbody>

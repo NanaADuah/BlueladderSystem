@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient ;
 using System.Drawing;
+using System.Data.SqlClient;
+using System.IO;
+using System.Drawing.Drawing2D;
 
 namespace bcms
 {
@@ -14,11 +16,13 @@ namespace bcms
         protected ViewUser profile;
         protected string role = "worker";
         protected bool isWorker = true;
+        protected string imageLink;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
                 Response.Redirect("startup.aspx");
             User instance = new User();
+
             role = instance.getRole(int.Parse(Session["UserID"].ToString()));
 
             if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
@@ -26,33 +30,30 @@ namespace bcms
 
             int ID;
 
-            if (!IsPostBack)
+          
+            if (Request.QueryString["id"] != null)
             {
-                if (Request.QueryString["id"] != null)
-                {
-                    ID = int.Parse(Request.QueryString["id"]);
-                    SetProfile(ID);
-                }
-                else
-                    Response.Redirect("ManageUsers.aspx");
-            }else
-                Response.Redirect("ManageUsers.aspx");
+                ID = int.Parse(Request.QueryString["id"]);
+                SetProfile(ID);
+            }
+            else
+                Response.Redirect("ViewEmployees.aspx");
         }
 
         public void SetProfile(int ID)
         {
             User e = new User();
             Database database = new Database();
+            
 
             if(database.UserExists(ID))
             {
-                if (e.getRole(ID).Equals("Worker", StringComparison.OrdinalIgnoreCase))
+                if (e.getRole(ID).Equals("Worker", StringComparison.CurrentCultureIgnoreCase))
                 {
                     isWorker = true;
                     profile = new ViewUser();
                     SqlDataReader reader = database.execReader($"SELECT * FROM [Employee] WHERE UserID = {ID}");
                     string defaultImage = "placeholder.png";
-                    Response.Write(reader.ToString());
                     if (reader != null)
                     {
                         while (reader.Read())
@@ -85,11 +86,14 @@ namespace bcms
                                     profile.Image = link + "male.jpg";
                                 else
                                     profile.Image = link + defaultImage;
+                                    
                             }
                             else
                             {
-                                profile.Image = link + profile.Image;
+                                profile.Image = HttpContext.Current.Server.MapPath("~") + profile.Image;
                             }
+                            
+                            imgProfile.ImageUrl = profile.Image;
 
                         }
                     }
@@ -121,7 +125,61 @@ namespace bcms
         
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ManaegeUsers.aspx");
+            Response.Redirect("ManageUsers.aspx");
+        }
+
+        protected void btnUploadImage_Click(object sender, EventArgs e)
+        {
+            if(profile != null)
+            {
+                if (FileUploader.PostedFile != null)
+                {
+                    Database database = new Database();
+                    string folderPath = HttpContext.Current.Server.MapPath("~") + $"public\\includes\\profile\\{profile.UserID}\\";
+                    string extension = Path.GetExtension(FileUploader.FileName);
+                    try
+                    {
+
+                        if (!Directory.Exists(folderPath))
+                        {
+                            Directory.CreateDirectory(folderPath);
+                        }
+                        if (extension.ToLower() == ".png" || extension.ToLower() == ".jpg")
+                        {
+                            Stream strm = FileUploader.PostedFile.InputStream;
+                            using (var image = System.Drawing.Image.FromStream(strm))
+                            {
+
+                                int newWidth = 240; // New Width of Image in Pixel  
+                                int newHeight = 240; // New Height of Image in Pixel  
+
+                                var thumbImg = new Bitmap(newWidth, newHeight);
+                                var thumbGraph = Graphics.FromImage(thumbImg);
+                                thumbGraph.CompositingQuality = CompositingQuality.HighQuality;
+                                thumbGraph.SmoothingMode = SmoothingMode.HighQuality;
+                                thumbGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                                var imgRectangle = new Rectangle(0, 0, newWidth, newHeight);
+                                thumbGraph.DrawImage(image, imgRectangle);
+                                string fileName = HttpContext.Current.Server.MapPath("~") + $"public\\includes\\profile\\{profile.UserID}\\{profile.UserID}{extension}";
+
+
+                                string targetPath = fileName;
+                                thumbImg.Save(targetPath, image.RawFormat);
+                                string firstFileName = $"public\\includes\\profile\\{profile.UserID}\\{profile.UserID}{extension}";
+
+                                string query = $"UPDATE [Employee] SET [Image] = '{firstFileName}' WHERE UserID = {profile.UserID}";
+                                database.update(query);
+                                imgProfile.ImageUrl = fileName;
+                                lblMessages.Text = "Uploaded!";
+                                database.logInfo(int.Parse(Session["UserID"].ToString()), "Uploaded new profile image");
+                            }
+                        }
+                    }catch
+                    {
+                        lblMessages.Text = "Error uploading image, please try again!";
+                    }
+                }
+            }
         }
     }
     public class ViewUser

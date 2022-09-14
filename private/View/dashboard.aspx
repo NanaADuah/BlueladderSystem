@@ -10,6 +10,11 @@
               -moz-user-drag: none;
               -o-user-drag: none;
               user-drag: none;
+              tr
+        }
+
+        img:hover{
+            padding:5px;
         }
     </style>
 <html>
@@ -80,7 +85,7 @@
                     <img class="image" src="../../public/includes/device.png" alt="Image">
                     <a href="Devices.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
-                        DEVICES<div style="font-weight: lighter; font-size: 0.8rem">Manage connected devices</div>
+                        DEVICES<div style="font-weight: lighter; font-size: 0.8rem">Manage logged devices</div>
                     </div>
                     </a>
                 </div>

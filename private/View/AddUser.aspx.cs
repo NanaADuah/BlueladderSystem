@@ -47,7 +47,7 @@ namespace bcms
             {
                 try
                 {
-                    int ID = database.UserAdd(role, defaultPassword);
+                    int ID = database.UserAdd(int.Parse(Session["UserID"].ToString()), role, defaultPassword);
                     if(ID!= -1)
                     {
                         lblMessages.Text = database.EmployeeAdd(int.Parse(Session["UserID"].ToString()),ID,jobStatus,date, firstName, lastName, gender, email);
@@ -65,7 +65,6 @@ namespace bcms
                 finally
                 {
                     lblMessages.Text = Database.getError();
-                    //Response.Redirect("dashboard.aspx");
                 }
             }
         }

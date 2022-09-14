@@ -80,12 +80,17 @@ namespace bcms
         }
         public static string RandomString(int length)
         {
-            Random random = new Random();
+            Random random = new Random(Guid.NewGuid().GetHashCode());
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+        public string Truncate(string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value)) { return value; }
 
+            return value.Substring(0, Math.Min(value.Length, maxLength));
+        }
         public bool removeUser(int UserID, string role)
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
@@ -240,7 +245,7 @@ namespace bcms
 
             SqlConnection local = new SqlConnection(GetConnectionString());
 
-            string[] _manufacturers = new string[] {"Zoomilion","Doosan","Liebherr","Htachi","Volve CE","XCMG","John Deere","Komatsu", "Catepillar","Sandvik","Sortimo","TTI","OLFA","Mafell","lee Valley Tools"};
+            string[] _manufacturers = new string[] {"Zoomilion","Doosan","Liebherr","Htachi","Volve CE","XCMG","John Deere","Komatsu", "Catepillar","Sandvik","Sortimo","TTI","OLFA","Mafell","Lee Valley Tools"};
 
             string[] _equipmentName = new string[] {"Bolster","Boning rod","Brick hammer","Bump cutter/screed","Chisel","Circular saw","Concrete mixer","Cordless drill","Crowbar","Digging bar","End frames","Float","Gloves","Hand saw","Helmet","Hoe","Iron pan","Jack plane","Ladder","Line and pins","Mason’s square","Measuring box","Measuring tape","Measuring wheel","Pick axe","Plumb bob","Plumb rule","Polishers","Putty knife","Rammer","Rubber Boots","Safety glasses","Safety helmet","Sand screen machine","Scratchers","Sledge hammer","Spade","Spirit level","Straight edge brushes","Tile cutter","Trowel","Vibrator","Wedge","Wheel barrow"};
 
@@ -265,10 +270,9 @@ namespace bcms
                         DateTime date = DateTime.Now;
                         string serial = eName.Substring(0, 3) + EncryptPassword(date.ToString("HH:mm:ss:f"));
                         serial = serial.Length <= 20 ? serial : serial.Substring(0, 20);
-                        Regex rgx = new Regex("[^a-zA-Z0-9 -]");
-                        serial = rgx.Replace(serial, "");
+                        serial = RandomString(15);
                         string avail = rand.Next(0, 100) % 2 == 0?"True":"False";
-                        string query = $"INSERT INTO Equipment(UserID,Category,EquipmentName, Manufacturer, SerialNumber, Available) VALUES ({int.Parse(_userIDs[rand.Next(0, userCount)])},'{category}','{eName}','{manufacturer}','{serial}',{avail})";
+                        string query = $"INSERT INTO Equipment(UserID,Category,EquipmentName, Manufacturer, SerialNumber, Available) VALUES ({int.Parse(_userIDs[rand.Next(0, userCount)])},'{category}','{eName}','{manufacturer}','{serial}','{avail}')";
                         command = new SqlCommand(query, local);
                         command.ExecuteNonQuery();
                     }
@@ -614,11 +618,19 @@ namespace bcms
                 return false;
             }
         }
+
+        public void logInfo(int ID, string action)
+        {
+            string query = $"INSERT INTO [Logs] (UserID, Actions, Time) VALUES ({ID},'{action}','{DateTime.Now}')";
+            insert(query);
+
+        }
         public void logDevice(string IP, string type, string name, int UserID)
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
             DateTime time = DateTime.Now;
-            string query = $"INSERT INTO Devices (DeviceID,DeviceName, DeviceType, Time, UserID) VALUES ('{IP}','{name}','{type}',{time},{UserID})";
+            IP = RemoveSpecialCharacters(IP);
+            string query = $"INSERT INTO [Devices] (DeviceID,DeviceName, DeviceType, Time, UserID) VALUES ({IP},'{name}','{type}','{time}',{UserID})";
             bool result = insert(query);
             if (result)
                 setError("");
@@ -645,7 +657,7 @@ namespace bcms
             return reader;
         }
 
-        public int UserAdd(string Role, string Password)
+        public int UserAdd(int SessionID, string Role, string Password)
         {
             Database database = new Database();
             Random random = new Random();
@@ -665,6 +677,7 @@ namespace bcms
                 SqlCommand command = new SqlCommand(q, connection);
                 command.ExecuteNonQuery();
                 connection.Close();
+                logInfo(SessionID, "Add new user");
                 return UserID;
             }
             catch (Exception ex)
@@ -685,7 +698,7 @@ namespace bcms
                     try
                     {
                         local.Open();
-                        string query = $"SET IDENTITY_INSERT Employee ON INSERT INTO Employee (UserID, BirthDate, JobStatus, FirstName, LastName, Email, Gender) VALUES ({UserID},'{birthDate}','{JobStatus}','{firstName}','{lastName}','{email}','{gender}') SET IDENTITY_INSERT Employee OFF";
+                        string query = $"INSERT INTO [Employee] (UserID, BirthDate, JobStatus, FirstName, LastName, Email, Gender) VALUES ({UserID},'{birthDate}','{JobStatus}','{firstName}','{lastName}','{email}','{gender}') SET IDENTITY_INSERT Employee OFF";
                         SqlCommand command = new SqlCommand(query, local);
                         command.ExecuteNonQuery();
                         return "Success";
@@ -697,6 +710,7 @@ namespace bcms
                     finally
                     {
                         local.Close();
+                        logInfo(SessionID, "Add new user");
                     }
                 }
                 return getError();

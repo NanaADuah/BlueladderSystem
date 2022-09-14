@@ -48,10 +48,12 @@
                     <div class="card mb-4 mb-xl-0">
                         <div class="card-header">Profile Picture</div>
                         <div class="card-body text-center">
-                            <img class="img-account-profile rounded-circle mb-2" src="../../public/includes/profile/female.jpg" alt="" />
+                            <asp:Image class="img-account-profile rounded-circle mb-2" ID="imgProfile" src="../../public/includes/profile/female.jpg" runat="server" />
                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
 
-                            <button class="btn btn-primary" type="button">Upload new image</button>
+                            <asp:Button class="btn btn-primary" runat="server" ID="btnUploadImage" Text="Upload new image" OnClick="btnUploadImage_Click"></asp:Button><br />
+                            <asp:FileUpload class="" runat="server" ID="FileUploader"></asp:FileUpload><br />
+                            <asp:RegularExpressionValidator class="form-control form-control-lg" ID="RegularExpressionValidator1" runat="server" ErrorMessage="Upload pngs and jpgs only" ControlToValidate="FileUploader" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(.jpg|.JPG|.png|.PNG)$"></asp:RegularExpressionValidator>
                         </div>
                     </div>
                 </div>

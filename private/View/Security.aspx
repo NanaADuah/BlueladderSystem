@@ -17,24 +17,53 @@
 </head>
 <body>
     <form id="form1" runat="server">
-         <!--#include file="navBar.html"-->
+        <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
             <h1 class="display-5">Security Settings <i class="fa fa-lock" aria-hidden="true"></i></h1>
             <div class="dropdown-divider"></div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
             <div id="tableView">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="auto-style1">Rcent Logins</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                                <tr class="text-center">
-                                    <td>No recent logins</td>
-                                </tr>
-                    </tbody>
-                </table>
+                <div class="w-100 rounded shadow-sm p-2 m-2">
+                    <div>
+                        <h4>Upate User Password</h4>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="p1">User ID</span>
+                            </div>
+                            <asp:TextBox runat="server" class="form-control" ID="tbUserID" />
+                        </div>
+
+                    </div>
+                    <div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="p2">Password</span>
+                            </div>
+                            <asp:TextBox runat="server" class="form-control" ID="tbPassword" />
+                        </div>
+
+                    </div>
+                    <asp:Button runat="server" class="btn btn-success" Text="UPDATE Password" OnClick="Unnamed1_Click" />
+
+                </div>
+            <div class="dropdown-divider"></div>
+            
+
+            <div class="w-100 rounded shadow-sm p-2 m-2">
+                <h4>Disable/Enable User</h4>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="p3">User ID</span>
+                    </div>
+                    <asp:TextBox runat="server" class="form-control" ID="tbUpdateEnables" />
+                </div>
+                    <asp:Button class="btn btn-primary my-2" Text="CHECK" runat="server" id="btnUpdateEnable" OnClick="btnUpdateEnable_Click"/>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                      <asp:CheckBox runat="server" Visiable="false" ID="chkStatus" class="form-control" Text=" Enable/disable user" OnCheckedChanged="chkStatus_CheckedChanged" AutoPostBack="True"/>
+                      </div>
+                    </div>
+            </div>
             </div>
         </div>
     </form>

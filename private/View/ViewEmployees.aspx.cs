@@ -11,11 +11,12 @@ namespace bcms
     public partial class ViewEmployees : System.Web.UI.Page
     {
         protected IList<Employee> employees;
+        protected string imageLink;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
                 Response.Redirect("startup.aspx");
-
+            
             string eMessage = "";
             employees = new List<Employee>();
 
@@ -30,6 +31,7 @@ namespace bcms
             if (reader != null)
                 while (reader.Read())
                 {
+                    imageLink = "";
                     string eID = reader.GetValue(0).ToString();
                     string uID = reader.GetValue(1).ToString();
                     string fName = reader.GetValue(2).ToString();
@@ -41,13 +43,20 @@ namespace bcms
                     
                     if(image.Equals("") || image == null)
                     {
+                        string link = "../../public/includes/profile/";
                         if (gender.Equals("female", StringComparison.OrdinalIgnoreCase))
-                            image = "female.jpg";
+                            image = link+ "female.jpg";
                         else
                         if (gender.Equals("male", StringComparison.OrdinalIgnoreCase))
-                            image = "male.jpg";
+                            image = link + "male.jpg";
                         else
                             image = defaultImage;
+
+                        imageLink = image;
+                    }
+                    else
+                    {
+                        imageLink = image;
                     }
                     employees.Add(new Employee()
                     {

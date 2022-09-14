@@ -106,6 +106,12 @@
     <Reference Include="Microsoft.AspNet.FriendlyUrls">
       <HintPath>packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
+    <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.8\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.8\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -114,6 +120,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="private\View\Logout.aspx" />
+    <Content Include="private\View\DataLogs.aspx" />
     <Content Include="private\View\DeleteNotification.aspx" />
     <Content Include="private\View\Notifications.aspx" />
     <Content Include="private\View\Help.aspx" />
@@ -165,6 +173,7 @@
     <Content Include="public\includes\background-startup.jpg" />
     <Content Include="public\includes\background.jpg" />
     <Content Include="public\includes\backup.png" />
+    <Content Include="public\includes\cloud.png" />
     <Content Include="public\includes\cogs.png" />
     <Content Include="public\includes\device.png" />
     <Content Include="public\includes\equipment.png" />
@@ -257,6 +266,7 @@
     <Content Include="index.aspx" />
     <Content Include="public\includes\warehouse.png" />
     <Content Include="public\includes\warehouses.png" />
+    <Content Include="RequestEquipment.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -299,8 +309,8 @@
     <Content Include="private\View\UserSettings.aspx" />
     <Content Include="private\View\ViewBackup.aspx" />
     <Content Include="private\View\ViewNotification.aspx" />
+    <Content Include="private\View\ViewEquipment.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="private\View\ViewUsers.aspx" />
     <Content Include="private\View\css\ViewUsers.css" />
     <Content Include="private\View\Warehouse.aspx" />
     <Content Include="Web.config" />
@@ -314,6 +324,20 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\DataLogs.aspx.cs">
+      <DependentUpon>DataLogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\DataLogs.aspx.designer.cs">
+      <DependentUpon>DataLogs.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\View\DeleteNotification.aspx.cs">
       <DependentUpon>DeleteNotification.aspx</DependentUpon>
@@ -512,6 +536,13 @@
     <Compile Include="private\View\Security.aspx.designer.cs">
       <DependentUpon>Security.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RequestEquipment.aspx.cs">
+      <DependentUpon>RequestEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestEquipment.aspx.designer.cs">
+      <DependentUpon>RequestEquipment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -599,19 +630,19 @@
     <Compile Include="private\View\ViewNotification.aspx.designer.cs">
       <DependentUpon>ViewNotification.aspx</DependentUpon>
     </Compile>
+    <Compile Include="private\View\ViewEquipment.aspx.cs">
+      <DependentUpon>ViewEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewEquipment.aspx.designer.cs">
+      <DependentUpon>ViewEquipment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="private\View\ViewUsers.aspx.cs">
-      <DependentUpon>ViewUsers.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="private\View\ViewUsers.aspx.designer.cs">
-      <DependentUpon>ViewUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\View\Warehouse.aspx.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>

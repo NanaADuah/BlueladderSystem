@@ -97,7 +97,7 @@ namespace bcms
                         if (database.insert(query))
                         {
                             lblNoti.Text = "Notification submitted";
-                            Response.Redirect("Notifications.aspx");
+                            database.logInfo(senderID, $"Sent notification to {targetID}");
                         }
                         else
                         {
@@ -119,15 +119,6 @@ namespace bcms
             return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
         }
 
-        protected void btView_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
 

@@ -13,6 +13,7 @@ namespace bcms
 
         protected int viewID;
         protected string filename;
+        protected string title = "Filename";
         protected bool fileExists = false;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,12 +33,13 @@ namespace bcms
                 if (database.getCount($"SELECT COUNT(*) AS Total FROM [Backup] WHERE BackupID = {temp}") != 0)
                 {
                     string fname = database.get($"SELECT FileName FROM [Backup] WHERE BackupID = {temp}");
+                    title = fname;
+                    filename = HttpContext.Current.Server.MapPath("~") +  fname;
                     if (backupExists(filename))
                     { 
                         viewID = temp;
                         fileExists = true; 
                     }
-                    filename = HttpContext.Current.Server.MapPath("~") +  fname;
                 }
                 else
                     Response.Redirect("Backup.aspx");
@@ -46,7 +48,7 @@ namespace bcms
 
         public bool backupExists(string filename)
         {
-            if(File.Exists(HttpContext.Current.Server.MapPath("~") + filename))
+            if(File.Exists(filename))
             {
                 return true;
             }

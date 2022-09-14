@@ -34,7 +34,7 @@
                 </div>
             <%}
             else { %>
-            <h3>File name</h3>
+            <h3><%=title%></h3>
             <div class="dropdown-divider"></div>
 
             </div>

@@ -73,7 +73,7 @@
                             <% foreach (var item in employees)
                                 {%>
                             <tr>
-                            <td> <img class="empImg" src="../../public/includes/profile/<%=item.Image%>"</td>
+                            <td> <img id="imgView" class="empImg" title="image" src="../../<%=imageLink%>" /></td>
                             <td><%=item.EmployeeID%></td>
                             <td><%=item.UserID%></td>
                             <td><%=item.Name%></td>
@@ -87,8 +87,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-
         </div>
     </form>
 </body>

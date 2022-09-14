@@ -18,6 +18,12 @@ namespace bcms
         protected void btnSendNoti_Click(object sender, EventArgs e)
         {
             Database database = new Database();
+            if(!database.generateEquipment(200))
+            {
+                lblMessages.Text = Database.getError();
+
+            }
+            /*Database database = new Database();
             int UserID = int.Parse(Session["UserID"].ToString());
             string category = database.RemoveSpecialCharacters(tbCategory.Text); ;
             string eName = database.RemoveSpecialCharacters(tbNAme.Text);
@@ -25,6 +31,15 @@ namespace bcms
             string details = database.RemoveSpecialCharacters(tbDetails.Text);
 
             string query = $"INSERT INTO [Equipment] (UserID, Category, EquipmentName) VALUES ({UserID},'{category}','{eName}','{serialNum}')";
+            if(database.insert(query))
+            {
+                Response.Redirect("Equipment.aspx");
+            }
+            else
+            {
+                lblMessages.Text = "Unable to add new data";
+                lblMessages.ForeColor = System.Drawing.Color.Red;
+            }*/
         }
     }
 }

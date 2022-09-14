@@ -21,16 +21,18 @@
         <div class="px-5" id="main">
             <div id="header">
 
-            <h1 class="display-5">Warehouses <i class="fa fa-globe" aria-hidden="true"></i></h1>
-            <div class="dropdown-divider"></div>
+                <h1 class="display-5">Warehouses <i class="fa fa-globe" aria-hidden="true"></i></h1>
+                <div class="dropdown-divider"></div>
             </div>
             <div>
                 <asp:Label runat="server" ID="lblInfo"></asp:Label>
             </div>
             <div id="tableView">
+                <%if (!warehouses.Any())
+                    {%>
                 <table class="table table-hover">
                     <thead>
-                        <th scope="col">Options</th>
+                        <tr><th scope="col">Options</th></tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -38,7 +40,31 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+                <%}
+                    else
+                    {
+                        foreach (var item in warehouses)
+                        { %>
+                    <div>
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Details</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"><%=item.LocationID %></td>
+                            <td scope="row"><%=item.Name %></td>
+                            <td scope="row"><%=database.Truncate(item.Details,20)%></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <% } %>
+                <% }%>
         </div>
     </form>
 </body>
