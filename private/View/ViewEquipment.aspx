@@ -94,7 +94,8 @@
                         <asp:Label Text="" ID="lblQRCode" runat="server"></asp:Label>
                     </div>
                 </div>
-                <%}%>
+                <%}
+%>
                 <%else
                 {  %>
                 <div>

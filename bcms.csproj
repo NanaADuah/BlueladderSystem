@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="private\View\CheckoutEquipment.aspx" />
     <Content Include="private\View\AddEquipmentNotes.aspx" />
     <Content Include="private\View\EquipmentReturn.aspx" />
     <Content Include="private\View\Logout.aspx" />
@@ -326,6 +327,13 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\CheckoutEquipment.aspx.cs">
+      <DependentUpon>CheckoutEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\CheckoutEquipment.aspx.designer.cs">
+      <DependentUpon>CheckoutEquipment.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\View\AddEquipmentNotes.aspx.cs">
       <DependentUpon>AddEquipmentNotes.aspx</DependentUpon>

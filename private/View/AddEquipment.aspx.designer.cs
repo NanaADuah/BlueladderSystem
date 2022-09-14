@@ -42,13 +42,31 @@ namespace bcms
         protected global::System.Web.UI.WebControls.Label lblNoti;
 
         /// <summary>
-        /// tbNAme control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNAme;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// tbName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbName;
+
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// tbCategory control.
@@ -60,6 +78,15 @@ namespace bcms
         protected global::System.Web.UI.WebControls.TextBox tbCategory;
 
         /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+        /// <summary>
         /// tbSerial control.
         /// </summary>
         /// <remarks>
@@ -67,6 +94,15 @@ namespace bcms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbSerial;
+
+        /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
 
         /// <summary>
         /// tbManufacturer control.
@@ -78,6 +114,15 @@ namespace bcms
         protected global::System.Web.UI.WebControls.TextBox tbManufacturer;
 
         /// <summary>
+        /// tbLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbLocation;
+
+        /// <summary>
         /// tbDetails control.
         /// </summary>
         /// <remarks>
@@ -87,12 +132,12 @@ namespace bcms
         protected global::System.Web.UI.WebControls.TextBox tbDetails;
 
         /// <summary>
-        /// btnSendNoti control.
+        /// btnAddEquipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSendNoti;
+        protected global::System.Web.UI.WebControls.Button btnAddEquipment;
     }
 }

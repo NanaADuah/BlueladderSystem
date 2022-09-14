@@ -15,7 +15,6 @@ namespace bcms
     {
         private static User _instance;
         private string name;
-        private string role;
         private int userID;
 
         static User()

@@ -31,16 +31,17 @@
                 </div>
 
                 <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
+                <h5 class="font-weight-light">Enter the Equipment ID for the equipment that needs to returned and a notification will to sent to the last user to request it</h5>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Equipment ID</span>
                     </div>
-                    <asp:TextBox runat="server" class="form-control" ID="tbName" Text="0" TextMode="SingleLine"></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control" ID="tbEquipmentID" Text="0" TextMode="SingleLine"></asp:TextBox>
                 </div>
 
             </div>
             <div class="mx-5 my-2">
-                <asp:Button runat="server" ID="btnReturn" Text="Return Equipment" class="btn mx-2 btn-dark float-right" OnClick="btnReturn_Click"></asp:Button>
+                <asp:Button runat="server" ID="btnReturn" Text="Request Equipment" class="btn mx-2 btn-dark float-right" OnClick="btnReturn_Click"></asp:Button>
                 <asp:Button runat="server" ID="btnCanel" Text="Cancel" class="btn btn-danger mx-2 float-right" OnClick="btnCanel_Click"></asp:Button>
             </div>
         </div>

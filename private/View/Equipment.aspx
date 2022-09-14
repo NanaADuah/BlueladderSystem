@@ -45,7 +45,8 @@
                 <asp:Button runat="server" id="btnNewEquip" Text="Add New Equipment" class="btn btn-primary" OnClick="btnNewEquip_Click"></asp:Button>
                 <asp:Button runat="server" id="btnDetials" Text="Add notes" class="btn btn-info mx-2" OnClick="btnDetials_Click"></asp:Button>
                 <asp:Button runat="server" id="btnRequest" Text="Request for equipment return" class="btn btn-secondary float" OnClick="btnRequest_Click"></asp:Button>
-                <asp:Button runat="server" id="btnReturn" Text="Return Equipment" class="btn btn-dark float-right" OnClick="btnReturn_Click"></asp:Button>
+                <asp:Button runat="server" id="btnReturn" Text="Return Equipment" class="btn btn-dark float-right" OnClick="btnReturn_Click1"></asp:Button>
+                <asp:Button runat="server" id="btnCheckOuut" Text="Checkout Equipment" class="btn btn-success float-right mx-2" OnClick="btnCheckOuut_Click" ></asp:Button>
             </div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
         <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>

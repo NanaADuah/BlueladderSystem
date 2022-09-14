@@ -31,24 +31,32 @@
                     <div class="container shadow-sm rounded p-2 mb-5">
                         <asp:Label ID="lblNoti" runat="server" Text=""></asp:Label>
                         <h5>Enter details for new equipment</h5>
+                        
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Equipment name required" ControlToValidate="tbName" ForeColor="Red"></asp:RequiredFieldValidator>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Equipment Name</span>
                             </div>
-                            <asp:TextBox runat="server" class="form-control" ID="tbNAme" Text="0" TextMode="SingleLine"></asp:TextBox>
+                            <asp:TextBox runat="server" class="form-control" ID="tbName" Text="" TextMode="SingleLine"></asp:TextBox>
                         </div>
+                        
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Category required" ControlToValidate="tbCategory" ForeColor="Red"></asp:RequiredFieldValidator>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Category</span>
                             </div>
                             <asp:TextBox runat="server" class="form-control" ID="tbCategory" Text=""></asp:TextBox>
                         </div>
+                        
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Serial number required" ControlToValidate="tbSerial" ForeColor="Red"></asp:RequiredFieldValidator>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Serial Number</span>
                             </div>
                             <asp:TextBox runat="server" class="form-control" ID="tbSerial" Text=""></asp:TextBox>
                         </div>
+                        
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Manufacturer required" ControlToValidate="tbManufacturer" ForeColor="Red"></asp:RequiredFieldValidator>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Manufacturer</span>
@@ -56,16 +64,19 @@
                             <asp:TextBox runat="server" class="form-control" ID="tbManufacturer" Text=""></asp:TextBox>
                         </div>
 
-                       <div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Location</span>
+                            </div>
+                            <asp:TextBox runat="server" class="form-control" ID="tbLocation" Text=""></asp:TextBox>
+                        </div>
 
-                       </div>
-                        
                         <div class="form-group">
                             <label for="tbInfo">Details</label>
                             <asp:TextBox runat="server" class="form-control" ID="tbDetails" Rows="2" TextMode="MultiLine"></asp:TextBox>
                         </div>
                         <div class="form-check-inline">
-                            <asp:Button ID="btnSendNoti" class="btn btn-dark" runat="server" Text="Add" OnClick="btnSendNoti_Click"></asp:Button>
+                            <asp:Button ID="btnAddEquipment" class="btn btn-dark" runat="server" Text="Add" OnClick="btnAddEquipment_Click"></asp:Button>
                         </div>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ namespace bcms
 
             int id = int.Parse(Request.QueryString["id"].ToString());
 
-            SqlDataReader reader = database.execReader($"SELECT TOP 1 * FROM Equipment WHERE EquipmentID = {id}");
+            SqlDataReader reader = database.execReader($"SELECT TOP 1 * FROM [Equipment] WHERE EquipmentID = {id}");
 
             if (reader != null) { 
                 while (reader.Read())
@@ -55,8 +55,16 @@ namespace bcms
                     tbDetails.Text = currEquip.Detail;
 
                 string qrText = $"Blueladder Construction Management System\nEquipment name: {currEquip.Name}\nID: {currEquip.Name}\nSerial: {currEquip.SerialNumber}\nDate captured: {DateTime.Now}";
+                try
+                {
+                    
                 GenerateMyQCCode(qrText, currEquip.SerialNumber);
                 ReadQRCode(currEquip.SerialNumber);
+                }
+                catch
+                {
+                    lblMessages.Text = "Error generating QR Code, please refresh the page";
+                }
                 lblQRCode.Text = currEquip.SerialNumber;
                 tbManufacturer.Text = currEquip.Manufacturer;
                 tbEquipmentName.Text = currEquip.Name;
@@ -65,7 +73,8 @@ namespace bcms
             }
             catch
             {
-                Response.Redirect("Equipment.aspx");
+                //   Response.Redirect("Equipment.aspx");
+                lblMessages.Text = "An error occurred";
             }
 
         }

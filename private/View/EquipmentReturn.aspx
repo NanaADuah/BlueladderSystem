@@ -22,17 +22,24 @@
             <!--#include file="navBar.html"-->
             <div class="px-5" id="main">
                 <div class="form-check-inline">
-                <h1 class="display-5">Return Equipment</h1>
+                    <h1 class="display-5">Return Equipment</h1>
                 </div>
                 <a class="btn btn-success float-right" href="Help.aspx">Help</a>
-                
-            <div class="dropdown-divider"></div>
+
+                <div class="dropdown-divider"></div>
+            <asp:Label runat="server" ID="lblMessages" Text=" "></asp:Label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Equipment ID</span>
+                </div>
+                <asp:TextBox runat="server" class="form-control" ID="tbEquipmentID" Text="0" TextMode="SingleLine"></asp:TextBox>
             </div>
+
+                <a href="Equipment.aspx" ID="btnGoBack" class="btn btn-success">GO BACK</a>
+                <asp:Button runat="server" ID="btnReturn" Text="Return Equipment" class="btn btn-dark float-right" OnClick="btnReturn_Click"></asp:Button>
             <div class="mx-5 my-2">
-                <asp:Button runat="server" id="btnReturn" Text="Return Equipment" class="btn btn-dark float-right"></asp:Button>
             </div>
-            <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
-        <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+            </div>
         </div>
     </form>
 </body>

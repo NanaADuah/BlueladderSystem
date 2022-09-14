@@ -126,6 +126,16 @@ namespace bcms
         {
             Response.Redirect("EquipmentReturn.aspx");
         }
+
+        protected void btnReturn_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("EquipmentReturn.aspx");
+        }
+
+        protected void btnCheckOuut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CheckoutEquipment.aspx");
+        }
     }
 
     public class IEquipment

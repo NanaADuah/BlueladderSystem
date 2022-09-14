@@ -22,6 +22,14 @@ namespace bcms
         {
             _instance = new Database();
         }
+
+        public bool isAvailable(int eID)
+        {
+            string query = $"SELECT [Available] FROM [Equipment] WHER EquipmentID = {eID}";
+            bool result = Convert.ToBoolean(get(query));
+            return result;
+        }
+
         public string RemoveSpecialCharacters(string str)
         {
             StringBuilder sb = new StringBuilder();

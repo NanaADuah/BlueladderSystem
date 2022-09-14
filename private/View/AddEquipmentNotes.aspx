@@ -32,22 +32,22 @@
                     <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">Equipment Name</span>
+                            <span class="input-group-text">Equipment ID: </span>
                         </div>
-                        <asp:TextBox runat="server" class="form-control" ID="tbNAme" Text="0" TextMode="SingleLine"></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control" ID="tbEquipmentID" Text="0" TextMode="SingleLine"></asp:TextBox>
                     </div>
+                    <h6 class="font-weight-light" >You can store notes or any information about this particular object, everyone can view this</h6>
                     <div>
                         <asp:TextBox class="form-control" runat="server" ID="tbDetails" TextMode="MultiLine">
 
                         </asp:TextBox>
                     </div>
-                    <div class="mx-5 my-2">
-                        <asp:Button runat="server" ID="btnReturn" Text="Add Notes" class="btn mx-2 btn-dark float-right"></asp:Button>
+                    <div class="my-2">
+                        <asp:Button runat="server" ID="btnReturn" Text="Add Notes" class="btn mx-2 btn-dark float-right" OnClick="btnReturn_Click"></asp:Button>
                         <asp:Button runat="server" ID="btnCancel" Text="Cancel" class="mx-2 btn btn-danger float-right" OnClick="btnCancel_Click"></asp:Button>
                     </div>
                 </div>
             </div>
-        </div>
     </form>
 </body>
 </html>
