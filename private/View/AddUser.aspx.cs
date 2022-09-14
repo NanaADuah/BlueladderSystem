@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Text;
+using System.Web.UI;
 using System.Web.UI.WebControls;
+
 namespace bcms
 {
-    public partial class AddUser1 : System.Web.UI.Page
+    public partial class AddUser2 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,57 +17,36 @@ namespace bcms
 
             if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
                 Response.Redirect("dashboard.aspx");
-
-            lblMessages.Text = "";
-            lblMessages.ForeColor = System.Drawing.Color.Black;
-
         }
 
-        protected void btnRegister_Click(object sender, EventArgs e)
+        protected void btnCreate_Click(object sender, EventArgs e)
         {
-            Database database = new Database();
+            int ID;
+            string Role = tbRole.Text;
+            string password = tbPassword.Text;
+            User user = new User();
 
-            string firstName = tbFirstName.Text;
-            string lastName = tbLastName.Text;
-            string email = inputEmail.Text;
-            string gender = tbGender.Value;
-            string jobStatus = inputStatus.Text;
-            string defaultPassword = inputDefaultPassword.Text;
-            string role = tbRole.Value.ToString();
-            DateTime date = DateTime.Now.Date;
-            lblMessages.Text = "";
-
-            
-
-            if(!role.Equals("worker",StringComparison.OrdinalIgnoreCase))
+            if (user.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
             {
-                lblMessages.ForeColor = System.Drawing.Color.Red;
-                lblMessages.Text = "Selected system role not allowed";
-            }
-            else
-            {
-                try
+                if (Role.Equals("Admin") || Role.Equals("Owner") || Role.Equals("Worker"))
                 {
-                    int ID = database.UserAdd(int.Parse(Session["UserID"].ToString()), role, defaultPassword);
-                    if(ID!= -1)
+                    Database database = new Database();
+                    ID = database.UserAdd(int.Parse(Session["UserID"].ToString()), Role, password);
+                    if (ID != -1)
                     {
-                        lblMessages.Text = database.EmployeeAdd(int.Parse(Session["UserID"].ToString()),ID,jobStatus,date, firstName, lastName, gender, email);
+                        lblMessages.Text = $"New user added. User ID is: {ID}";
+                    }else
+                    {
+                        lblMessages.Text = $"Error occurred, new user not creacted";
                     }
-                    else
-                        lblMessages.Text = Database.getError();
-
                 }
-                catch(Exception ex)
+                else
                 {
-                    lblMessages.Text = $"Error: {ex.Message}";
-                    lblMessages.ForeColor = System.Drawing.Color.Red;
-                
-                }
-                finally
-                {
-                    lblMessages.Text = Database.getError();
+                    Response.Redirect("AddUser.aspx");
                 }
             }
         }
+
+       
     }
 }

@@ -14,6 +14,7 @@ namespace bcms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             Database database = new Database();
             database.connect();
             if (!database.isActive())
@@ -30,6 +31,7 @@ namespace bcms
 
 
             }
+            */
         }
 
         public class LReport

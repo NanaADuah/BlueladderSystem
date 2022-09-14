@@ -62,7 +62,7 @@
                             {%>
                         <tr>
                             <td><%=item.NotificationID%></td>
-                            <td><%=item.Time.ToString("dd/MM/yyyy HH:mm")%></td>
+                            <td><%=item.StrTime%></td>
                             <td><%=String.IsNullOrEmpty(item.SenderID.ToString()) ? "General" : item.SenderID.ToString()%></td>
                             <td><%=String.IsNullOrEmpty(Truncate(item.Title, 20)) ? "Notification" : Truncate(item.Title,20)%></td>
                             <td>

@@ -8,6 +8,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using System.Net.NetworkInformation;
+using System.Net;
 
 namespace bcms
 {
@@ -52,10 +53,15 @@ namespace bcms
             Session["UserID"] =  ID;
 
             var HostIP = HttpContext.Current != null ? HttpContext.Current.Request.UserHostAddress : "";
+            string host = Dns.GetHostName();
+
+            // Getting ip address using host name
+            IPHostEntry ip = Dns.GetHostEntry(host);
+            Console.WriteLine();
 
             string devType = "Desktop";
             string devName = Environment.MachineName;
-            string deviceIP = HostIP.ToString();
+            string deviceIP = database.RemoveSpecialCharacters(ip.AddressList[0].ToString());
             database.logDevice(deviceIP, devType,devName, ID);
             database.logInfo(ID,"login");
             HttpContext.Current.Response.Redirect("dashboard.aspx");

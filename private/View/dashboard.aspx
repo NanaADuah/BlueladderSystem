@@ -63,8 +63,7 @@
                     <img class="image" src="../../public/includes/graph.png" alt="Image">
                     <a href="ViewReports.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
-                        <asp:Button ID="Button1" runat="server" Font-Bold="True" OnClick="Button1_Click" Text="REPORTS" />
-                        <div style="font-weight: lighter; font-size: 0.8rem">Manage company reports</div>
+                     REPORT  <div style="font-weight: lighter; font-size: 0.8rem">Manage company reports</div>
                     </div>
                     </a>
                 </div>
@@ -102,7 +101,7 @@
                     </a>
                 </div>
                 <%} %>
-                <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
+                <%if (role.Equals("Admin") || role.Equals("Owner") || role.Equals("Worker"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/equipment.png" alt="Image">
@@ -113,7 +112,7 @@
                     </a>
                 </div>
                 <%} %>
-                <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
+                <%if (role.Equals("Admin") || role.Equals("Owner") || role.Equals("Worker"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/warehouses.png" alt="Image">
@@ -125,7 +124,7 @@
                 </div>
                 <%} %> 
                 
-                <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
+                <%if (role.Equals("Admin") || role.Equals("Owner") || role.Equals("Worker"))
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/noti.png" alt="Image">
@@ -137,13 +136,13 @@
                 </div>
                 <%} %>
                 
-                <%if (!role.Equals("Admin") || !role.Equals("Owner") || !role.Equals("Worker"))
+                <%if (role.Equals("Admin") || role.Equals("Owner") )
                     { %>
                 <div class="card col-2 shadow rounded m-2 p-0">
                     <img class="image" src="../../public/includes/storage.png" alt="Image">
                     <a href="DataLogs.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
-                        SYSTEM LOGS<div style="font-weight: lighter; font-size: 0.8rem">Logs</div>
+                        SYSTEM LOGS<div style="font-weight: lighter; font-size: 0.8rem">Retrieve Data</div>
                     </div>
                     </a>
                 </div>
@@ -152,7 +151,7 @@
                     <img class="image" src="../../public/includes/cogs.png" alt="Image">
                     <a href="Settings.aspx" class="text-reset text-decoration-none">
                     <div class="card-footer font-weight-bold">
-                        SETTINGS<div style="font-weight: lighter; font-size: 0.8rem">Setting</div>
+                        SETTINGS<div style="font-weight: lighter; font-size: 0.8rem">Change Settings</div>
                     </div>
                     </a>
                 </div>

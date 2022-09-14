@@ -29,7 +29,8 @@
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
             <div>
                 <%if (!singleNotification.Any())
-                    {%>
+                    {
+%>
 
                 <div class="dropdown-divider"></div>
                 <div class="table text-center mt-5 ">
@@ -44,7 +45,10 @@
                         { %>
                 <div>
                     <div class="jumbotron p-2">
+                        <div class="form-check-inline">
                         <h1 class="display-5"><%=item.Title %></h1>
+                            </div>
+                        <h5 class="float-right"><%=TimeAgo(item.Time) %></h5>
                         <p class="lead">
                             Sent by 
                                 <%=valueUser.getRole(item.SenderID).ToLower() %>

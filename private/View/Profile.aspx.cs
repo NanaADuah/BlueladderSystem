@@ -64,7 +64,7 @@ namespace bcms
                             profile.Surname = reader.GetValue(3).ToString();
                             profile.JobStatus = reader.GetValue(4).ToString();
                             profile.Gender = reader.GetValue(5).ToString();
-                            profile.BirthDate = reader.GetValue(6).ToString();
+                            profile.BirthDate = Convert.ToDateTime(reader.GetValue(6).ToString());
                             profile.Image = reader.GetValue(7).ToString();
                             profile.Email = reader.GetValue(8).ToString();
 
@@ -72,7 +72,7 @@ namespace bcms
                             inputLastName.Text = profile.Surname;
                             inputFirstName.Text = profile.Name;
                             inputGender.Text = profile.Gender;
-                            inputBirthday.Text = profile.BirthDate;
+                            inputBirthday.Text = profile.BirthDate.ToString("dd MM yyyy");
                             inputEmailAddress.Text = profile.Email;
                             inputJobStatus.Text = profile.JobStatus;
 
@@ -188,7 +188,7 @@ namespace bcms
         public string Surname { get; set; }
         public string UserID { get; set; }
         public string Gender { get; set; }
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         public string Image { get; set; }
         public string JobStatus { get; set; }
         public string EmployeeID { get; set; }

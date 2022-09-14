@@ -24,7 +24,7 @@ namespace bcms
             lblMessages.Text = "Top [10] most recent device logins";
             devices = new List<Device>();
             Database database = new Database();
-            string query = "SELECT TOP 10 DeviceName, UserID, DeviceType, DeviceID, Time FROM Devices ORDER BY TIME ASC";
+            string query = "SELECT TOP 10 DeviceName, UserID, DeviceType, DeviceID, Time FROM Devices ORDER BY TIME DESC";
             if (eMessage.Length != 0)
                 lblMessages.Text = "Error: " + eMessage;
 
@@ -38,7 +38,8 @@ namespace bcms
                         UserID = reader.GetValue(1).ToString(),
                         Type = reader.GetValue(2).ToString(),
                         DeviceID = reader.GetValue(3).ToString(),
-                        Time = Convert.ToDateTime(reader.GetValue(4).ToString())
+                        Time = Convert.ToDateTime(reader.GetValue(4).ToString()),
+                        StrTime = Database.TimeAgo(Convert.ToDateTime(reader.GetValue(4).ToString())),
                     }) ; 
                 }
         }
@@ -51,5 +52,6 @@ namespace bcms
         public string DeviceID { get; set; }
         public string UserID { get; set; }
         public DateTime Time { get; set; }
+        public string StrTime { get; set; }
     }
 }

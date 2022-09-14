@@ -49,7 +49,7 @@
                             <td><%=item.UserID%></td>
                             <td><%=item.Type%></td>
                             <td><%=item.Name%></td>
-                            <td><%=item.Time.ToString("dd/MM/yyyy HH:mm")%></td>
+                            <td><%=item.StrTime%></td>
                             </tr>
                             <%}%>
                     </tbody>

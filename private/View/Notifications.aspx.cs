@@ -13,7 +13,7 @@ namespace bcms
     {
         protected IList<Notification> notifications;
         protected string role = "worker";
-
+        protected Database timeGet;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
@@ -43,7 +43,8 @@ namespace bcms
                             TargetID = int.Parse(reader.GetValue(2).ToString()),
                             Info = reader.GetValue(3).ToString(),
                             Time = Convert.ToDateTime(reader.GetValue(4).ToString()),
-                            Title = (reader.GetValue(5).ToString())
+                            Title = reader.GetValue(5).ToString(),
+                            StrTime = Database.TimeAgo(Convert.ToDateTime(reader.GetValue(4).ToString())),
                         });
                     }
                 }
@@ -126,6 +127,7 @@ namespace bcms
     {
         public int NotificationID { get; set; }
         public int SenderID { get; set; }
+        public string  StrTime { get; set; }
         public int TargetID { get; set; }
         public string Info { get; set; }
         public DateTime Time { get; set; }

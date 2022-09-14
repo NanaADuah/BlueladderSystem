@@ -36,10 +36,9 @@ namespace bcms
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("startup.aspx");
         }
 
-        protected System.Void Button1_Click(System.Object sender, System.EventArgs e)
+        protected void Button1_Click(System.Object sender, System.EventArgs e)
         {
             Response.Redirect("ViewReports.aspx");
         }

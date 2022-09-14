@@ -33,6 +33,9 @@ namespace bcms
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            if (Session["UserID"] != null)
+                Response.Redirect("dashboard.aspx");
+
             infoDisplay.Text = "Signing in, please wait...";
             int ID;
             Database database = new Database();

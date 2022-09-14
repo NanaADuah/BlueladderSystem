@@ -42,7 +42,7 @@ namespace bcms
                             database.logInfo(ID, "Password change request");
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         lblMessages.Text = "Error occured, please try again later";
                     }

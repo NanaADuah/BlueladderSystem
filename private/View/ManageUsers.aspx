@@ -45,7 +45,7 @@
                         <tr>
                             <td>Add New Employee</td>
                             <td>
-                                <a href="AddUser.aspx" class="btn btn-primary">View  <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <a href="AddEmployee.aspx" class="btn btn-primary">View  <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
                             </td>
                         </tr>

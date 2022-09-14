@@ -47,6 +47,7 @@ namespace bcms
                         Time = Convert.ToDateTime(reader.GetValue(2).ToString()),
                         UserID = reader.GetValue(3).ToString(),
                         Type = reader.GetValue(4).ToString(),
+                        StrTime = Database.TimeAgo(Convert.ToDateTime(reader.GetValue(2).ToString())),
                     });
                 }
             }else
@@ -77,5 +78,6 @@ namespace bcms
         public string Type { get; set; }
         public string UserID { get; set; }
         public DateTime Time { get; set; }
+        public string StrTime { get; set; }
     }
 }

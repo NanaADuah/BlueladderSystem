@@ -19,7 +19,11 @@
     <form id="form1" runat="server">
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
+            <div class="form-check-inline">
+
             <h1 class="display-5">Manage Data Logs <i class="fa fa-laptop" aria-hidden="true"></i></h1>
+            </div>
+            <asp:Button Text="EXPORT" runat="server" id="btnExport" class="btn btn-success float-right"/>
             <div class="dropdown-divider"></div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
             <div id="tableView">

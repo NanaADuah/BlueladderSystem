@@ -106,5 +106,9 @@ namespace bcms
         {
             ViewState["databaseName"] = "User";
         }
+        protected void rbDataLogs_CheckedChanged(object sender, EventArgs e)
+        {
+            ViewState["databaseName"] = "Logs";
+        }
     }
 }

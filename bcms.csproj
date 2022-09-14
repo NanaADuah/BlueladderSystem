@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="private\View\AddUser.aspx" />
     <Content Include="private\View\CheckoutEquipment.aspx" />
     <Content Include="private\View\AddEquipmentNotes.aspx" />
     <Content Include="private\View\EquipmentReturn.aspx" />
@@ -146,7 +147,7 @@
     <Content Include="private\View\navBar.html" />
     <Content Include="private\View\ManageUsers.aspx" />
     <Content Include="private\View\css\ManageUsers.css" />
-    <Content Include="private\View\AddUser.aspx" />
+    <Content Include="private\View\AddEmployee.aspx" />
     <Content Include="private\View\css\AddUser.css" />
     <Content Include="private\View\dashboard.aspx" />
     <Content Include="private\View\About.aspx" />
@@ -328,6 +329,13 @@
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
     </Compile>
+    <Compile Include="private\View\AddUser.aspx.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\AddUser.aspx.designer.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="private\View\CheckoutEquipment.aspx.cs">
       <DependentUpon>CheckoutEquipment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -476,12 +484,12 @@
     <Compile Include="private\View\ManageUsers.aspx.designer.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="private\View\AddUser.aspx.cs">
-      <DependentUpon>AddUser.aspx</DependentUpon>
+    <Compile Include="private\View\AddEmployee.aspx.cs">
+      <DependentUpon>AddEmployee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="private\View\AddUser.aspx.designer.cs">
-      <DependentUpon>AddUser.aspx</DependentUpon>
+    <Compile Include="private\View\AddEmployee.aspx.designer.cs">
+      <DependentUpon>AddEmployee.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\Model\AddUser.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

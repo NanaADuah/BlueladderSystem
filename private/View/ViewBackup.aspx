@@ -43,12 +43,18 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Data</th>
+                            <th scope="col">Filename</th>
+                            <th scope="col">File size</th>
+                            <th scope="col">Date Created</th>
+                            <th scope="col">Extension</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text-center">No data available from the database</td>
+                            <td><%=FfileName %></td>
+                            <td><%=GetBytesReadable(Convert.ToInt64(FfileSize))%></td>
+                            <td><%=FfileCreation.ToShortDateString()%></td>
+                            <td><%=FfileExtension%></td>
                         </tr>
                     </tbody>
                 </table>

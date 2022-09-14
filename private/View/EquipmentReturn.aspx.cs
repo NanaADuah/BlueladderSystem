@@ -42,7 +42,7 @@ namespace bcms
                             {
 
                                 lblMessages.Text = "";
-                                string query = $"UPDATE [Equipment] SET Available = 1, [UserID] = {Session["UserID"].ToString()} WHERE EquipmentID = {eID}";
+                                string query = $"UPDATE [Equipment] SET Available = 1, LastModified = '{DateTime.Now}',[UserID] = {Session["UserID"].ToString()} WHERE EquipmentID = {eID}";
                                 if (database.update(query))
                                 {
                                     lblMessages.Text = "Equipment returned back!";

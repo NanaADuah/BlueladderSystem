@@ -40,6 +40,7 @@
                                 <asp:RadioButton runat="server" class="" GroupName="rbOption" id="rbEmployee"  Text="Employee Database" OnCheckedChanged="rbEmployee_CheckedChanged"/>
                                 <asp:RadioButton runat="server" class="" GroupName="rbOption" id="rbDevice" Text="Device Database" OnCheckedChanged="rbDevice_CheckedChanged" />
                                 <asp:RadioButton runat="server" class="" GroupName="rbOption" id="rbRequest" Text="Equipment Request Database" OnCheckedChanged="rbRequest_CheckedChanged" />
+                                <asp:RadioButton runat="server" class="" GroupName="rbOption" id="rbDataLog" Text="Data Logs Database" OnCheckedChanged="rbDataLogs_CheckedChanged" />
                             </div>
                             <div class="dropdown-divider"></div>
                             <asp:Button Text="EXECUTE" runat="server" ID="btnExecute" class="btn btn-secondary m-2" OnClick="btnExecute_Click"></asp:Button>

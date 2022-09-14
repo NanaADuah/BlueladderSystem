@@ -31,8 +31,10 @@
             <div id="tableView">
                 <table class="table table-hover">
                     <thead>
-                        <th scope="col">Options</th>
-                        <th scope="col"></th>
+                        <tr>
+                            <th scope="col">Options</th>
+                            <th scope="col"></th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -40,18 +42,35 @@
                             <td>
                                 <a href="LabourReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
+                            </td>
                         </tr>
                         <tr>
-                            <td>View Cost Summary Report</td>
+                            <td>View Revenue Report</td>
                             <td>
                                 <a href="SummaryReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Change Equipment Report</td>
+                            <td>View Employee Report</td>
                             <td>
                                 <a href="EmployeeReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>View Equipment Report</td>
+                            <td>
+                                <a href="EmployeeReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                </a >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>View System Reports</td>
+                            <td>
+                                <a href="DataLogs.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                </a >
+                            </td>
                         </tr>
                     </tbody>
                 </table>

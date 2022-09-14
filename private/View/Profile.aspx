@@ -52,7 +52,7 @@
                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
 
                             <asp:Button class="btn btn-primary" runat="server" ID="btnUploadImage" Text="Upload new image" OnClick="btnUploadImage_Click"></asp:Button><br />
-                            <asp:FileUpload class="" runat="server" ID="FileUploader"></asp:FileUpload><br />
+                            <asp:FileUpload class="form-control form-control-lg" runat="server" ID="FileUploader"></asp:FileUpload><br />
                             <asp:RegularExpressionValidator class="form-control form-control-lg" ID="RegularExpressionValidator1" runat="server" ErrorMessage="Upload pngs and jpgs only" ControlToValidate="FileUploader" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(.jpg|.JPG|.png|.PNG)$"></asp:RegularExpressionValidator>
                         </div>
                     </div>
