@@ -24,7 +24,6 @@
             <h1 class="display-5">Labour Reports</h1>
             <div class="dropdown-divider"></div>
             </div>
-            <asp:Label ID="InfoDisplay" runat="server"></asp:Label>
 
             <div id="tableView">
                 <table class="table table-hover">
@@ -40,6 +39,11 @@
             <a href="ViewReports.aspx" class="btn btn-primary float-right">GO BACK</a>
             </div>
         </div>
+        <asp:ListBox ID="ListBox1" runat="server" Height="309px" Width="1649px"></asp:ListBox>
+        <p>
+            <asp:Label ID="InfoDisplay" runat="server"></asp:Label>
+
+            </p>
     </form>
 </body>
 </html>
