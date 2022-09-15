@@ -53,7 +53,17 @@ namespace bcms
                     string password = tbPassword.Text;
 
                     if (database.check(ID, password))
-                        user.login(ID);
+                    {
+                        if (!database.getUserStatus(ID))
+                        {
+                            infoDisplay.Text = "This account has been disabled, please contact system administration for further help";
+                            infoDisplay.ForeColor = System.Drawing.Color.Red;
+                        }
+                        else
+                        {
+                            user.login(ID);
+                        }
+                    }
                     else
                     {
                         infoDisplay.Text = "Invalid credentials";

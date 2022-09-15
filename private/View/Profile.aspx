@@ -1,6 +1,17 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="bcms.Profile" %>
 
 <!DOCTYPE html>
+<style>
+    #imgProfile {
+        -webkit-user-drag: none;
+        border-radius: 50%;
+    }
+
+        #imgProfile:hover {
+            border-radius: 0;
+        }
+</style>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -11,10 +22,10 @@
 
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/ManageUsers.css" />
     <link rel="stylesheet" href="css/ViewEmployees.css" />
     <link rel="stylesheet" href="css/Profile.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
     <title>Profile</title>
 </head>
 <body>
@@ -48,12 +59,11 @@
                     <div class="card mb-4 mb-xl-0">
                         <div class="card-header">Profile Picture</div>
                         <div class="card-body text-center">
-                            <asp:Image class="img-account-profile rounded-circle mb-2" ID="imgProfile" src="../../public/includes/profile/female.jpg" runat="server" />
+                            <img class="img-account-profile rounded-circle mb-2" id="imgProfile" src="../../<%=profile.Image%>" />
                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-
                             <asp:Button class="btn btn-primary" runat="server" ID="btnUploadImage" Text="Upload new image" OnClick="btnUploadImage_Click"></asp:Button><br />
-                            <asp:FileUpload class="form-control form-control-lg" runat="server" ID="FileUploader"></asp:FileUpload><br />
-                            <asp:RegularExpressionValidator class="form-control form-control-lg" ID="RegularExpressionValidator1" runat="server" ErrorMessage="Upload pngs and jpgs only" ControlToValidate="FileUploader" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(.jpg|.JPG|.png|.PNG)$"></asp:RegularExpressionValidator>
+                            <asp:FileUpload class="my-2" runat="server" ID="FileUploader"></asp:FileUpload><br />
+                            <asp:RegularExpressionValidator class="form-control form-control-lg"  ID="RegularExpressionValidator1" runat="server" ErrorMessage="Upload pngs and jpgs only" ControlToValidate="FileUploader" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(.jpg|.JPG|.png|.PNG)$"></asp:RegularExpressionValidator>
                         </div>
                     </div>
                 </div>

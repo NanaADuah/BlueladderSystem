@@ -372,6 +372,26 @@ namespace bcms
             return string.Empty;
         }
 
+        public bool getUserStatus(int ID)
+        {
+            if (isActive())
+            {
+                try
+                {
+                    string query = $"SELECT [Enabled] FROM [User] WHERE UserID = {ID}";
+                    bool output = Convert.ToBoolean(get(query));
+                    return output;
+                }
+                catch (Exception ex)
+                {
+                    setError(ex.Message);
+                    return false;
+                }
+            }
+            else
+                return false;
+        }
+
         public string writeCSV(string tableName, int UserID)
         {
             DataTable table = new DataTable();

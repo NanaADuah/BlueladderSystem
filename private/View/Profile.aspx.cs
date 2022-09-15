@@ -79,21 +79,17 @@ namespace bcms
                             string link = ".. / .. /public/includes/profile/";
                             if (profile.Image.Equals("") || profile.Image == null)
                             {
+                                link = "../../public/includes/profile/";
                                 if (profile.Gender.Equals("female", StringComparison.OrdinalIgnoreCase))
                                     profile.Image = link + "female.jpg";
                                 else
                                 if (profile.Gender.Equals("male", StringComparison.OrdinalIgnoreCase))
                                     profile.Image = link + "male.jpg";
                                 else
-                                    profile.Image = link + defaultImage;
-                                    
+                                    profile.Image = defaultImage;
                             }
-                            else
-                            {
-                                profile.Image = HttpContext.Current.Server.MapPath("~") + profile.Image;
-                            }
-                            
-                            imgProfile.ImageUrl = profile.Image;
+
+                            //imgProfile.ImageUrl = profile.Image;
 
                         }
                     }
@@ -169,9 +165,9 @@ namespace bcms
 
                                 string query = $"UPDATE [Employee] SET [Image] = '{firstFileName}' WHERE UserID = {profile.UserID}";
                                 database.update(query);
-                                imgProfile.ImageUrl = fileName;
                                 lblMessages.Text = "Uploaded!";
                                 database.logInfo(int.Parse(Session["UserID"].ToString()), "Uploaded new profile image");
+                                Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
                             }
                         }
                     }catch

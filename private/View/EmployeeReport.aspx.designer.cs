@@ -33,15 +33,6 @@ namespace bcms
         protected global::System.Web.UI.WebControls.Label lblInfo;
 
         /// <summary>
-        /// EmpReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox EmpReport;
-
-        /// <summary>
         /// infoDisplay control.
         /// </summary>
         /// <remarks>
@@ -49,5 +40,14 @@ namespace bcms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label infoDisplay;
+
+        /// <summary>
+        /// tbTotalEmp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbTotalEmp;
     }
 }

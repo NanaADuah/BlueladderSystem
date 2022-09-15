@@ -1,5 +1,15 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewEmployees.aspx.cs" Inherits="bcms.ViewEmployees" %>
-
+<style>
+    img{
+        border-radius: 50%;
+        padding:0;
+    }    
+    
+    img:hover{
+        padding:5px;
+        border-radius: 0;
+    }
+</style>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -73,7 +83,7 @@
                             <% foreach (var item in employees)
                                 {%>
                             <tr>
-                            <td> <img id="imgView" class="empImg" title="image" src="../../<%=imageLink%>" /></td>
+                            <td> <img id="imgView" class="empImg" title="image" src="../../<%=item.Image%>" /></td>
                             <td><%=item.EmployeeID%></td>
                             <td><%=item.UserID%></td>
                             <td><%=item.Name%></td>
