@@ -3,6 +3,12 @@
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 
 <!DOCTYPE html>
+<style>
+    Chart1 
+    {
+        pointer-events: none;
+    }
+</style>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -22,7 +28,7 @@
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
             <div id="header">
-                
+
                 <h1 class="display-5"><a href="ViewReports.aspx"><i class="fa fa-chevron-left"></i></a>Employee Reports</h1>
                 <div class="dropdown-divider"></div>
             </div>
@@ -30,12 +36,12 @@
                 <asp:Label runat="server" ID="lblInfo"></asp:Label>
             </div>
             <div id="tableView">
-            <asp:Label ID="infoDisplay" runat="server" Text=""></asp:Label>
+                <asp:Label ID="infoDisplay" runat="server" Text=""></asp:Label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default" disabled >Total employees</span>
+                        <span class="input-group-text" id="inputGroup-sizing-default" disabled>Total employees</span>
                     </div>
-                    <asp:TextBox type="text" class="form-control" ID="tbTotalEmp" runat="server" ReadOnly="True"/>
+                    <asp:TextBox type="text" class="form-control" ID="tbTotalEmp" runat="server" ReadOnly="True" />
                 </div>
                 <%if (report != null)
                     { %>
@@ -47,22 +53,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <%foreach (var item in report.JobStatus)
-                        
-                                { %>
-                            <tr>
+                        <%foreach (var item in report.JobStatus)
+
+                            { %>
+                        <tr>
                             <td scope="col"><%=item.Name %></td>
                             <td scope="col"><%=item.Count %></td>
-                             </tr>
-                            <%} %>
+                        </tr>
+                        <%} %>
                     </tbody>
                 </table>
                 <%}
-                else
-                { %>
+                    else
+                    { %>
                 <table class="table table-hover">
                     <thead>
-                        <th scope="col">Options</th>
+                        <tr>
+                            <th scope="col">Options</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -71,16 +79,55 @@
                     </tbody>
                 </table>
                 <%} %>
+
+                <asp:Chart runat="server" ID="Chart1" class="form-control mx-auto" AntiAliasing="None" Palette="EarthTones" Width="721px">
+                    <Series>
+                        <asp:Series Name="Series1"></asp:Series>
+                    </Series>
+                    <ChartAreas>
+                        <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+                    </ChartAreas>
+                </asp:Chart>
+                <div>
+                    <%if (report != null)
+                        { %>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Job Types</th>
+                                <th scope="col">Average work hours per month</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%foreach (var item in report.EmployeeHours)
+
+                                { %>
+                            <tr>
+                                <td scope="col"><%=item.Name %></td>
+                                <td scope="col"><%=item.Hours %> hours</td>
+                            </tr>
+                            <%} %>
+                        </tbody>
+                    </table>
+                    <%}
+                        else
+                        { %>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">There is no data to show</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <%} %>
+                </div>
             </div>
-            <asp:Chart runat="server">
-                <Series>
-                    <asp:Series Name="Series1"></asp:Series>
-                </Series>
-                <ChartAreas>
-                    <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
-                </ChartAreas>
-            </asp:Chart>
-            </div>
+        </div>
     </form>
 </body>
 </html>

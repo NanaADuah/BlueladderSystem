@@ -86,6 +86,21 @@ namespace bcms
                 local.Close();
             }
         }
+        public SqlDataAdapter getAdapterQuery(string query)
+        {
+            SqlDataAdapter adapter = null;
+            try
+            {
+                adapter = new SqlDataAdapter(query,GetConnectionString());
+                return adapter;
+            }
+            catch(Exception ex)
+            {
+                setError(ex.Message);
+            }
+            return null;
+        }
+
         public static string RandomString(int length)
         {
             Random random = new Random(Guid.NewGuid().GetHashCode());
@@ -716,7 +731,7 @@ namespace bcms
             string message = $"User with ID {ID} has requested for a password change. Email address: {email}";
             try
             {
-                int targetID = int.Parse(get("SELECT TOP 1 UseriD FROM UserID WHERE [Role] LIKE 'Admin'").ToString());
+                int targetID = int.Parse(get("SELECT TOP 1 UserID FROM [User] WHERE [Role] = 'Admin'").ToString());
                 string query = $"INSERT INTO [Notifications] (SenderID, TargetID, Info, Time, Title) VALUES ({ID},{targetID},'{message}','{DateTime.Now}','Password Change Request')";
                 insert(query);
                 return true;
@@ -823,26 +838,25 @@ namespace bcms
             SqlConnection local = new SqlConnection(GetConnectionString());
             if(isActive())
             {
-
-                if (int.Parse(user.getRole(SessionID)).Equals("Admin"))
+                try
                 {
-                    try
-                    {
-                        local.Open();
-                        string query = $"INSERT INTO [Employee] (UserID, BirthDate, JobStatus, FirstName, LastName, Email, Gender) VALUES ({UserID},'{birthDate}','{JobStatus}','{firstName}','{lastName}','{email}','{gender}') SET IDENTITY_INSERT Employee OFF";
-                        SqlCommand command = new SqlCommand(query, local);
-                        command.ExecuteNonQuery();
-                        return "Success";
-                    }
-                    catch (Exception ex)
-                    {
-                        return ex.Message;
-                    }
-                    finally
-                    {
-                        local.Close();
-                        logInfo(SessionID, "Add new user");
-                    }
+                    local.Open();
+                    string query = $"INSERT INTO [Employee] (UserID, BirthDate, JobStatus, FirstName, LastName, Email, Gender) VALUES ({UserID},'{birthDate}','{JobStatus}','{firstName}','{lastName}','{email}','{gender}') SET IDENTITY_INSERT Employee OFF";
+                    SqlCommand command = new SqlCommand(query, local);
+                    command.ExecuteNonQuery();
+                    setError("");
+                    return "Success";
+
+                }
+                catch (Exception ex)
+                {
+                    setError(ex.Message);
+                    return ex.Message;
+                }
+                finally
+                {
+                    local.Close();
+                    logInfo(SessionID, "Add new user");
                 }
                 return getError();
             }

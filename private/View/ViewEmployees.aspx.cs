@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace bcms
 {
@@ -28,6 +29,7 @@ namespace bcms
             string defaultImage  = "placeholder.png";
 
             if (reader != null)
+            {
                 while (reader.Read())
                 {
                     string eID = reader.GetValue(0).ToString();
@@ -38,12 +40,12 @@ namespace bcms
                     string gender = reader.GetValue(5).ToString();
                     string bDate = reader.GetValue(6).ToString();
                     string image = reader.GetValue(7).ToString();
-                    
-                    if(image.Equals("") || image == null)
+
+                    if (image.Equals("") || image == null)
                     {
                         string link = "../../public/includes/profile/";
                         if (gender.Equals("female", StringComparison.OrdinalIgnoreCase))
-                            image = link+ "female.jpg";
+                            image = link + "female.jpg";
                         else
                         if (gender.Equals("male", StringComparison.OrdinalIgnoreCase))
                             image = link + "male.jpg";
@@ -57,13 +59,14 @@ namespace bcms
                         UserID = uID,
                         Name = fName,
                         Surname = lName,
-                        JobStatus= status,
+                        JobStatus = status,
                         Gender = gender,
                         Birthdate = Convert.ToDateTime(bDate),
                         Image = image
-                        
-                    }) ;
+
+                    });
                 }
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)

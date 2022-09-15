@@ -35,9 +35,11 @@ namespace bcms
                         }else
                         {
 
-                            HttpCookie requestTimer = new HttpCookie("RequestChange");
+                            //HttpCookie requestTimer = new HttpCookie("RequestChange");
+                            /*
                             requestTimer.Value = ID.ToString();
                             requestTimer.Expires = now.AddMinutes(1);
+                            */
                             database.requestPassChange(email,ID);
                             
                             database.logInfo(ID, "Password change request");

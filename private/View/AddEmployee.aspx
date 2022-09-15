@@ -30,7 +30,7 @@
                                                 </div>
                                             <div class="mb-2 pb-2 float-right">
                                                 <select class="select form-outline p-2" id="tbRole" runat="server">
-                                                    <option value="Admin" ret>Admin</option>
+                                                    <option value="Admin" disabled>Admin</option>
                                                     <option value="Owner" disabled>Owner</option>
                                                     <option value="Worker">Worker</option>
                                                 </select>

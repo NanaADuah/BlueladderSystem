@@ -21,7 +21,7 @@
         <div class="px-5" id="main">
             <div id="header">
 
-            <h1 class="display-5"><a href="ViewReports.aspx"><i class="fa fa-chevron-left"></i></a> Cost Summary Report</h1>
+            <h1 class="display-5"><a href="ViewReports.aspx"><i class="fa fa-chevron-left"></i></a> Revenue Report</h1>
             <div class="dropdown-divider"></div>
             </div>
 

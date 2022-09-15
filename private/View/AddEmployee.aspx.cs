@@ -34,9 +34,6 @@ namespace bcms
             string defaultPassword = inputDefaultPassword.Text;
             string role = tbRole.Value.ToString();
             DateTime date = DateTime.Now.Date;
-            lblMessages.Text = "";
-
-            
 
             if(!role.Equals("Worker"))
             {
@@ -51,8 +48,7 @@ namespace bcms
                     if(ID!= -1)
                     {
                         database.EmployeeAdd(int.Parse(Session["UserID"].ToString()),ID,jobStatus,date, firstName, lastName, gender, email);
-                        Response.Redirect("ManageUsers.aspx");
-                        
+                        lblMessages.Text = "Success"; lblMessages.ForeColor = System.Drawing.Color.Black;
                     }
                     else
                         lblMessages.Text = Database.getError();
@@ -63,10 +59,6 @@ namespace bcms
                     lblMessages.Text = $"Error: {ex.Message}";
                     lblMessages.ForeColor = System.Drawing.Color.Red;
                 
-                }
-                finally
-                {
-                    lblMessages.Text = Database.getError();
                 }
             }
         }
