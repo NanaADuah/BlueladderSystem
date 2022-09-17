@@ -61,14 +61,14 @@
                         <tr>
                             <td>View Equipment Report</td>
                             <td>
-                                <a href="EmployeeReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <a href="EquipmentReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a >
                             </td>
                         </tr>
                         <tr>
                             <td>View System Reports</td>
                             <td>
-                                <a href="DataLogs.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                <a href="SystemReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </a >
                             </td>
                         </tr>

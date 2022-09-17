@@ -14,13 +14,14 @@ namespace bcms
         {
             if (Session["UserID"] != null)
                 Session.Remove("UserID");
+
             UI instance = new UI();
             Database database = new Database();
             database.connect();
             if (!database.isActive())
             {
                 string error = Database.getError();
-                infoDisplay.Text = $"Error connecting to system database|{error}";
+                infoDisplay.Text = $"A network error occurred, please try again later";
                 infoDisplay.ForeColor = System.Drawing.Color.Red;
             }
             else

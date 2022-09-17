@@ -37,7 +37,7 @@ namespace bcms
                 Response.Redirect("dashboard.aspx");
             }
         }
-}
+    }
 
     public class Warehouses
     {

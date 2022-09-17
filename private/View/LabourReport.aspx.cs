@@ -16,13 +16,7 @@ namespace bcms
         {
             /*
             Database database = new Database();
-            database.connect();
-            if (!database.isActive())
-            {
-                string error = Database.getError();
-                InfoDisplay.Text = $"Error connecting to system database|{error}";
-            }
-            else
+            
             {LabReport.Items.Add("Equipment Count" + "\t" + "Employee ID" + "\t" + "Equipment ID" + "\t\t" + "Equipment Type" + "\t\t" + "Equipment Location");
                 for (int count = 0; count <= 250; count++)
                 {

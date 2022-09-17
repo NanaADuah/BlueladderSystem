@@ -51,7 +51,7 @@
                         <h5 class="float-right"><%=TimeAgo(item.Time) %></h5>
                         <p class="lead">
                             Sent by 
-                                <%=valueUser.getRole(item.SenderID).ToLower() %>
+                                <%=item.SenderTag.ToLower() %>
                         </p>
                         <hr class="my-4"/>
                         <p class="text-break"><%=item.Message %></p>

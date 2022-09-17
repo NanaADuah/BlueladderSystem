@@ -29,7 +29,7 @@ namespace bcms
             int ID = int.Parse(Session["UserID"].ToString());
             try
             {
-                string query = $"SELECT * FROM [Notifications] WHERE TargetID = {ID}";
+                string query = $"SELECT * FROM [Notifications] WHERE TargetID = {ID} ORDER BY Time DESC";
                 SqlDataReader reader = database.execReader(query);
 
                 if(reader != null)

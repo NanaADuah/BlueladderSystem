@@ -79,18 +79,16 @@ namespace bcms
                             string link = ".. / .. /public/includes/profile/";
                             if (profile.Image.Equals("") || profile.Image == null)
                             {
-                                link = "../../public/includes/profile/";
                                 if (profile.Gender.Equals("female", StringComparison.OrdinalIgnoreCase))
                                     profile.Image = link + "female.jpg";
                                 else
                                 if (profile.Gender.Equals("male", StringComparison.OrdinalIgnoreCase))
                                     profile.Image = link + "male.jpg";
                                 else
-                                    profile.Image = defaultImage;
+                                    profile.Image = link + defaultImage;
                             }
 
                             //imgProfile.ImageUrl = profile.Image;
-
                         }
                     }
                 }else
@@ -111,8 +109,8 @@ namespace bcms
                 {
                     string updateName = inputFirstName.Text;
                     string updateSurname = inputLastName.Text;
-                    string updatejobStatis = inputJobStatus.Text;
-                    string query = $"UPDATE Employee SET FirstName = '{updateName}',LastName = '{updateSurname}', JobStatus='{updatejobStatis}' WHERE Employee.UserID = {ID}";
+                    string updatejobStatus = inputJobStatus.Text;
+                    string query = $"UPDATE Employee SET FirstName = '{updateName}',LastName = '{updateSurname}', JobStatus='{updatejobStatus}' WHERE Employee.UserID = {ID}";
                     Database database = new Database();
                     database.update(query);
                 }
@@ -171,6 +169,61 @@ namespace bcms
                             }
                         }
                     }catch
+                    {
+                        lblMessages.Text = "Error uploading image, please try again!";
+                    }
+                }
+            }
+        }
+
+        public void uploadImage()
+        {
+            if (profile != null)
+            {
+                if (FileUploader.PostedFile != null)
+                {
+                    Database database = new Database();
+                    string folderPath = HttpContext.Current.Server.MapPath("~") + $"public\\includes\\profile\\{profile.UserID}\\";
+                    string extension = Path.GetExtension(FileUploader.FileName);
+                    try
+                    {
+
+                        if (!Directory.Exists(folderPath))
+                        {
+                            Directory.CreateDirectory(folderPath);
+                        }
+                        if (extension.ToLower() == ".png" || extension.ToLower() == ".jpg")
+                        {
+                            Stream strm = FileUploader.PostedFile.InputStream;
+                            using (var image = System.Drawing.Image.FromStream(strm))
+                            {
+
+                                int newWidth = 240; // New Width of Image in Pixel  
+                                int newHeight = 240; // New Height of Image in Pixel  
+
+                                var thumbImg = new Bitmap(newWidth, newHeight);
+                                var thumbGraph = Graphics.FromImage(thumbImg);
+                                thumbGraph.CompositingQuality = CompositingQuality.HighQuality;
+                                thumbGraph.SmoothingMode = SmoothingMode.HighQuality;
+                                thumbGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                                var imgRectangle = new Rectangle(0, 0, newWidth, newHeight);
+                                thumbGraph.DrawImage(image, imgRectangle);
+                                string fileName = HttpContext.Current.Server.MapPath("~") + $"public\\includes\\profile\\{profile.UserID}\\{profile.UserID}{extension}";
+
+
+                                string targetPath = fileName;
+                                thumbImg.Save(targetPath, image.RawFormat);
+                                string firstFileName = $"public\\includes\\profile\\{profile.UserID}\\{profile.UserID}{extension}";
+
+                                string query = $"UPDATE [Employee] SET [Image] = '{firstFileName}' WHERE UserID = {profile.UserID}";
+                                database.update(query);
+                                lblMessages.Text = "Uploaded!";
+                                database.logInfo(int.Parse(Session["UserID"].ToString()), "Uploaded new profile image");
+                                Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
+                            }
+                        }
+                    }
+                    catch
                     {
                         lblMessages.Text = "Error uploading image, please try again!";
                     }

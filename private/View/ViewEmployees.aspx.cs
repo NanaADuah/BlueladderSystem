@@ -50,7 +50,7 @@ namespace bcms
                         if (gender.Equals("male", StringComparison.OrdinalIgnoreCase))
                             image = link + "male.jpg";
                         else
-                            image = defaultImage;
+                            image = link + defaultImage;
                     }
 
                     employees.Add(new Employee()
@@ -62,7 +62,7 @@ namespace bcms
                         JobStatus = status,
                         Gender = gender,
                         Birthdate = Convert.ToDateTime(bDate),
-                        Image = image
+                        Image = image,
 
                     });
                 }

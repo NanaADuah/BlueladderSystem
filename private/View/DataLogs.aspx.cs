@@ -16,7 +16,7 @@ namespace bcms
                 Response.Redirect("startup.aspx");
             User instance = new User();
 
-            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
+            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin") && !instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
                 Response.Redirect("dashboard.aspx");
 
             string eMessage = Database.getError();
@@ -36,7 +36,9 @@ namespace bcms
                         LogID = int.Parse(reader.GetValue(0).ToString()),
                         UserID = int.Parse(reader.GetValue(1).ToString()),
                         Action = reader.GetValue(2).ToString(),
-                        Time = Convert.ToDateTime(reader.GetValue(3).ToString())
+                        Time = Convert.ToDateTime(reader.GetValue(3).ToString()),
+                        StrTime = Database.TimeAgo(Convert.ToDateTime(reader.GetValue(3).ToString())),
+
                     });
                 }
         }
@@ -48,5 +50,6 @@ namespace bcms
         public int UserID { get; set; }
         public string Action{ get; set; }
         public DateTime Time { get; set; }
+        public string StrTime { get; set; }
     }
 }

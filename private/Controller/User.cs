@@ -54,14 +54,15 @@ namespace bcms
 
             var HostIP = HttpContext.Current != null ? HttpContext.Current.Request.UserHostAddress : "";
             string host = Dns.GetHostName();
-
+            Random rand = new Random();
             // Getting ip address using host name
             IPHostEntry ip = Dns.GetHostEntry(host);
             Console.WriteLine();
 
             string devType = "Desktop";
             string devName = Environment.MachineName;
-            string deviceIP = database.RemoveSpecialCharacters(ip.AddressList[0].ToString());
+            string deviceIP = rand.Next(5000, 100000).ToString();
+
             database.logDevice(deviceIP, devType,devName, ID);
             database.logInfo(ID,"login");
             HttpContext.Current.Response.Redirect("dashboard.aspx");
@@ -88,6 +89,7 @@ namespace bcms
 
             return text;
          }
+
         public string getRole(int ID)
         {
             Database database = new Database();

@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="css/ManageUsers.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
         <!--#include file="navBar.html"-->
+    <form id="form1" runat="server">
         <div class="px-5" id="main">
             <div class="form-check-inline">
 
@@ -62,7 +62,7 @@
                             <td><%=count%></td>
                             <td><%=item.UserID%></td>
                             <td><%=item.Action%></td>
-                            <td><%=item.Time.ToString("dd/MM/yyyy HH:mm")%></td>
+                            <td><%=item.StrTime%></td>
                             </tr>
                             <%}%>
                             <%}%>

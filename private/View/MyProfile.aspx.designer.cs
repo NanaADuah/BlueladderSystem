@@ -33,57 +33,57 @@ namespace bcms
         protected global::System.Web.UI.WebControls.Label lblMessages;
 
         /// <summary>
-        /// inputUserID control.
+        /// tbUserID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputUserID;
+        protected global::System.Web.UI.WebControls.TextBox tbUserID;
 
         /// <summary>
-        /// inputFirstName control.
+        /// tbFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputFirstName;
+        protected global::System.Web.UI.WebControls.TextBox tbFirstName;
 
         /// <summary>
-        /// inputLastName control.
+        /// tbLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputLastName;
+        protected global::System.Web.UI.WebControls.TextBox tbLastName;
 
         /// <summary>
-        /// inputGender control.
+        /// tbGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputGender;
+        protected global::System.Web.UI.WebControls.TextBox tbGender;
 
         /// <summary>
-        /// inputEmailAddress control.
+        /// tbEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputEmailAddress;
+        protected global::System.Web.UI.WebControls.TextBox tbEmail;
 
         /// <summary>
-        /// inputBirthday control.
+        /// tbBirhDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputBirthday;
+        protected global::System.Web.UI.WebControls.TextBox tbBirhDate;
     }
 }

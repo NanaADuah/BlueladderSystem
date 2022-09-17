@@ -14,6 +14,15 @@ namespace bcms
         protected EReport report;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["UserID"] == null)
+                Response.Redirect("startup.aspx");
+            User instance = new User();
+
+            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin") && !instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Owner"))
+                Response.Redirect("dashboard.aspx");
+
+
             Database database = new Database();
             report = new EReport();
             List<JobTable> jobTypes = new List<JobTable>();

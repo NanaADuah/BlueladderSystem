@@ -24,7 +24,7 @@ namespace bcms
             lblMessages.Text = "Top [10] most recent device logins";
             devices = new List<Device>();
             Database database = new Database();
-            string query = "SELECT TOP 10 DeviceName, UserID, DeviceType, DeviceID, Time FROM Devices ORDER BY TIME DESC";
+            string query = "SELECT TOP 10 DeviceName, UserID, DeviceType, DeviceID, Time FROM Devices ORDER BY TIME desc";
             if (eMessage.Length != 0)
                 lblMessages.Text = "Error: " + eMessage;
 

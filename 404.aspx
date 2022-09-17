@@ -64,14 +64,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 align-self-center">
-                        <h1>404</h1>
-                        <h2>UH OH! You're lost.</h2>
+                        <h3>There was a bit of an issue with the server</h3>
+                        <h5>The server gave us an error with your request, would you mind going back and trying again?</h5>
+                        <div class="dropdown-divider"></div>
                         <p>
-                            The page you are looking for does not exist.
-          How you got here is a mystery. But you can click the button below
-          to go back to the start up page.
-                        </p>
-                        <a href="private/View/startup.aspx" class="btn btn-primary green">HOME</a>
+                            Internal server issue occurred, click the button below to go back to the dashboard</p>
+                        <a href="private/View/dashboard.aspx" class="btn btn-primary green">HOME</a>
                     </div>
                 </div>
             </div>

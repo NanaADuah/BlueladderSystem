@@ -15,7 +15,7 @@ namespace bcms
                 Response.Redirect("startup.aspx");
             User instance = new User();
 
-            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
+            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin") && !instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Owner"))
                 Response.Redirect("dashboard.aspx");
         }
 

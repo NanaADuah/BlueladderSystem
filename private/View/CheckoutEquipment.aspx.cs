@@ -29,7 +29,7 @@ namespace bcms
                 else
                 {
 
-                    string selectEquip = database.get($"SELECT Available FROM [Equipment] WHERE EquipmentID = {eID}");
+                    string selectEquip = database.get($"SELECT [Available] FROM [Equipment] WHERE EquipmentID = {eID}");
                     bool available = Convert.ToBoolean(selectEquip);
                     if (!available)
                     {
@@ -45,7 +45,7 @@ namespace bcms
                     {
                         lblMessages.Text = "";
 
-                        string query = $"UPDATE [Equipment] SET Available = 0, [UserID] = {Session["UserID"].ToString()} WHERE EquipmentID = {eID}";
+                        string query = $"UPDATE [Equipment] SET [Available] = 0, [UserID] = {Session["UserID"].ToString()} WHERE EquipmentID = {eID}";
                         if (database.update(query))
                         {
                             lblMessages.Text = "Equipment checked out!";
@@ -56,8 +56,6 @@ namespace bcms
                             lblMessages.Text = Database.getError();
                         }
                     }
-
-
                 }
             }
             else

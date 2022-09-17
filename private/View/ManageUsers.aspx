@@ -14,11 +14,6 @@
     <link rel="stylesheet" href="../../public/font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/ManageUsers.css" />
-    <style type="text/css">
-        .auto-style1 {
-            height: 29px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -37,8 +32,8 @@
                     <thead>
                         <tr>
 
-                        <th scope="col" class="auto-style1">Options</th>
-                        <th scope="col" class="auto-style1"></th>
+                        <th scope="col">Options</th>
+                        <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>

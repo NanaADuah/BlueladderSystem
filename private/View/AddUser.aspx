@@ -46,7 +46,6 @@
                     <asp:DropDownList runat="server" class="form-control" ID="tbRole">
                         <asp:ListItem>Owner</asp:ListItem>
                         <asp:ListItem>Admin</asp:ListItem>
-                        <asp:ListItem>Worker</asp:ListItem>
                     </asp:DropDownList>
                 </div>
             <asp:Button runat="server" ID="btnCreate" class="btn btn-success" Text="CREATE" OnClick="btnCreate_Click"/>

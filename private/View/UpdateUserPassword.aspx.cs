@@ -19,6 +19,17 @@ namespace bcms
                 Response.Redirect("dashboard.aspx");
 
             Response.Redirect("Security.aspx");
+
+            if(Request.QueryString["token"] != null && Request.QueryString[""] != null)
+            {
+                string token = Request.QueryString["token"];
+                string userID = Request.QueryString["userID"] ;
+
+            }
+            else
+            {
+                Response.Redirect("startup.aspx");
+            }
         }
     }
 }

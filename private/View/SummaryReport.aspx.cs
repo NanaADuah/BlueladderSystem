@@ -20,7 +20,7 @@ namespace bcms
 
             Database database = new Database();
 
-            double salary, income, revenue, hoursC, hoursA, hoursO, totalHours;
+            //double salary, income, revenue, hoursC, hoursA, hoursO, totalHours;
             List<String> jobs = new List<String>();
 
             try

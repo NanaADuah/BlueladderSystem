@@ -23,7 +23,7 @@
             <!--#include file="navBar.html"-->
             <div class="px-5" id="main">
                 <div class="form-check-inline">
-                <h1 class="display-5">Manage Equipment</h1>
+                <h1 class="display-5"><a href="ManageEquipment.aspx" ><i class="fa fa-chevron-left"></i><a> Equipment Inventory</h1>
                 </div>
                 <a class="btn btn-success float-right" href="Help.aspx">Help</a>
                 <div class="input-group mb-3">

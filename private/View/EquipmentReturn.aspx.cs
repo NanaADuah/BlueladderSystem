@@ -45,8 +45,24 @@ namespace bcms
                                 string query = $"UPDATE [Equipment] SET Available = 1, LastModified = '{DateTime.Now}',[UserID] = {Session["UserID"].ToString()} WHERE EquipmentID = {eID}";
                                 if (database.update(query))
                                 {
-                                    lblMessages.Text = "Equipment returned back!";
-                                    lblMessages.ForeColor = System.Drawing.Color.Black;
+                                    if(database.getCount($"SELECT COUNT(*) AS Total FROM [EquipmentRequest] WHERE [EquipmentID] = {eID}") >= 0)
+                                    {
+                                        lblMessages.Text = "Equipment returned back!";
+
+                                        if(database.delete($"DELETE FROM [EquipmentRequest] WHERE [EquipmentID] = {eID}"))
+                                        {
+                                            int targetID = int.Parse($"SELECT [UserID] FROM [EquipmentRequest] WHERE [EquipmentID] = {eID}");
+                                            string message = "The equipment you requested for has been returned";
+                                            string title = "Requested Equipment Returned";
+                                            string notiQuery = $"INSERT INTO [Notifications] (SenderID, TargetID, Info, Time, Title) VALUES (0,{targetID},'{message}','{DateTime.Now}','{title}')";
+                                            if(database.insert(notiQuery))
+                                            {
+                                                database.logInfo(int.Parse(Session["UserID"].ToString()),$"Equipment with ID: {eID}, has been returned by request");
+                                                lblMessages.Text = "Equipment returned back and requests cleared!";
+                                                lblMessages.ForeColor = System.Drawing.Color.Black;
+                                            }
+                                        }
+                                    }
                                 }
                                 else
                                     lblMessages.Text = Database.getError();

@@ -21,7 +21,7 @@ namespace bcms
 
             User instance = new User();
 
-            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin"))
+            if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin") && !instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Owner"))
                 Response.Redirect("dashboard.aspx");
 
             string eMessage = Database.getError();

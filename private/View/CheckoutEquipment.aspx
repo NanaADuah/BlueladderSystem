@@ -40,7 +40,7 @@
 
             </div>
             <div class="mx-5 my-2">
-                <asp:Button runat="server" ID="btnReturn" Text="Request Equipment" class="btn mx-2 btn-dark float-right" OnClick="btnReturn_Click"></asp:Button>
+                <asp:Button runat="server" ID="btnReturn" Text="Checkout Equipment" class="btn mx-2 btn-dark float-right" OnClick="btnReturn_Click"></asp:Button>
                 <asp:Button runat="server" ID="btnCancel" Text="Cancel" class="btn btn-danger mx-2 float-right" OnClick="btnCanel_Click"></asp:Button>
             </div>
         </div>

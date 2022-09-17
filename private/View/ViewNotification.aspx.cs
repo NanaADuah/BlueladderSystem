@@ -84,6 +84,12 @@ namespace bcms
                         DateTime NTime = Convert.ToDateTime(reader.GetValue(3).ToString());
                         string NTitle = reader.GetValue(4).ToString();
                         int NNotificationID = int.Parse(reader.GetValue(5).ToString());
+                        string NSenderTag = NSenderID.ToString();
+
+                        if(NSenderID == 0)
+                            NSenderTag = "System";
+                        else
+                            NSenderTag = valueUser.getRole(NSenderID);
 
                         if (target != int.Parse(Session["UserID"].ToString()))
                         {
@@ -96,6 +102,7 @@ namespace bcms
                             Time = NTime,
                             Title = NTitle,
                             NotificationID = NNotificationID,
+                            SenderTag = NSenderTag,
                         });
                     }
                 }
@@ -115,6 +122,7 @@ namespace bcms
         {
             public int NotificationID { get; set; } 
             public int SenderID { get; set; } 
+            public string SenderTag { get; set; } 
             public string Message{ get; set; }
             public int ID { get; set; } 
             public DateTime Time { get; set; } 

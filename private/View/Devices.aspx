@@ -27,7 +27,6 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" class="auto-style1">#</th>
                             <th scope="col" class="auto-style1">User ID</th>
                             <th scope="col" class="auto-style1">Device Type</th>
                             <th scope="col" class="auto-style1">Device Name</th>
@@ -45,7 +44,6 @@
                             <% foreach (var item in devices)
                                 {%>
                             <tr>
-                            <td><%=item.DeviceID%></td>
                             <td><%=item.UserID%></td>
                             <td><%=item.Type%></td>
                             <td><%=item.Name%></td>

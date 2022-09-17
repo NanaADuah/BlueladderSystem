@@ -51,6 +51,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Configuration.ConfigurationBuilders.Base.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -121,6 +127,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="private\View\BorrowedEquipment.aspx" />
+    <Content Include="private\View\ManageEquipment.aspx" />
+    <Content Include="private\View\PrivacyPolicy.aspx" />
+    <Content Include="private\View\EquipmentReport.aspx" />
+    <Content Include="private\View\Account.aspx" />
     <Content Include="private\View\AddUser.aspx" />
     <Content Include="private\View\CheckoutEquipment.aspx" />
     <Content Include="private\View\AddEquipmentNotes.aspx" />
@@ -258,6 +269,7 @@
     <Content Include="fonts\SFPRODISPLAYULTRALIGHTITALIC.OTF" />
     <Content Include="public\backup\Z8SOR3YD26EN8PL.csv" />
     <None Include="Properties\PublishProfiles\blueladder - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\BlueLadder Deployment.pubxml" />
     <None Include="Resources\SFPRODISPLAYBLACKITALIC.OTF" />
     <None Include="Resources\SFPRODISPLAYBOLD.OTF" />
     <None Include="Resources\SFPRODISPLAYHEAVYITALIC.OTF" />
@@ -272,6 +284,7 @@
     <Content Include="public\includes\warehouse.png" />
     <Content Include="public\includes\warehouses.png" />
     <Content Include="private\View\RequestEquipment.aspx" />
+    <Content Include="private\View\RemoveRequest.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -305,6 +318,8 @@
     <Content Include="Site.Master" />
     <Content Include="private\View\startup.aspx" />
     <Content Include="private\View\SummaryReport.aspx" />
+    <Content Include="private\View\SystemReport.aspx" />
+    <Content Include="private\View\Terms.aspx" />
     <Content Include="UI.aspx" />
     <Content Include="private\View\ViewEmployees.aspx" />
     <Content Include="private\View\css\ViewEmployees.css" />
@@ -315,6 +330,7 @@
     <Content Include="private\View\ViewBackup.aspx" />
     <Content Include="private\View\ViewNotification.aspx" />
     <Content Include="private\View\ViewEquipment.aspx" />
+    <Content Include="private\View\ViewRequests.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="private\View\css\ViewUsers.css" />
     <Content Include="private\View\Warehouse.aspx" />
@@ -329,6 +345,41 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\BorrowedEquipment.aspx.cs">
+      <DependentUpon>BorrowedEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\BorrowedEquipment.aspx.designer.cs">
+      <DependentUpon>BorrowedEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ManageEquipment.aspx.cs">
+      <DependentUpon>ManageEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ManageEquipment.aspx.designer.cs">
+      <DependentUpon>ManageEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\PrivacyPolicy.aspx.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\PrivacyPolicy.aspx.designer.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\EquipmentReport.aspx.cs">
+      <DependentUpon>EquipmentReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\EquipmentReport.aspx.designer.cs">
+      <DependentUpon>EquipmentReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
     <Compile Include="private\View\AddUser.aspx.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
@@ -576,6 +627,13 @@
     <Compile Include="private\View\RequestEquipment.aspx.designer.cs">
       <DependentUpon>RequestEquipment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="private\View\RemoveRequest.aspx.cs">
+      <DependentUpon>RemoveRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\RemoveRequest.aspx.designer.cs">
+      <DependentUpon>RemoveRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -606,6 +664,20 @@
     </Compile>
     <Compile Include="private\View\SummaryReport.aspx.designer.cs">
       <DependentUpon>SummaryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\SystemReport.aspx.cs">
+      <DependentUpon>SystemReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\SystemReport.aspx.designer.cs">
+      <DependentUpon>SystemReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Terms.aspx.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Terms.aspx.designer.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI.aspx.cs">
       <DependentUpon>UI.aspx</DependentUpon>
@@ -669,6 +741,13 @@
     </Compile>
     <Compile Include="private\View\ViewEquipment.aspx.designer.cs">
       <DependentUpon>ViewEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewRequests.aspx.cs">
+      <DependentUpon>ViewRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewRequests.aspx.designer.cs">
+      <DependentUpon>ViewRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

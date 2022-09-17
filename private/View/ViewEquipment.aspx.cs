@@ -61,9 +61,9 @@ namespace bcms
                 GenerateMyQCCode(qrText, currEquip.SerialNumber);
                 ReadQRCode(currEquip.SerialNumber);
                 }
-                catch
+                catch(Exception ex)
                 {
-                    lblMessages.Text = "Error generating QR Code, please refresh the page";
+                    lblMessages.Text = ex.Message;
                 }
                 lblQRCode.Text = currEquip.SerialNumber;
                 tbManufacturer.Text = currEquip.Manufacturer;
@@ -81,6 +81,9 @@ namespace bcms
 
         private void GenerateMyQCCode(string QCText, string serial)
         {
+            try
+            {
+
             var QCwriter = new BarcodeWriter();
 
             QCwriter.Format = BarcodeFormat.QR_CODE;
@@ -99,6 +102,11 @@ namespace bcms
             }
             imgageQRCode.Visible = true;
             imgageQRCode.ImageUrl = $"~/public/qr/{serial}.jpg";
+            }
+            catch(Exception ex)
+            {
+                lblMessages.Text = ex.Message;
+            }
 
         }
 
@@ -109,6 +117,7 @@ namespace bcms
             var QCresult = QCreader.Decode(new Bitmap(QCfilename));
             if (QCresult != null)
             {
+                throw new Exception("Error reading equipment QR Code");
             }
         }
 

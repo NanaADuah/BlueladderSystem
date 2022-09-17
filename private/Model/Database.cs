@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.IO;
 using System.Security.Cryptography;
+using System.Configuration;
 using System.Text.RegularExpressions;
 using System.Text;
 using System.Data;
@@ -28,6 +29,27 @@ namespace bcms
             string query = $"SELECT [Available] FROM [Equipment] WHER EquipmentID = {eID}";
             bool result = Convert.ToBoolean(get(query));
             return result;
+        }
+
+        public bool upDatePassword(int userID, string password)
+        {
+            string newPassword = EncryptPassword(password);
+            if(isActive())
+            { 
+                try
+                {
+                    string query = $"UPDATE [User] set Password = '{newPassword}' WHERE UserID = {userID}";
+                    bool result = update(query);
+                    if(result)
+                        return true;
+                }
+                catch(Exception ex)
+                {
+
+                    setError(ex.Message);
+                }
+            }
+            return false;
         }
 
         public string RemoveSpecialCharacters(string str)
@@ -71,7 +93,7 @@ namespace bcms
             try
             {
 
-                string query = "“SELECT COUNT(*) AS Types FROM Device GROUP BY Device.DeviceType";
+                string query = "SELECT COUNT(*) AS Types FROM Device GROUP BY Device.DeviceType";
                 SqlCommand command = new SqlCommand(query, local);
                 int value =  int.Parse(command.ExecuteScalar().ToString());
                     return value;
@@ -325,7 +347,10 @@ namespace bcms
 
         private static string GetConnectionString()
         {
-            string SQLConnection = $@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bcms.mdf; Integrated Security = True;";
+            //string SQLConnection = $@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bcms.mdf; Integrated Security = True;";
+
+            string SQLConnection = ConfigurationManager.ConnectionStrings["databaseConnection"].ConnectionString;
+
             return SQLConnection;
         }
         private void setError(String value)
@@ -420,10 +445,25 @@ namespace bcms
                     SqlDataAdapter adapter = new SqlDataAdapter(query, local);
                     adapter.Fill(table);
                     string saveName = RandomString(15);
+
                     string storeDataBaseFilename = HttpContext.Current.Server.MapPath("~") + $"public\\backup\\{saveName}.csv";
-                    string userStore = GetDownloadFolderPath() + $"\\{saveName}.csv";
+                    string userStore = GetDownloadFolderPath() + $"blueladder\\{saveName}.csv";
                     CSVUtility.ToCSV(table, storeDataBaseFilename);
-                    CSVUtility.ToCSV(table, userStore);
+
+
+                    String FileName = $"{saveName}.csv";
+                    System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
+                    response.ClearContent();
+
+                    response.Clear();
+                    response.ContentType = "text/csv";
+                    response.AddHeader("Content-Disposition", "attachment; filename=" + storeDataBaseFilename);
+                    response.TransmitFile(storeDataBaseFilename);
+                    response.Flush();
+                    response.End();
+
+                    
+                    //CSVUtility.ToCSV(table, userStore);
                     string insData = $"INSERT INTO [Backup] (Filename, Time, UserID, Type) VALUES ('public\\backup\\{saveName}.csv','{DateTime.Now}',{UserID},'Normal')";
                     SqlCommand command = new SqlCommand(insData, local);
                     command.ExecuteNonQuery();
@@ -725,7 +765,7 @@ namespace bcms
             }
         }
 
-        public bool requestPassChange(string email, int ID)
+        public bool requestPassChange(string email, int ID)     //changing of passwords
         {
 
             string message = $"User with ID {ID} has requested for a password change. Email address: {email}";
@@ -742,7 +782,10 @@ namespace bcms
             }
             return false;
         }
-        public bool update(string query)
+        
+
+        
+        public bool update(string query)        //Insert Function Not Update
         {
             SqlConnection local = new SqlConnection(GetConnectionString());
             try
@@ -858,7 +901,6 @@ namespace bcms
                     local.Close();
                     logInfo(SessionID, "Add new user");
                 }
-                return getError();
             }
             return "Database access not available at the momment...";
         }

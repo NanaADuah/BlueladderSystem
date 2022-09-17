@@ -22,9 +22,11 @@
         <div id="heading">
             <!--#include file="navBar.html"-->
             <div class="container">
+                <%if (profile != null) {  %>
                 <div clas="col">
-                    <h1 class="display-5 mx-2">Profile - 
+                    <h1 class="display-5 mx-2">Profile - <%=profile.FirstName%>
                     </h1>
+                    <%} %>
                 </div>
                 <div class="dropdown-divider"></div>
             </div>
@@ -39,7 +41,7 @@
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="../../public/includes/profile/female.jpg" alt=""/>
+                    <img class="img-account-profile rounded-circle mb-2" id="profileImage" src="../../<%=profile.Image%>"/>
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
 
@@ -53,62 +55,45 @@
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
-                    <form>
                         <!-- Form Group (username)-->
                         <div class="mb-3">
-                            <label class="small mb-1" for="inputUserID">User ID for profile</label>
-                            <asp:TextBox class="form-control" runat="server" ID="inputUserID" placeholder="Username" disabled></asp:TextBox>
+                            <label class="small mb-1" for="inputUserID">User ID</label>
+                            <asp:TextBox class="form-control" runat="server" ID="tbUserID" placeholder="Username" disabled></asp:TextBox>
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">First name</label>
-                                <asp:TextBox class="form-control" id="inputFirstName" runat="server" placeholder="First name of user" value="Valerie"></asp:TextBox>
+                                <asp:TextBox class="form-control" id="tbFirstName" runat="server" placeholder="First name of user" value="Valerie"></asp:TextBox>
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLastName">Last name</label>
-                                <asp:TextBox runat="server" class="form-control" id="inputLastName" placeholder="last name of user"></asp:TextBox>
+                                <asp:TextBox runat="server" class="form-control" id="tbLastName" placeholder="last name of user"></asp:TextBox>
                             </div>
                         </div>
-                        <!-- Form Row        -->
                         <div class="row gx-3 mb-3">
-                            <!-- Form Group (organization name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputGender">Gender</label>
-                                <asp:TextBox class="form-control" id="inputGender" runat="server" placeholder="User gender"></asp:TextBox>
-                            </div>
-                            <!-- Form Group (location)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputLocation">Location</label>
-                                <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" value="San Francisco, CA">
+                                <asp:TextBox class="form-control" ID="tbGender" runat="server" placeholder="User gender"></asp:TextBox>
                             </div>
                         </div>
-                        <!-- Form Group (email address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                            <asp:TextBox runat="server" class="form-control" ID="inputEmailAddress" placeholder="Email Address"/>
+                            <asp:TextBox runat="server" class="form-control" ID="tbEmail" placeholder="Email Address"/>
                         </div>
-                        <!-- Form Row-->
                         <div class="row gx-3 mb-3">
-                            <!-- Form Group (phone number)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">Phone number</label>
-                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
-                            </div>
-                            <!-- Form Group (birthday)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                <asp:TextBox class="form-control" id="inputBirthday" runat="server" name="birthday" placeholder="User's birthday"></asp:TextBox>
+                                <label class="small mb-1" for="inputBirthday">Birth date</label>
+                                <asp:TextBox class="form-control" id="tbBirhDate" runat="server" name="birthday" placeholder="User's birthday"></asp:TextBox>
                             </div>
                         </div>
-                    </form>
+                    <a href="dashboard.aspx" class="btn btn-success">GO BACK</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
-    </form>
+</form>
 </body>
 </html>
