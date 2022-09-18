@@ -42,6 +42,12 @@ namespace bcms
                     });
                 }
         }
+
+        protected void btnExport_Click(object sender, EventArgs e)
+        {
+            Database database = new Database();
+            database.writeCSV("Logs", int.Parse(Session["UserID"].ToString()));
+        }
     }
 
     public class DataLog

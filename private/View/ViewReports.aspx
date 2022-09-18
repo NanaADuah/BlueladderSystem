@@ -24,7 +24,7 @@
 
             <h1 class="display-5">Generate Reports <i class="fa fa-bar-chart" aria-hidden="true"></i></h1>
                 </div>
-                <a href="Help.aspx" class="btn btn-success float-right">Help</a>
+                <a href="Help.aspx?tab=reports" class="btn btn-success float-right">Help</a>
             <div class="dropdown-divider"></div>
             </div>
 

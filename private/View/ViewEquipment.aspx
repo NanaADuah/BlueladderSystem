@@ -24,7 +24,7 @@
                 <div class="form-check-inline">
                     <h1 class="display-5">View Equipment</h1>
                 </div>
-                <a class="btn btn-success float-right" href="Help.aspx">Help</a>
+                <a class="btn btn-success float-right" href="Help.aspx?tab=equipment">Help</a>
                 <div class="input-group mb-3">
                 </div>
                 <div class="dropdown-divider"></div>
@@ -32,32 +32,36 @@
                 </div>
                 <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
                 <div class="tableView ">
-                    <%if (currEquip != null)
-                        { %>
-                    <table class="table table-hover text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">Available</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr >
-                                <%if (currEquip.Available == true)
-                                    { %>
-                                <td><i class="fa fa-check"></i></td>
-                                <%}
-                                    else
-                                    { %>
-                                <td><i class="fa fa-times"></i></td>
-                                <%} %>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="container p-4"> 
+                        <%if (currEquip != null)
+                            { %>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Available</th>
+                                    <th scope="col">Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                    <%if (currEquip.Available == true)
+                                        { %>
+                                    <td><i class="fa fa-check"></i></td>
+                                    <%}
+                                        else
+                                        { %>
+                                    <td><i class="fa fa-times"></i></td>
+                                    <%} %>
+                                    <td><%=String.Format("R {0}",currEquip.Income.ToString("F2"))%></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="container shadow-sm p-3 rounded">
                         <asp:TextBox class="form-control mb-2" runat="server" ID="tbDetails" Text="" TextMode="MultiLine"></asp:TextBox>
                         <div class="row">
                             <div class="col-md-auto">
-                                <asp:Image ID="imgageQRCode" Width="150px" Height="150px" runat="server" Visible="false" />
+                                <asp:PlaceHolder ID="plBarCode" runat="server" Visible="false" />
                                 <br />
                                 <br />
                             </div>

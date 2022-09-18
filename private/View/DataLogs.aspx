@@ -23,7 +23,7 @@
 
             <h1 class="display-5">Manage Data Logs <i class="fa fa-laptop" aria-hidden="true"></i></h1>
             </div>
-            <asp:Button Text="EXPORT" runat="server" id="btnExport" class="btn btn-success float-right"/>
+            <asp:Button Text="EXPORT" runat="server" id="btnExport" class="btn btn-success float-right" OnClick="btnExport_Click"/>
             <div class="dropdown-divider"></div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
             <div id="tableView">

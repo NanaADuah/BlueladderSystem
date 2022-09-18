@@ -100,11 +100,10 @@
                         </thead>
                         <tbody>
                             <%foreach (var item in report.EmployeeHours)
-
-                                { %>
+                            { %>
                             <tr>
-                                <td scope="col"><%=item.Name %></td>
-                                <td scope="col"><%=item.Hours %> hours</td>
+                                <td scope="col"><%=item.Name%></td>
+                                <td scope="col"><%=item.Hours%> hours</td>
                             </tr>
                             <%} %>
                         </tbody>

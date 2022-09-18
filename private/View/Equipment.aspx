@@ -25,7 +25,7 @@
                 <div class="form-check-inline">
                 <h1 class="display-5"><a href="ManageEquipment.aspx" ><i class="fa fa-chevron-left"></i><a> Equipment Inventory</h1>
                 </div>
-                <a class="btn btn-success float-right" href="Help.aspx">Help</a>
+                <a class="btn btn-success float-right" href="Help.aspx?tab=equipment">Help</a>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="fa fa-search"></i></button>

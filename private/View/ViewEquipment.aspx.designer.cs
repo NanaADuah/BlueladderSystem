@@ -42,13 +42,13 @@ namespace bcms
         protected global::System.Web.UI.WebControls.TextBox tbDetails;
 
         /// <summary>
-        /// imgageQRCode control.
+        /// plBarCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgageQRCode;
+        protected global::System.Web.UI.WebControls.PlaceHolder plBarCode;
 
         /// <summary>
         /// tbEquipmentName control.

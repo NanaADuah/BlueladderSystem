@@ -447,7 +447,7 @@ namespace bcms
                     string saveName = RandomString(15);
 
                     string storeDataBaseFilename = HttpContext.Current.Server.MapPath("~") + $"public\\backup\\{saveName}.csv";
-                    string userStore = GetDownloadFolderPath() + $"blueladder\\{saveName}.csv";
+                    //string userStore = GetDownloadFolderPath() + $"blueladder\\{saveName}.csv";
                     CSVUtility.ToCSV(table, storeDataBaseFilename);
 
 
@@ -459,16 +459,14 @@ namespace bcms
                     response.ContentType = "text/csv";
                     response.AddHeader("Content-Disposition", "attachment; filename=" + storeDataBaseFilename);
                     response.TransmitFile(storeDataBaseFilename);
-                    response.Flush();
-                    response.End();
 
-                    
+
                     //CSVUtility.ToCSV(table, userStore);
                     string insData = $"INSERT INTO [Backup] (Filename, Time, UserID, Type) VALUES ('public\\backup\\{saveName}.csv','{DateTime.Now}',{UserID},'Normal')";
                     SqlCommand command = new SqlCommand(insData, local);
                     command.ExecuteNonQuery();
-                    setError("");
-                    return userStore;
+                    
+                    return storeDataBaseFilename;
                 }
                 catch (Exception ex)
                 {
@@ -476,6 +474,10 @@ namespace bcms
                 }
                 finally
                 {
+                    HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
+                    HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
+                    HttpContext.Current.ApplicationInstance.CompleteRequest(); // Causes ASP.NET to bypass all events and filtering in the HTTP pipeline chain of execution and directly execute the EndRequest event.
+                    setError("");
                     local.Close();
                 } 
             }

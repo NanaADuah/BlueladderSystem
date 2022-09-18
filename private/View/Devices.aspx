@@ -20,7 +20,10 @@
     <form id="form1" runat="server">
         <!--#include file="navBar.html"-->
         <div class="px-5" id="main">
-            <h1 class="display-5">Manage Devices <i class="fa fa-laptop" aria-hidden="true"></i></h1>
+            <div class="form-check-inline">
+                <h1 class="display-5">Manage Devices <i class="fa fa-laptop" aria-hidden="true"></i></h1>
+            </div>
+            <a href="Help.aspx?tab=devices" class="btn btn-success float-right">Help</a>
             <div class="dropdown-divider"></div>
             <asp:Label runat="server" ID="lblMessages" Text=""></asp:Label>
             <div id="tableView">

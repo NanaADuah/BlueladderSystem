@@ -33,39 +33,34 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="span1" disabled>Total equipment stored</span>
                     </div>
-                    <asp:TextBox type="text" class="form-control" ID="tbAverage" runat="server" ReadOnly="True" />
+                    <asp:TextBox type="text" class="form-control" ID="tbTotal" runat="server" ReadOnly="True" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="span2" disabled>Total equipment manufacturers</span>
                     </div>
-                    <asp:TextBox type="text" class="form-control" ID="tbTotal" runat="server" ReadOnly="True" />
+                    <asp:TextBox type="text" class="form-control" ID="tbTotalManu" runat="server" ReadOnly="True" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="span3" disabled>Average logins monthly</span>
+                        <span class="input-group-text" id="span3" disabled>Total checked-out equipment </span>
                     </div>
-                    <asp:TextBox type="text" class="form-control" ID="tbMonthlyTotal" runat="server" ReadOnly="True" />
+                    <asp:TextBox type="text" class="form-control" ID="tbTotalChecked" runat="server" ReadOnly="True" />
                 </div>
                 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="span4" disabled>Total password change requests</span>
+                        <span class="input-group-text" id="span4" disabled>Average income for equipment</span>
                     </div>
-                    <asp:TextBox type="text" class="form-control" ID="tbPasswordRequest" runat="server" ReadOnly="True" />
+                    <asp:TextBox type="text" class="form-control" ID="tbAverageEquipment" runat="server" ReadOnly="True" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="spa5" disabled>Total notifications sent</span>
+                        <span class="input-group-text" id="spa5" disabled>Total requests for equipment</span>
                     </div>
-                    <asp:TextBox type="text" class="form-control" ID="tbNotifications" runat="server" ReadOnly="True" />
+                    <asp:TextBox type="text" class="form-control" ID="tbRequested" runat="server" ReadOnly="True" />
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="spa5" disabled>Average notifications sent daily</span>
-                    </div>
-                    <asp:TextBox type="text" class="form-control" ID="tbDailyNoti" runat="server" ReadOnly="True" />
-                </div>
+               
             </div>
         </div>
         </div>

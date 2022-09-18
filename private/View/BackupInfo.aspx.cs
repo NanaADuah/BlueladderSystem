@@ -19,7 +19,9 @@ namespace bcms
 
             if (!instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Admin") && instance.getRole(int.Parse(Session["UserID"].ToString())).Equals("Owner"))
                 Response.Redirect("dashboard.aspx");
+
             ViewState["databaseName"] = "User";
+
             if (!IsPostBack)
                 lblMessages.Text = "";
         }

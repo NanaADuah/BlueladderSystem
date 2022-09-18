@@ -37,8 +37,6 @@ namespace bcms
                         );
                     }
                 }
-
-
             }
             catch
             {

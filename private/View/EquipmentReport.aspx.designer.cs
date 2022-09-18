@@ -33,15 +33,6 @@ namespace bcms
         protected global::System.Web.UI.WebControls.Label lblMessages;
 
         /// <summary>
-        /// tbAverage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbAverage;
-
-        /// <summary>
         /// tbTotal control.
         /// </summary>
         /// <remarks>
@@ -51,39 +42,39 @@ namespace bcms
         protected global::System.Web.UI.WebControls.TextBox tbTotal;
 
         /// <summary>
-        /// tbMonthlyTotal control.
+        /// tbTotalManu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbMonthlyTotal;
+        protected global::System.Web.UI.WebControls.TextBox tbTotalManu;
 
         /// <summary>
-        /// tbPasswordRequest control.
+        /// tbTotalChecked control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPasswordRequest;
+        protected global::System.Web.UI.WebControls.TextBox tbTotalChecked;
 
         /// <summary>
-        /// tbNotifications control.
+        /// tbAverageEquipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNotifications;
+        protected global::System.Web.UI.WebControls.TextBox tbAverageEquipment;
 
         /// <summary>
-        /// tbDailyNoti control.
+        /// tbRequested control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbDailyNoti;
+        protected global::System.Web.UI.WebControls.TextBox tbRequested;
     }
 }

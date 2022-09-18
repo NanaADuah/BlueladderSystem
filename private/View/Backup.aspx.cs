@@ -29,7 +29,7 @@ namespace bcms
 
             Database database = new Database();
 
-            string query = "SELECT * FROM [Backup] ORDER BY TIME ASC";
+            string query = "SELECT * FROM [Backup] ORDER BY TIME DESC";
 
             SqlDataReader reader = database.execReader(query);
             if (eMessage.Length != 0)

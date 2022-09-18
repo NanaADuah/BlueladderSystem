@@ -23,7 +23,7 @@
                 <div class="form-check-inline">
                     <h1 class="display-5">Manage Equipment</h1>
                 </div>
-                <a href="Help.aspx" class="btn btn-success float-right">Help</a>
+                <a href="Help.aspx?tab=equipment" class="btn btn-success float-right">Help</a>
             <div class="dropdown-divider"></div>
             </div>
 

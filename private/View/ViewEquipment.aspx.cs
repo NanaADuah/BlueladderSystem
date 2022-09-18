@@ -7,8 +7,8 @@ using System.Web.UI.WebControls;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using ZXing;
 using System.Data.SqlClient;
+using QRCoder;
 
 namespace bcms
 {
@@ -32,7 +32,7 @@ namespace bcms
 
             int id = int.Parse(Request.QueryString["id"].ToString());
 
-            SqlDataReader reader = database.execReader($"SELECT TOP 1 * FROM [Equipment] WHERE EquipmentID = {id}");
+            SqlDataReader reader = database.execReader($"SELECT EquipmentID, UserID, Category, EquipmentName, Manufacturer, SerialNumber, Available, Details, LocationID, Income, LastModified FROM [Equipment] WHERE EquipmentID = {id}");
 
             if (reader != null) { 
                 while (reader.Read())
@@ -46,6 +46,9 @@ namespace bcms
                     currEquip.Available = Convert.ToBoolean(reader.GetValue(6).ToString());
                     currEquip.Detail= reader.GetValue(7).ToString();
                     currEquip.LocationID =int.Parse(reader.GetValue(8).ToString());
+                    currEquip.Income =double.Parse(reader.GetValue(9).ToString());
+                    currEquip.LastModified = Convert.ToDateTime(reader.GetValue(10).ToString());
+                    currEquip.StrTime = Database.TimeAgo(Convert.ToDateTime(reader.GetValue(10).ToString()));
                 }
             }
             currEquip.Location = database.get($"SELECT [Name] FROM [Warehouse], [Equipment] WHERE [Equipment].LocationID = {currEquip.LocationID}");
@@ -54,12 +57,12 @@ namespace bcms
                 else
                     tbDetails.Text = currEquip.Detail;
 
-                string qrText = $"Blueladder Construction Management System\nEquipment name: {currEquip.Name}\nID: {currEquip.Name}\nSerial: {currEquip.SerialNumber}\nDate captured: {DateTime.Now}";
+                string qrText = $"Blueladder Construction Management System\nEquipment name: {currEquip.Name}\nID: {currEquip.EquipmentID}\nSerial: {currEquip.SerialNumber}\nDate captured: {DateTime.Now}";
                 try
                 {
                     
-                GenerateMyQCCode(qrText, currEquip.SerialNumber);
-                ReadQRCode(currEquip.SerialNumber);
+                    GenerateMyQCCode(qrText, currEquip.SerialNumber);
+
                 }
                 catch(Exception ex)
                 {
@@ -73,7 +76,6 @@ namespace bcms
             }
             catch
             {
-                //   Response.Redirect("Equipment.aspx");
                 lblMessages.Text = "An error occurred";
             }
 
@@ -83,42 +85,33 @@ namespace bcms
         {
             try
             {
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(QCText, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Bitmap qrCodeImage = qrCode.GetGraphic(20);
 
-            var QCwriter = new BarcodeWriter();
-
-            QCwriter.Format = BarcodeFormat.QR_CODE;
-            var result = QCwriter.Write(QCText);
-            string path = Server.MapPath($"~/public/qr/{serial}.jpg");
-            var barcodeBitmap = new Bitmap(result);
-            using (MemoryStream memory = new MemoryStream())
-            {
-                using (FileStream fs = new FileStream(path,
-                   FileMode.Create, FileAccess.ReadWrite))
+                //QRCodeGenerator.QRCode qrCode = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
+                System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
+                imgBarCode.Height = 150;
+                imgBarCode.Width = 150;
+                using (Bitmap bitMap = qrCode.GetGraphic(20))
                 {
-                    barcodeBitmap.Save(memory, ImageFormat.Jpeg);
-                    byte[] bytes = memory.ToArray();
-                    fs.Write(bytes, 0, bytes.Length);
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        bitMap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                        byte[] byteImage = ms.ToArray();
+                        imgBarCode.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(byteImage);
+                    }
+                    plBarCode.Controls.Add(imgBarCode);
+                    plBarCode.Visible = true;
                 }
-            }
-            imgageQRCode.Visible = true;
-            imgageQRCode.ImageUrl = $"~/public/qr/{serial}.jpg";
+
             }
             catch(Exception ex)
             {
                 lblMessages.Text = ex.Message;
             }
 
-        }
-
-        private void ReadQRCode(string serial)
-        {
-            var QCreader = new BarcodeReader();
-            string QCfilename = HttpContext.Current.Server.MapPath("~") +$"public\\qr\\{serial}.jpg";
-            var QCresult = QCreader.Decode(new Bitmap(QCfilename));
-            if (QCresult != null)
-            {
-                throw new Exception("Error reading equipment QR Code");
-            }
         }
 
         public void view()
@@ -157,5 +150,8 @@ namespace bcms
         public int LocationID{ get; set; }
         public string Manufacturer{ get; set; }
         public string Detail { get; set; }
+        public double Income { get; set; }
+        public DateTime LastModified{ get; set; }
+        public string StrTime{ get; set; }
     }
 }

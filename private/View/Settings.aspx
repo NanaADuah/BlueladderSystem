@@ -49,7 +49,7 @@
                     <tr>
                         <th scope="row">Account</th>
                         <td>
-                            <button type="button" class="btn btn-secondary w-25">VIEW</button>
+                           <a href="MyProfile.aspx" class="btn btn-secondary w-25">VIEW</a>
                         </td>
                     </tr>
                     <tr>

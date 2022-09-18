@@ -68,7 +68,6 @@ namespace bcms
                     else
                     {
                         infoDisplay.Text = "Invalid credentials";
-                        infoDisplay.Text = Database.getError();
                         infoDisplay.ForeColor = System.Drawing.Color.Red;
                     }
                 }  
