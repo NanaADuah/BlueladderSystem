@@ -38,13 +38,6 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>View Labour Report</td>
-                            <td>
-                                <a href="LabourReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
                             <td>View Revenue Report</td>
                             <td>
                                 <a href="SummaryReport.aspx" class="btn btn-primary">View <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>

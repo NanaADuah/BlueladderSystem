@@ -27,7 +27,14 @@ namespace bcms
 
                 if (search.Contains("report"))
                 {
-                    results.Add(new SearchResults() { Name = "Devices", Link = "ViewReports.aspx", });
+                    results.Add(new SearchResults() { Name = "Reports", Link = "ViewReports.aspx", });
+                    results.Add(new SearchResults() { Name = "Help", Link = "Help.aspx?tab=report", });
+                }
+                
+                if (search.Contains("employee"))
+                {
+                    results.Add(new SearchResults() { Name = "Devices", Link = "ViewEmployees.aspx", });
+                    results.Add(new SearchResults() { Name = "Users", Link = "ManageUsers.aspx", });
                     results.Add(new SearchResults() { Name = "Help", Link = "Help.aspx?tab=report", });
                 }
 
@@ -51,6 +58,7 @@ namespace bcms
 
                 if (search.Contains("user"))
                 {
+                    results.Add(new SearchResults() { Name = "Devices", Link = "ViewEmployees.aspx", });
                     results.Add(new SearchResults() { Name = "Users", Link = "ManageUsers.aspx", });
                     results.Add(new SearchResults() { Name = "Help", Link = "Help.aspx?tab=users", });
                 }
@@ -65,7 +73,7 @@ namespace bcms
                     results.Add(new SearchResults() { Name = "Settings", Link = "Settings.aspx", });
                     results.Add(new SearchResults() { Name = "Help", Link = "Help.aspx?tab=settings", });
                 }
-                if (search.Contains("notifications"))
+                if (search.Contains("notification"))
                 {
                     results.Add(new SearchResults() { Name = "Notificationss", Link = "Notifications.aspx", });
                     results.Add(new SearchResults() { Name = "Help", Link = "Help.aspx?tab=notifications", });

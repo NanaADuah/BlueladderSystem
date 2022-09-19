@@ -12,6 +12,12 @@ namespace bcms
     public partial class SummaryReport : System.Web.UI.Page
     {
         protected Report report;
+        protected double totalReveunue;
+        protected IList<SalaryCategory> categoryData;
+        protected IList<EEmployee> empData;
+        protected double TotalSalary = 0;
+        protected double TotalRevenue = 0;
+        protected string tabView = "overview";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,57 +26,91 @@ namespace bcms
 
             Database database = new Database();
 
-            //double salary, income, revenue, hoursC, hoursA, hoursO, totalHours;
             List<String> jobs = new List<String>();
+            List<String> JobTypes = new List<String>();
+            categoryData = new List<SalaryCategory>();
+            empData = new List<EEmployee>();
 
+            if (Request.QueryString["tab"] != null)
+            {
+
+                if (String.IsNullOrEmpty(Request.QueryString["tab"].ToString()))
+                    tabView = "overview";
+                else
+                {
+                    tabView = Request.QueryString["tab"].ToString();
+                }
+            }
+            
             try
             {
                 infoDisplay.ForeColor = System.Drawing.Color.Green;
 
-                for (int count = 0; count <= 250; count++)
+                string query = "SELECT DISTINCT JobStatus FROM [Employee]";
+                SqlDataReader reader = database.execReader(query);
+                if(reader != null)
                 {
-                    /*
-                        string query = "SELECT JobStatus, HoursWorked FROM [Employee] GROUP BY JobStatus";
-                        SqlDataReader reader = database.execReader(query);
-                        if (reader != null) 
-                        { 
-                            while (reader.Read())
-                            {
-                            jobs.Add(reader.GetValue(0).ToString());
-                            }
-                        }
-                            */
-                    /*hoursC = reader;
-                    salary = hoursC * 50;
-
-                    string query = "SELECT hoursWorked FROM Employee WHERE jobStatus = "'admin worker'" ";
-                    SqlDataReader reader = database.execReader(query);
-                    hoursA = reader;
-                    salary = hoursA * 100;
-
-
-                    string query = "SELECT hoursWorked FROM Employee WHERE jobStatus = "'owner'" ";
-                    SqlDataReader reader = database.execReader(query);
-                    hoursO = reader;
-                    salary = hoursO * 300;
-
-                    income = "SELECT equipIncome FROM Equipment";
-
-                    totalHours = hoursC + hoursA + hoursO;*/
+                    while (reader.Read())
+                    {
+                        JobTypes.Add(reader.GetValue(0).ToString());
+                    }
 
                 }
 
-                /*revenue = income - salary;
+                categoryData.Add(new SalaryCategory(){Type = "Brick mason",Amount = 87});
+                categoryData.Add(new SalaryCategory(){Type = "Construction Inspector",Amount = 102});
+                categoryData.Add(new SalaryCategory(){Type = "Construction worker",Amount = 201});
+                categoryData.Add(new SalaryCategory(){Type = "Flooring installer",Amount = 302});
+                categoryData.Add(new SalaryCategory(){Type = "Glazier",Amount = 358});
+                categoryData.Add(new SalaryCategory(){Type = "Roofer",Amount = 307});
+                categoryData.Add(new SalaryCategory(){Type = "Surveyor",Amount = 198});
+                categoryData.Add(new SalaryCategory(){Type = "Tile setter",Amount = 319});
 
-                SumList.Items.Add("Total hours worked in CONSTRUCTION:" + "\t" + "Total hours worked in ADMINASTRATION:" + "\t" + "Total hours worked as OWNER:");
-                SumList.Items.Add(hoursC.toString() + "\t" + hoursA.toString() + "\t" + hoursO.toString() + "\t" + income.toString());
-                SumList.Items.Add("Total income acquired:");
-                SumList.Items.Add("R" + income);
-                SumList.Items.Add("Total revenue received:");
-                SumList.Items.Add("R" + round(revenue.ToString(), 2));*/
-            } catch
+                Random rand = new Random();
+                for (int i = 0; i < JobTypes.Count;i++)
+                {
+                    double value = (double)rand.Next(50,400);
+                }
+
+                string empQuery = "SELECT EmployeeID, FirstName, LastName, JobStatus, HoursWorked FROM [Employee] ORDER BY UserID";
+                reader = database.execReader(empQuery);
+                if (reader != null) 
+                { 
+                    while (reader.Read())
+                    {
+                        int eID = int.Parse(reader.GetValue(0).ToString());
+                        string  eFName = reader.GetValue(1).ToString();
+                        string  eLName = reader.GetValue(2).ToString();
+                        string eJob = reader.GetValue(3).ToString();
+                        int eHours = int.Parse(reader.GetValue(4).ToString());
+                        var finalValue = categoryData.First(item => item.Type.Equals(eJob, StringComparison.CurrentCultureIgnoreCase)).Amount * eHours;
+                        TotalSalary += finalValue;
+                        empData.Add(new EEmployee()
+                        {
+                            EmployeeID = eID,
+                            EmployeeFName = eFName,
+                            EmployeeLName = eLName,
+                            JobType = eJob,
+                            EmployeeHours = eHours,
+                            FinalSalary = finalValue ,
+
+                        }) ;
+                    }
+                }
+
+                tbTotal.Text = "R " + TotalSalary.ToString("F2");
+
+                double TotalIncome = TotalSalary * 1.65;
+                TotalRevenue = TotalIncome - TotalSalary;
+
+                tbIncome.Text = "R " + TotalIncome.ToString("F2");
+                tbRevenue.Text = "R " + TotalRevenue.ToString("F2");
+
+
+            } catch(Exception ex)
             {
-
+                lblMessages.Text = ex.Message;
+                    //"An error occurred, please try again";
             }
 
         }
@@ -89,5 +129,21 @@ namespace bcms
 
     }
 
+    public class SalaryCategory
+    {
+        public string Type { get; set; }
+        public double Amount { get; set; } 
+    }
+
+
+    public class EEmployee
+    {
+        public int EmployeeID { get; set; }
+        public string EmployeeFName { get; set; }
+        public string EmployeeLName { get; set; }
+        public int EmployeeHours { get; set; }
+        public string JobType{ get; set; }
+        public double FinalSalary { get; set; }
+    }
 
 }

@@ -99,6 +99,9 @@ namespace bcms
                         {
                             lblNoti.Text = "Notification submitted";
                             database.logInfo(senderID, $"Sent notification to {targetID}");
+                            tbTitle.Text = "";
+                            tbUserRecepientID.Text = "0";
+                            tbInfo.Text = "";
                         }
                         else
                         {

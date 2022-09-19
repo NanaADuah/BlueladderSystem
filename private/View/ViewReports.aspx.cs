@@ -9,6 +9,7 @@ namespace bcms
 {
     public partial class ViewReports : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
@@ -22,12 +23,12 @@ namespace bcms
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("LabourReport.aspx");
-           
+
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("SummaryReport.aspx");
+            Response.Redirect("SummaryReport.aspx?tab=overview");
         }
 
         protected void Button3_Click(object sender, EventArgs e)
@@ -35,4 +36,5 @@ namespace bcms
             Response.Redirect("EmployeeReport.aspx");
         }
     }
+
 }
