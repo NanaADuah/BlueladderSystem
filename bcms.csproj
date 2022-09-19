@@ -188,7 +188,7 @@
     <Content Include="public\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="public\includes\arrowRight.png" />
     <Content Include="public\includes\backArrow.png" />
-    <Content Include="public\includes\backdrop-startup.jpg" />
+    <Content Include="public\includes\old_backdrop-startup.jpg" />
     <Content Include="public\includes\background-startup.jpg" />
     <Content Include="public\includes\background.jpg" />
     <Content Include="public\includes\backup.png" />
@@ -198,6 +198,7 @@
     <Content Include="public\includes\equipment.png" />
     <Content Include="public\includes\file.png" />
     <Content Include="public\includes\graph.png" />
+    <Content Include="public\includes\backdrop.jpg" />
     <Content Include="public\includes\indicator.png" />
     <Content Include="public\includes\lock.png" />
     <Content Include="public\includes\Logo.png" />

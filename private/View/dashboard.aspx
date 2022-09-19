@@ -44,7 +44,7 @@
             <asp:Label runat="server" ID="lblMessage" Text=""></asp:Label>
         </div>
        
-            <div id="viewGrid" class="row justify-content-center d-flex align-content-center flex-wrap">
+            <div id="viewGrid" class="row d-flex flex-sm-row flex-column justify-content-center align-content-center flex-wrap">
                  
                 <%if (role.Equals("Admin") || role.Equals("Owner"))
                     { %>

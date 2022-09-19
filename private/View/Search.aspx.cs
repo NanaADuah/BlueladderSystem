@@ -25,6 +25,12 @@ namespace bcms
                     results.Add(new SearchResults() { Name = "Help", Link = "Help.aspx?tab=devices", });
                 }
 
+                if (search.Contains("report"))
+                {
+                    results.Add(new SearchResults() { Name = "Devices", Link = "ViewReports.aspx", });
+                    results.Add(new SearchResults() { Name = "Help", Link = "Help.aspx?tab=report", });
+                }
+
                 if (search.Contains("equipment"))
                 {
                     results.Add(new SearchResults() { Name = "Devices", Link = "Equipment.aspx", });

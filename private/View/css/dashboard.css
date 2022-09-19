@@ -126,6 +126,22 @@ a{
 }
 
 
+@media only screen and (max-width: 768px)
+{
+	#viewGrid{
+		display: grid;
+
+	}
+
+	#navLogo {
+		float: right;
+	}
+
+	#btnSearch{
+		width: 100%;
+		margin:auto;
+	}
+}
 
 /*@media (prefers-color-scheme: dark) {
 

@@ -36,10 +36,10 @@ namespace bcms
                 while (reader.Read())
                 {
                     profile.FirstName = reader.GetString(0);
-                    profile.LastName = reader.GetString(1);
-                    profile.Email = reader.GetString(2);
-                    profile.Gender = reader.GetString(3);
-                    profile.Image = reader.GetString(4);
+                    profile.LastName = reader.GetValue(1).ToString();
+                    profile.Email = reader.GetValue(2).ToString();
+                    profile.Gender = reader.GetValue(3).ToString();
+                    profile.Image = reader.GetValue(4).ToString();
                     profile.Birthdate = Convert.ToDateTime(reader.GetValue(5).ToString());
                 }
                 string defaultImage = "placeholder.png";

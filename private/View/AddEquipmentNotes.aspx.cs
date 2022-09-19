@@ -32,22 +32,25 @@ namespace bcms
                 {
                     lblMessages.Text = "Equipment not found";
                 }
+                else
                 {
                     data = database.RemoveSpecialCharacters(data);
-                    string query = $"UPDATE [Equipment] SET Detail = '{data}' WHERE EquipmentID = {eID}";
+                    string query = $"UPDATE [Equipment] SET Details = '{data}' WHERE EquipmentID = {eID}";
                     try
                     {
                         if(database.update(query))
                         {
                             database.logInfo(int.Parse(Session["UserID"].ToString()), $"Updated equipment notes, ID[{eID}]:");
                             lblMessages.Text = "Notes added!";
+                            tbDetails.Text= ""; ;
+                            tbEquipmentID.Text = "0";
                         }
+                        
                     }
                     catch
                     {
                         lblMessages.Text = "An error occurred";
                     }
-
                 }
             }
 

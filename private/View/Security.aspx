@@ -25,7 +25,7 @@
             <div id="tableView">
                 <div class="w-100 rounded shadow-sm p-2 m-2">
                     <div>
-                        <h4>Upate User Password</h4>
+                        <h4>Update User Password</h4>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="p1">User ID</span>
