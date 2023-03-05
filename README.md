@@ -19,7 +19,7 @@ Powered by ASP.NET Framework and JavaScript
 - warehouse Management
 - Search Feature
 
-![User Features](https://i.imgur.com/QF7gVam.png)
+![User Features](https://i.imgur.com/dk2cWZw.png)
 
 ![Admin Features](https://i.imgur.com/anAdPiK.png)
 
