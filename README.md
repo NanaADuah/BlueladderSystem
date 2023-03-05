@@ -32,7 +32,7 @@ Powered by ASP.NET Framework and JavaScript
 
 ## Usage
 
-Quick guide available at [here](https://github.com/NanaADuah/BlueladderSystem/blob/0c7b0cf88b5bdfdb287fdd3bc966162ca8918894/Guide.pdf)
+- Quick guide available at [here](https://github.com/NanaADuah/BlueladderSystem/blob/0c7b0cf88b5bdfdb287fdd3bc966162ca8918894/Guide.pdf)
 ---
 
 ## License
