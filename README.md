@@ -3,7 +3,7 @@ BlueLadder Management System
 
 System design & analysis II - CMPG223
 
-Powered by ASP.NET Framework 
+Powered by ASP.NET Framework and JavaScript
 
 ![Preview](https://i.imgur.com/koo0AuF.png)
 
@@ -32,7 +32,7 @@ Powered by ASP.NET Framework
 
 ## Usage
 
-Quick guide available at [QuickGuide]()
+Quick guide available at [here](https://github.com/NanaADuah/BlueladderSystem/blob/0c7b0cf88b5bdfdb287fdd3bc966162ca8918894/Guide.pdf)
 ---
 
 ## License
