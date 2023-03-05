@@ -26,7 +26,7 @@ namespace bcms
             }
             else
             {
-                infoDisplay.Text = "Connecting to system database successful!";
+                infoDisplay.Text = "Connected to system database successfully!";
                 infoDisplay.ForeColor = System.Drawing.Color.Green;
             }
 
