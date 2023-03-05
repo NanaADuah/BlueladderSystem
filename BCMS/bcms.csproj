@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{014D3E1E-C13A-4D68-BF03-3D09E625A242}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>bcms</RootNamespace>
+    <AssemblyName>bcms</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44375</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Configuration.ConfigurationBuilders.Base.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Zen.Barcode.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <HintPath>packages\Zen.Barcode.Rendering.Framework.3.1.10729.1\lib\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="404.aspx" />
+    <Content Include="private\View\BorrowedEquipment.aspx" />
+    <Content Include="private\View\ManageEquipment.aspx" />
+    <Content Include="private\View\PrivacyPolicy.aspx" />
+    <Content Include="private\View\EquipmentReport.aspx" />
+    <Content Include="private\View\Account.aspx" />
+    <Content Include="private\View\AddUser.aspx" />
+    <Content Include="private\View\CheckoutEquipment.aspx" />
+    <Content Include="private\View\AddEquipmentNotes.aspx" />
+    <Content Include="private\View\EquipmentReturn.aspx" />
+    <Content Include="private\View\Logout.aspx" />
+    <Content Include="private\View\DataLogs.aspx" />
+    <Content Include="private\View\DeleteNotification.aspx" />
+    <Content Include="private\View\Notifications.aspx" />
+    <Content Include="private\View\Help.aspx" />
+    <Content Include="private\View\AddEquipment.aspx" />
+    <Content Include="private\View\BackupInfo.aspx" />
+    <Content Include="Forbidden.aspx" />
+    <Content Include="private\View\Equipment.aspx" />
+    <Content Include="private\View\css\ForgotPassword.css" />
+    <Content Include="private\View\ForgotPassword.aspx" />
+    <Content Include="private\View\MyProfile.aspx" />
+    <Content Include="private\View\EmployeeReport.aspx" />
+    <Content Include="private\View\LabourReport.aspx" />
+    <Content Include="private\View\navBar.aspx" />
+    <Content Include="private\View\css\Search.css" />
+    <Content Include="private\View\css\ViewAll.css" />
+    <Content Include="private\View\index.aspx" />
+    <Content Include="private\View\Backup.aspx" />
+    <Content Include="private\View\Devices.aspx" />
+    <Content Include="private\View\navBar.html" />
+    <Content Include="private\View\ManageUsers.aspx" />
+    <Content Include="private\View\css\ManageUsers.css" />
+    <Content Include="private\View\AddEmployee.aspx" />
+    <Content Include="private\View\css\AddUser.css" />
+    <Content Include="private\View\dashboard.aspx" />
+    <Content Include="private\View\About.aspx" />
+    <Content Include="App_Data\bcms.mdf" />
+    <Content Include="App_Data\bcms_log.ldf">
+      <DependentUpon>bcms.mdf</DependentUpon>
+    </Content>
+    <Content Include="private\View\Contact.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="private\View\css\bootstrap-4.4.1.css" />
+    <Content Include="private\View\css\dashboard.css" />
+    <Content Include="private\View\css\login.css" />
+    <Content Include="private\View\css\startup.css" />
+    <Content Include="private\View\Profile.aspx" />
+    <Content Include="private\View\css\Profile.css" />
+    <Content Include="public\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="public\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="public\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="public\includes\arrowRight.png" />
+    <Content Include="public\includes\backArrow.png" />
+    <Content Include="public\includes\old_backdrop-startup.jpg" />
+    <Content Include="public\includes\background-startup.jpg" />
+    <Content Include="public\includes\background.jpg" />
+    <Content Include="public\includes\backup.png" />
+    <Content Include="public\includes\cloud.png" />
+    <Content Include="public\includes\cogs.png" />
+    <Content Include="public\includes\device.png" />
+    <Content Include="public\includes\equipment.png" />
+    <Content Include="public\includes\file.png" />
+    <Content Include="public\includes\graph.png" />
+    <Content Include="public\includes\backdrop.jpg" />
+    <Content Include="public\includes\indicator.png" />
+    <Content Include="public\includes\lock.png" />
+    <Content Include="public\includes\Logo.png" />
+    <Content Include="public\includes\bell.png" />
+    <Content Include="public\includes\noti.png" />
+    <Content Include="public\includes\profile\female.jpg" />
+    <Content Include="public\includes\profile\male.jpg" />
+    <Content Include="public\includes\profile\placeholder.png" />
+    <Content Include="public\includes\security.png" />
+    <Content Include="public\includes\service.png" />
+    <Content Include="public\includes\SideImage.png" />
+    <Content Include="public\includes\storage.png" />
+    <Content Include="public\includes\tools.png" />
+    <Content Include="public\includes\user.png" />
+    <Content Include="private\View\Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="public\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="public\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="public\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="public\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="public\font-awesome-4.7.0\less\core.less" />
+    <Content Include="public\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="public\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="public\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="public\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="public\font-awesome-4.7.0\less\list.less" />
+    <Content Include="public\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="public\font-awesome-4.7.0\less\path.less" />
+    <Content Include="public\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="public\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="public\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="public\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="public\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="public\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="private\View\Settings.aspx" />
+    <Content Include="public\backup\2Q332MLQ3I8BB55.csv" />
+    <Content Include="public\backup\4GES0VI93AK06VP.csv" />
+    <Content Include="public\backup\LJ9C6CIM1Z9FDA9.csv" />
+    <Content Include="fonts\SFPRODISPLAYBLACKITALIC.OTF" />
+    <Content Include="fonts\SFPRODISPLAYBOLD.OTF" />
+    <Content Include="fonts\SFPRODISPLAYHEAVYITALIC.OTF" />
+    <Content Include="fonts\SFPRODISPLAYLIGHTITALIC.OTF" />
+    <Content Include="fonts\SFPRODISPLAYMEDIUM.OTF" />
+    <Content Include="fonts\SFPRODISPLAYREGULAR.OTF" />
+    <Content Include="fonts\SFPRODISPLAYSEMIBOLDITALIC.OTF" />
+    <Content Include="fonts\SFPRODISPLAYTHINITALIC.OTF" />
+    <Content Include="fonts\SFPRODISPLAYULTRALIGHTITALIC.OTF" />
+    <Content Include="public\backup\Z8SOR3YD26EN8PL.csv" />
+    <None Include="Properties\PublishProfiles\blueladder - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\BlueLadder Deployment.pubxml" />
+    <None Include="Resources\SFPRODISPLAYBLACKITALIC.OTF" />
+    <None Include="Resources\SFPRODISPLAYBOLD.OTF" />
+    <None Include="Resources\SFPRODISPLAYHEAVYITALIC.OTF" />
+    <None Include="Resources\SFPRODISPLAYLIGHTITALIC.OTF" />
+    <None Include="Resources\SFPRODISPLAYMEDIUM.OTF" />
+    <None Include="Resources\SFPRODISPLAYREGULAR.OTF" />
+    <None Include="Resources\SFPRODISPLAYSEMIBOLDITALIC.OTF" />
+    <None Include="Resources\SFPRODISPLAYTHINITALIC.OTF" />
+    <None Include="Resources\SFPRODISPLAYULTRALIGHTITALIC.OTF" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="index.aspx" />
+    <Content Include="public\includes\warehouse.png" />
+    <Content Include="public\includes\warehouses.png" />
+    <Content Include="private\View\RequestEquipment.aspx" />
+    <Content Include="private\View\RemoveRequest.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="private\View\Search.aspx" />
+    <Content Include="private\View\Security.aspx" />
+    <Content Include="Site.Master" />
+    <Content Include="private\View\startup.aspx" />
+    <Content Include="private\View\SummaryReport.aspx" />
+    <Content Include="private\View\SystemReport.aspx" />
+    <Content Include="private\View\Terms.aspx" />
+    <Content Include="UI.aspx" />
+    <Content Include="private\View\ViewEmployees.aspx" />
+    <Content Include="private\View\css\ViewEmployees.css" />
+    <Content Include="private\View\ViewAll.aspx" />
+    <Content Include="private\View\ViewReports.aspx" />
+    <Content Include="private\View\UpdateUserPassword.aspx" />
+    <Content Include="private\View\UserSettings.aspx" />
+    <Content Include="private\View\ViewBackup.aspx" />
+    <Content Include="private\View\ViewNotification.aspx" />
+    <Content Include="private\View\ViewEquipment.aspx" />
+    <Content Include="private\View\ViewRequests.aspx" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="private\View\css\ViewUsers.css" />
+    <Content Include="private\View\Warehouse.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <Content Include="Site.Mobile.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\BorrowedEquipment.aspx.cs">
+      <DependentUpon>BorrowedEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\BorrowedEquipment.aspx.designer.cs">
+      <DependentUpon>BorrowedEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ManageEquipment.aspx.cs">
+      <DependentUpon>ManageEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ManageEquipment.aspx.designer.cs">
+      <DependentUpon>ManageEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\PrivacyPolicy.aspx.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\PrivacyPolicy.aspx.designer.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\EquipmentReport.aspx.cs">
+      <DependentUpon>EquipmentReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\EquipmentReport.aspx.designer.cs">
+      <DependentUpon>EquipmentReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\AddUser.aspx.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\AddUser.aspx.designer.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\CheckoutEquipment.aspx.cs">
+      <DependentUpon>CheckoutEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\CheckoutEquipment.aspx.designer.cs">
+      <DependentUpon>CheckoutEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\AddEquipmentNotes.aspx.cs">
+      <DependentUpon>AddEquipmentNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\AddEquipmentNotes.aspx.designer.cs">
+      <DependentUpon>AddEquipmentNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\EquipmentReturn.aspx.cs">
+      <DependentUpon>EquipmentReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\EquipmentReturn.aspx.designer.cs">
+      <DependentUpon>EquipmentReturn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\DataLogs.aspx.cs">
+      <DependentUpon>DataLogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\DataLogs.aspx.designer.cs">
+      <DependentUpon>DataLogs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\DeleteNotification.aspx.cs">
+      <DependentUpon>DeleteNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\DeleteNotification.aspx.designer.cs">
+      <DependentUpon>DeleteNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Notifications.aspx.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Notifications.aspx.designer.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\Model\CSVUtility.cs" />
+    <Compile Include="private\View\Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\AddEquipment.aspx.cs">
+      <DependentUpon>AddEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\AddEquipment.aspx.designer.cs">
+      <DependentUpon>AddEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\BackupInfo.aspx.cs">
+      <DependentUpon>BackupInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\BackupInfo.aspx.designer.cs">
+      <DependentUpon>BackupInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forbidden.aspx.cs">
+      <DependentUpon>Forbidden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forbidden.aspx.designer.cs">
+      <DependentUpon>Forbidden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Equipment.aspx.cs">
+      <DependentUpon>Equipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Equipment.aspx.designer.cs">
+      <DependentUpon>Equipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\MyProfile.aspx.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\MyProfile.aspx.designer.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\EmployeeReport.aspx.cs">
+      <DependentUpon>EmployeeReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\EmployeeReport.aspx.designer.cs">
+      <DependentUpon>EmployeeReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\LabourReport.aspx.cs">
+      <DependentUpon>LabourReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\LabourReport.aspx.designer.cs">
+      <DependentUpon>LabourReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\navBar.aspx.cs">
+      <DependentUpon>navBar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\navBar.aspx.designer.cs">
+      <DependentUpon>navBar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Backup.aspx.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Backup.aspx.designer.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Devices.aspx.cs">
+      <DependentUpon>Devices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Devices.aspx.designer.cs">
+      <DependentUpon>Devices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\AddEmployee.aspx.cs">
+      <DependentUpon>AddEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\AddEmployee.aspx.designer.cs">
+      <DependentUpon>AddEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\Model\AddUser.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="private\Model\Database.cs" />
+    <Compile Include="private\View\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="private\View\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\Controller\Login.cs" />
+    <Compile Include="private\View\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Security.aspx.cs">
+      <DependentUpon>Security.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Security.aspx.designer.cs">
+      <DependentUpon>Security.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\RequestEquipment.aspx.cs">
+      <DependentUpon>RequestEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\RequestEquipment.aspx.designer.cs">
+      <DependentUpon>RequestEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\RemoveRequest.aspx.cs">
+      <DependentUpon>RemoveRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\RemoveRequest.aspx.designer.cs">
+      <DependentUpon>RemoveRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\startup.aspx.cs">
+      <DependentUpon>startup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\startup.aspx.designer.cs">
+      <DependentUpon>startup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\Controller\User.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\SummaryReport.aspx.cs">
+      <DependentUpon>SummaryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\SummaryReport.aspx.designer.cs">
+      <DependentUpon>SummaryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\SystemReport.aspx.cs">
+      <DependentUpon>SystemReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\SystemReport.aspx.designer.cs">
+      <DependentUpon>SystemReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Terms.aspx.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Terms.aspx.designer.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI.aspx.cs">
+      <DependentUpon>UI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI.aspx.designer.cs">
+      <DependentUpon>UI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewEmployees.aspx.cs">
+      <DependentUpon>ViewEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewEmployees.aspx.designer.cs">
+      <DependentUpon>ViewEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewAll.aspx.cs">
+      <DependentUpon>ViewAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewAll.aspx.designer.cs">
+      <DependentUpon>ViewAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewReports.aspx.cs">
+      <DependentUpon>ViewReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewReports.aspx.designer.cs">
+      <DependentUpon>ViewReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\UpdateUserPassword.aspx.cs">
+      <DependentUpon>UpdateUserPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\UpdateUserPassword.aspx.designer.cs">
+      <DependentUpon>UpdateUserPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\UserSettings.aspx.cs">
+      <DependentUpon>UserSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\UserSettings.aspx.designer.cs">
+      <DependentUpon>UserSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewBackup.aspx.cs">
+      <DependentUpon>ViewBackup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewBackup.aspx.designer.cs">
+      <DependentUpon>ViewBackup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewNotification.aspx.cs">
+      <DependentUpon>ViewNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewNotification.aspx.designer.cs">
+      <DependentUpon>ViewNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewEquipment.aspx.cs">
+      <DependentUpon>ViewEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewEquipment.aspx.designer.cs">
+      <DependentUpon>ViewEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\ViewRequests.aspx.cs">
+      <DependentUpon>ViewRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\ViewRequests.aspx.designer.cs">
+      <DependentUpon>ViewRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="private\View\Warehouse.aspx.cs">
+      <DependentUpon>Warehouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="private\View\Warehouse.aspx.designer.cs">
+      <DependentUpon>Warehouse.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51098</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44375/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
