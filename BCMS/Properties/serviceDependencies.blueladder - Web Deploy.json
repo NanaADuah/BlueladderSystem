@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/bcmsdbserver/databases/BCMS",
+      "type": "mssql.azure",
+      "connectionId": "BCMSConnectionString"
+    },
+    "mssql2": {
+      "secretStore": "AzureAppSettings",
+      "type": "mssql.onprem",
+      "connectionId": "Server=tcp:bcmsdbserver.database.windows.net,1433;InitialCatalog=BCMS;PersistSecurityInfo=False;UserID=user;Password=b1ueladder@cms;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;ConnectionTimeout=30;",
+      "dynamicId": null
+    }
+  }
+}

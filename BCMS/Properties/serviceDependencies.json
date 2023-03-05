@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "BCMSConnectionString"
+    },
+    "secrets1": {
+      "type": "secrets"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "Server=tcp:bcmsdbserver.database.windows.net,1433;InitialCatalog=BCMS;PersistSecurityInfo=False;UserID=user;Password=b1ueladder@cms;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;ConnectionTimeout=30;",
+      "dynamicId": null
+    }
+  }
+}

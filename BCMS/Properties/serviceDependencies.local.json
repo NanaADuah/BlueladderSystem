@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql2": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/bcmsdbserver/databases/BCMS",
+      "type": "mssql.azure",
+      "connectionId": "Server=tcp:bcmsdbserver.database.windows.net,1433;InitialCatalog=BCMS;PersistSecurityInfo=False;UserID=user;Password=b1ueladder@cms;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;ConnectionTimeout=30;"
+    }
+  }
+}
