@@ -1,0 +1,15 @@
+﻿body {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#background {
+    background: url("../../../public/includes/backdrop.jpg");
+    background-size: cover;
+    backdrop-filter: blur(8px);
+    font-family: Arial;
+    font-family: 'SF Pro Display';
+}

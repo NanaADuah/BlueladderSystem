@@ -1,0 +1,14 @@
+﻿body {
+    height: 100vh;
+}
+
+.empImg{
+    width: 50px;
+    height: 50px;
+}
+
+#heading {
+    position: sticky;
+    top: 0;
+    background: white;
+}
