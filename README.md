@@ -16,7 +16,7 @@ Powered by ASP.NET Framework and JavaScript
 - Equipment Management
 - Realtime Security
 - Report Generation and Management
-- warehouse Management
+- Warehouse Management
 - Search Feature
 
 ![User Features](https://i.imgur.com/dk2cWZw.png)
