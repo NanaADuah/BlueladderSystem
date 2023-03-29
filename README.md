@@ -19,20 +19,20 @@ Powered by ASP.NET Framework and JavaScript
 - Warehouse Management
 - Search Feature
 
-![User Features](https://i.imgur.com/dk2cWZw.png)
-
-![Admin Features](https://i.imgur.com/anAdPiK.png)
-
-
 #### There are 2 admin levels:
 - **Moderator:** Ability to send notifications and manage users
 - **Administrator:** All the above including the ability to change passwords, alter accounts and much more
+
+## Screenshots
+![User Features](https://i.imgur.com/dk2cWZw.png)
+
+![Admin Features](https://i.imgur.com/anAdPiK.png)
 
 ---
 
 ## Usage
 
-- Quick guide available at [here](https://github.com/NanaADuah/BlueladderSystem/blob/0c7b0cf88b5bdfdb287fdd3bc966162ca8918894/Guide.pdf)
+- Quick guide available [here](https://github.com/NanaADuah/BlueladderSystem/blob/0c7b0cf88b5bdfdb287fdd3bc966162ca8918894/Guide.pdf)
 ---
 
 ## License
@@ -41,5 +41,5 @@ Powered by ASP.NET Framework and JavaScript
 - Copyright © 2022
 
 ## Logo
-![Logo](https://user-images.githubusercontent.com/48721153/228562394-0c368fe7-a006-422c-9acb-b3b5f531ded1.png | width = 100)
+<img src='https://user-images.githubusercontent.com/48721153/228562394-0c368fe7-a006-422c-9acb-b3b5f531ded1.png' width='100px'>
 
