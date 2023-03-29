@@ -37,4 +37,9 @@ Powered by ASP.NET Framework and JavaScript
 
 ## License
 
-This project is licensed under the terms of the **MIT** license.
+- This project is licensed under the terms of the **MIT** license.  [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+- Copyright © 2022
+
+## Logo
+![Logo](https://user-images.githubusercontent.com/48721153/228562394-0c368fe7-a006-422c-9acb-b3b5f531ded1.png)
+
