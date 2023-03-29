@@ -41,5 +41,5 @@ Powered by ASP.NET Framework and JavaScript
 - Copyright © 2022
 
 ## Logo
-![Logo](https://user-images.githubusercontent.com/48721153/228562394-0c368fe7-a006-422c-9acb-b3b5f531ded1.png)
+![Logo](https://user-images.githubusercontent.com/48721153/228562394-0c368fe7-a006-422c-9acb-b3b5f531ded1.png | width = 100)
 
