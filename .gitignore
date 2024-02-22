@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/BlueladderSystem/v17
+/BCMS/.vs/bcms
+/BCMS/bin
+/BCMS/obj/Debug
+/BCMS/packages
+/BCMS/bcms.csproj.user
